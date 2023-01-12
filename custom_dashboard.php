@@ -1,4 +1,7 @@
 <style>
+#adminmenu li #toplevel_page_hide-admin-menu  {
+    display:none;
+}
 * {
     box-sizing: inherit;
 }
