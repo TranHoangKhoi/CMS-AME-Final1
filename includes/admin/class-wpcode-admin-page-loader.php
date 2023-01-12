@@ -72,13 +72,13 @@ class WPCode_Admin_Page_Loader
 			return;
 		}
 
-		$this->pages['code_snippets']   = 'WPCode_Admin_Page_Code_Snippets';
+		$this->pages['code_snippets'] = 'WPCode_Admin_Page_Code_Snippets';
 		$this->pages['snippet_manager'] = 'WPCode_Admin_Page_Snippet_Manager';
 		$this->pages['headers_footers'] = 'WPCode_Admin_Page_Headers_Footers';
-		$this->pages['library']         = 'WPCode_Admin_Page_Library';
-		$this->pages['generator']       = 'WPCode_Admin_Page_Generator';
-		$this->pages['tools']           = 'WPCode_Admin_Page_Tools';
-		$this->pages['settings']        = 'WPCode_Admin_Page_Settings';
+		$this->pages['library'] = 'WPCode_Admin_Page_Library';
+		$this->pages['generator'] = 'WPCode_Admin_Page_Generator';
+		$this->pages['tools'] = 'WPCode_Admin_Page_Tools';
+		$this->pages['settings'] = 'WPCode_Admin_Page_Settings';
 	}
 
 	/**
@@ -106,7 +106,7 @@ class WPCode_Admin_Page_Loader
 	 */
 	public function add_main_menu_item()
 	{
-		$svg         = get_wpcode_icon('logo', 36, 34, '-10 -6 80 80');
+		$svg = get_wpcode_icon('logo', 36, 34, '-10 -6 80 80');
 		$wpcode_icon = 'data:image/svg+xml;base64,' . base64_encode($svg); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
 
 		add_menu_page(
@@ -168,15 +168,16 @@ class WPCode_Admin_Page_Loader
 	 */
 	public function add_plugin_action_links($links)
 	{
-		$url  = add_query_arg(
+		$url = add_query_arg(
 			array(
 				'page' => 'wpcode',
 			),
 			admin_url('admin.php')
 		);
 		$text = esc_html__('Code Snippets', 'insert-headers-and-footers');
+		// $text = esc_html__('Tất Cả Đoạn Code', 'insert-headers-and-footers');
 		if (wpcode()->settings->get_option('headers_footers_mode')) {
-			$url  = add_query_arg(
+			$url = add_query_arg(
 				array(
 					'page' => 'wpcode-headers-footers',
 				),
