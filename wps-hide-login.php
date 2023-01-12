@@ -1948,7 +1948,7 @@ return [
 }
 
 // End CPT-IU
-// code
+// Start Code Snippet
 if (!defined('ABSPATH')) {
 exit;
 }
@@ -2347,7 +2347,9 @@ load_plugin_textdomain('insert-headers-and-footers', false, dirname(plugin_basen
 require_once dirname(__FILE__) . '/includes/ihaf.php';
 
 WPCode();
-// --------------------------------------
+
+// End Code Snippet
+
 
 // Start Custom Css
 // Handle the legacy CSS editor that came with SiteOrigin themes
@@ -3637,15 +3639,15 @@ function cnss_social_profile_links_fn()
 
 function cnss_add_menu_pages()
 {
-	add_menu_page('Easy Social Icons', 'Easy Social Icons', 'manage_options', 'cnss_social_icon_page', 'cnss_social_icon_page_fn', 'dashicons-share');
+	add_menu_page('Tùy Biến Icons', 'Tùy Biến Icons', 'manage_options', 'cnss_social_icon_page', 'cnss_social_icon_page_fn', 'dashicons-share');
 
-	add_submenu_page('cnss_social_icon_page', 'All Icons', 'All Icons', 'manage_options', 'cnss_social_icon_page', 'cnss_social_icon_page_fn');
+	add_submenu_page('cnss_social_icon_page', 'Tất Cả Icons', 'Tất Cả Icons', 'manage_options', 'cnss_social_icon_page', 'cnss_social_icon_page_fn');
 
-	add_submenu_page('cnss_social_icon_page', 'Add New', 'Add New', 'manage_options', 'cnss_social_icon_add', 'cnss_social_icon_add_fn');
+	add_submenu_page('cnss_social_icon_page', 'Thêm Mới', 'Thêm Mới', 'manage_options', 'cnss_social_icon_add', 'cnss_social_icon_add_fn');
 
-	add_submenu_page('cnss_social_icon_page', 'Sort Icons', 'Sort Icons', 'manage_options', 'cnss_social_icon_sort', 'cnss_social_icon_sort_fn');
+	add_submenu_page('cnss_social_icon_page', 'Sấp Xếp', 'Sấp Xếp', 'manage_options', 'cnss_social_icon_sort', 'cnss_social_icon_sort_fn');
 
-	add_submenu_page('cnss_social_icon_page', 'Settings &amp; Instructions', 'Settings &amp; Instructions', 'manage_options', 'cnss_social_icon_option', 'cnss_social_icon_option_fn');
+	add_submenu_page('cnss_social_icon_page', 'Cài Đặt', 'Cài Đặt', 'manage_options', 'cnss_social_icon_option', 'cnss_social_icon_option_fn');
 
 	add_action('admin_init', 'cnss_register_settings');
 }
@@ -3715,50 +3717,50 @@ function cnss_social_icon_option_fn()
 
 	?>
 <div class="wrap">
-    <?php echo cnss_esi_review_text(); ?>
-    <h2>Icon Settings</h2>
+
+    <h2 style="margin-bottom: 12px;">Cài Đặt Icon</h2>
     <div class="content_wrapper">
-        <div class="left">
+        <div style="background-color: #fff; padding: 12px 24px;" class="left">
             <form method="post" action="options.php" enctype="multipart/form-data">
                 <?php settings_fields('cnss-settings-group'); ?>
                 <table class="form-table">
                     <tr valign="top">
-                        <th scope="row">Icon Width</th>
+                        <th scope="row">Chiều Rộng Icon</th>
                         <td><input type="number" name="cnss-width" id="cnss-width" class="small-text"
                                 value="<?php echo esc_attr($cnss_width) ?>" />px</td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row">Icon Height</th>
+                        <th scope="row">Chiều Cao Icon</th>
                         <td><input type="number" name="cnss-height" id="cnss-height" class="small-text"
                                 value="<?php echo esc_attr($cnss_height) ?>" />px</td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row">Icon Margin</th>
+                        <th scope="row">Khoảng cách Icon</th>
                         <td><input type="number" name="cnss-margin" id="cnss-margin" class="small-text"
-                                value="<?php echo esc_attr($cnss_margin) ?>" />px <em><small>(Gap between each
+                                value="<?php echo esc_attr($cnss_margin) ?>" />px <em><small>(Khoảng cách giữa các
                                     icon)</small></em></td>
                     </tr>
 
                     <tr valign="top">
-                        <th scope="row">Icon Display</th>
+                        <th scope="row">Hiển Thị Icon</th>
                         <td>
                             <input <?php echo $horizontal ?> type="radio" name="cnss-vertical-horizontal"
-                                id="horizontal" value="horizontal" />&nbsp;<label
-                                for="horizontal">Horizontally</label><br />
+                                id="horizontal" value="horizontal" />&nbsp;<label for="horizontal">Theo chiều
+                                ngang</label><br />
                             <input <?php echo $vertical ?> type="radio" name="cnss-vertical-horizontal" id="vertical"
-                                value="vertical" />&nbsp;<label for="vertical">Vertically</label>
+                                value="vertical" />&nbsp;<label for="vertical">Theo chiều dọc</label>
                         </td>
                     </tr>
 
                     <tr valign="top">
-                        <th scope="row">Icon Alignment</th>
+                        <th scope="row">Căn Chỉnh Icon</th>
                         <td>
                             <input <?php echo $center ?> type="radio" name="cnss-text-align" id="center"
-                                value="center" />&nbsp;<label for="center">Center</label><br />
+                                value="center" />&nbsp;<label for="center">Giữa</label><br />
                             <input <?php echo $left ?> type="radio" name="cnss-text-align" id="left"
-                                value="left" />&nbsp;<label for="left">Left</label><br />
+                                value="left" />&nbsp;<label for="left">Trái</label><br />
                             <input <?php echo $right ?> type="radio" name="cnss-text-align" id="right"
-                                value="right" />&nbsp;<label for="right">Right</label>
+                                value="right" />&nbsp;<label for="right">Phải</label>
                         </td>
                     </tr>
 
@@ -3797,46 +3799,53 @@ function cnss_social_icon_option_fn()
                     </tr><?php */?>
 
                     <tr valign="top">
-                        <th scope="row">Use Original Color</th>
-                        <td><input type="checkbox" id="cnss_use_original_color" name="cnss-original-icon-color"
-                                value="1" <?php echo $cnss_original_icon_color == 1 ? 'checked="checked"' : ''; ?>>
-                            <em>This will show original icon color for social icons, like <span
-                                    style="background:#3b5998; color: #fff;">facebook</span> color is blue, <span
-                                    style="background:#e62f27; color: #fff;">youtube</span> color is red.</em>
+                        <th scope="row">Sử Dụng Màu Gốc</th>
+                        <td style="display: flex; align-items: center; padding: 20px 10px 20px 0"><input type="checkbox"
+                                id="cnss_use_original_color" name="cnss-original-icon-color" value="1"
+                                <?php echo $cnss_original_icon_color == 1 ? 'checked="checked"' : ''; ?>>
+                            <em>Sử dụng màu gốc cho các Icon, như <span
+                                    style="background:#3b5998; color: #fff;">facebook</span> là màu xanh lam, <span
+                                    style="background:#e62f27; color: #fff;">youtube</span> là màu đỏ.</em>
                         </td>
                     </tr>
 
-                    <tr class="wrap-icon-bg-color" valign="top"
-                        style="<?php echo $cnss_original_icon_color == 1 ? 'display: none;' : ''; ?>">
-                        <th scope="row">Icon Background Color</th>
+                    <!-- <tr class="wrap-icon-bg-color" valign="top"
+																																				style="<?php echo $cnss_original_icon_color == 1 ? 'display: none;' : ''; ?>"> -->
+                    <tr class="wrap-icon-bg-color" valign="top">
+                        <th scope="row">Màu Sắc Background Icon</th>
                         <td><input type="text" name="cnss-icon-bg-color" id="cnss-icon-bg-color"
                                 class="cnss-fa-icon-color" value="<?php echo esc_attr($icon_bg_color) ?>" /></td>
                     </tr>
-                    <tr class="wrap-icon-bg-color" valign="top"
-                        style="<?php echo $cnss_original_icon_color == 1 ? 'display: none;' : ''; ?>">
-                        <th scope="row">Icon Background Hover Color</th>
+                    <!-- <tr class="wrap-icon-bg-color" valign="top"
+																																			style="<?php echo $cnss_original_icon_color == 1 ? 'display: none;' : ''; ?>"> -->
+                    <tr class="wrap-icon-bg-color" valign="top">
+                        <th scope="row">Màu Sắc Background Khi Di Chuột Vào Icon</th>
                         <td><input type="text" name="cnss-icon-bg-hover-color" id="cnss-icon-bg-hover-color"
                                 class="cnss-fa-icon-color" value="<?php echo esc_attr($icon_bg_hover_color) ?>" /></td>
                     </tr>
 
                     <tr valign="top">
-                        <th scope="row">Icon Color</th>
+                        <th scope="row">Màu Sắc Icon</th>
                         <td><input type="text" name="cnss-icon-color" id="cnss-icon-color" class="cnss-fa-icon-color"
                                 value="<?php echo esc_attr($icon_color) ?>" /></td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row">Icon Hover Color</th>
+                        <th scope="row">Màu sắc Icon Khi Di Chuột Vào</th>
                         <td><input type="text" name="cnss-icon-hover-color" id="cnss-icon-hover-color"
                                 class="cnss-fa-icon-color" value="<?php echo esc_attr($icon_hover_color) ?>" /></td>
                     </tr>
 
                     <tr valign="top">
-                        <th scope="row">Icon Shape</th>
+                        <th scope="row">Hình Dạng Icon</th>
                         <td><select name="cnss-icon-shape" id="cnss-icon-shape">
-                                <option <?php selected($icon_shape, 'square'); ?> value="square">Square</option>
-                                <option <?php selected($icon_shape, 'circle'); ?> value="circle">Circle</option>
+                                <!-- <option <?php selected($icon_shape, 'square'); ?> value="square">Square</option>
+																																				<option <?php selected($icon_shape, 'circle'); ?> value="circle">Circle</option>
+																																				<option <?php selected($icon_shape, 'round-corner'); ?> value="round-corner">Round
+																																					Corner</option> -->
+                                <option <?php selected($icon_shape, 'square'); ?> value="square">Hình Vuông</option>
+                                <option <?php selected($icon_shape, 'circle'); ?> value="circle">Hình Tròn</option>
                                 <option <?php selected($icon_shape, 'round-corner'); ?> value="round-corner">Round
-                                    Corner</option>
+                                </option>
                             </select></td>
                     </tr>
                 </table>
@@ -3872,8 +3881,8 @@ function cnss_social_icon_option_fn()
             });
             </script>
 
-            <h2 id="shortcode">How to use</h2>
-            <fieldset class="cnss-esi-shadow">
+            <h2 id="shortcode">Cách sử dụng</h2>
+            <fieldset style="display: none;" class="cnss-esi-shadow">
                 <legend>
                     <h4 class="sec-title">Using Widget</h4>
                 </legend>
@@ -3883,7 +3892,7 @@ function cnss_social_icon_option_fn()
 
             <fieldset class="cnss-esi-shadow">
                 <legend>
-                    <h4 class="sec-title">Using Shortcode</h4>
+                    <h4 class="sec-title">Sử Dụng Shortcode</h4>
                 </legend>
                 <?php
 					$shortcode = '[cn-social-icon';
@@ -3920,28 +3929,29 @@ function cnss_social_icon_option_fn()
 					}
 					$shortcode .= ']';
 					?>
-                <p>Copy and paste following shortcode to any <strong>Page</strong> or <strong>Post</strong>.
+                <p>Sao chép và dán <strong>Shortcode</strong> vào bất kì <strong>Trang</strong> hoặc <strong>Bài
+                        Viết</strong> nào.
                 <p>
 
                 <p><input onclick="this.select();" readonly="readonly" type="text"
                         value="<?php echo esc_attr($shortcode); ?>" class="large-text" /></p>
-                <p>Or you can change following icon settings and click <strong>Generate Shortcode</strong> button to get
-                    updated shortcode.</p>
+                <!-- <p>Or you can change following icon settings and click <strong>Generate Shortcode</strong> button to get
+																												updated shortcode.</p> -->
                 <form method="post" action="admin.php?page=cnss_social_icon_option#shortcode"
                     enctype="application/x-www-form-urlencoded">
                     <?php wp_nonce_field('cn_gen_sc'); ?>
                     <input type="hidden" name="generate_shortcode" value="1" />
                     <table width="100%" border="0">
                         <tr>
-                            <td width="110">
-                                <label><?php _e('Icon Width <em>(px)</em>:'); ?></label>
+                            <td width="140">
+                                <label><?php _e('Chiều Rộng Icon <em>(px)</em>:'); ?></label>
                                 <input class="widefat" name="_width" type="number" value="<?php
 									echo esc_attr(isset($_POST['_width']) ? $_POST['_width'] : $cnss_width); ?>">
                             </td>
                             <td>&nbsp;</td>
-                            <td width="110">
+                            <td width="140">
                                 <label>
-                                    <?php _e('Icon Height <em>(px)</em>:'); ?>
+                                    <?php _e('Chiều Cao Icon <em>(px)</em>:'); ?>
                                 </label>
                                 <input class="widefat" name="_height" type="number" value="<?php
 									echo esc_attr(isset($_POST['_height']) ? $_POST['_height'] : $cnss_height); ?>">
@@ -3949,40 +3959,40 @@ function cnss_social_icon_option_fn()
                             <td>&nbsp;</td>
                             <td>
                                 <label>
-                                    <?php _e('Margin <em>(px)</em>:'); ?>
+                                    <?php _e('Khoảng Cách <em>(px)</em>:'); ?>
                                 </label><br />
                                 <input class="widefat" name="_margin" type="number" value="<?php
 									echo esc_attr(isset($_POST['_margin']) ? $_POST['_margin'] : $cnss_margin); ?>">
                             </td>
                             <td>&nbsp;</td>
                             <td><label>
-                                    <?php _e('Alignment:'); ?>
+                                    <?php _e('Căn Chỉnh:'); ?>
                                 </label><br />
                                 <select name="_alignment">
                                     <option <?php if ($text_align == 'center')
-											echo 'selected="selected"'; ?> value="center">Center</option>
+											echo 'selected="selected"'; ?> value="center">Giữa</option>
                                     <option <?php if ($text_align == 'left')
 											echo 'selected="selected"'; ?> value="left">
-                                        Left</option>
+                                        Trái</option>
                                     <option <?php if ($text_align == 'right')
-											echo 'selected="selected"'; ?> value="right">Right</option>
+											echo 'selected="selected"'; ?> value="right">Phải</option>
                                 </select>
                             </td>
                             <td>&nbsp;</td>
                             <td><label>
-                                    <?php _e('Display:'); ?>
+                                    <?php _e('Hiển Thị:'); ?>
                                 </label><br />
                                 <select name="_display">
                                     <option <?php if ($vorh == 'horizontal')
-											echo 'selected="selected"'; ?> value="horizontal">Horizontally</option>
+											echo 'selected="selected"'; ?> value="horizontal">Theo chiều ngang</option>
                                     <option <?php if ($vorh == 'vertical')
-											echo 'selected="selected"'; ?> value="vertical">Vertically</option>
+											echo 'selected="selected"'; ?> value="vertical">Theo chiều dọc</option>
                                 </select>
                             </td>
                             <td>&nbsp;</td>
                             <td>
                                 <label>
-                                    <?php _e('Custom ID:'); ?>
+                                    <?php _e('Tùy Chỉnh ID:'); ?>
                                 </label>
                                 <input class="widefat" placeholder="ID" name="_attr_id" type="text" value="<?php
 									echo esc_attr(isset($_POST['_attr_id']) ? $_POST['_attr_id'] : ''); ?>">
@@ -3990,7 +4000,7 @@ function cnss_social_icon_option_fn()
                             <td>&nbsp;</td>
                             <td>
                                 <label>
-                                    <?php _e('Custom Class:'); ?>
+                                    <?php _e('Tùy Chỉnh Class:'); ?>
                                 </label>
                                 <input class="widefat" placeholder="Class" name="_attr_class" type="text" value="<?php
 									echo esc_attr(isset($_POST['_attr_class']) ? $_POST['_attr_class'] : ''); ?>">
@@ -3999,19 +4009,23 @@ function cnss_social_icon_option_fn()
                     </table>
                     <p></p>
                     <?php echo cnss_social_icon_sc(isset($_POST['_selected_icons']) ? cnss_sanitize_array($_POST['_selected_icons']) : array()); ?>
-                    <p><label><?php _e('Select Social Icons:'); ?></label> <em>(If select none all icons will be
-                            displayed)</em></p>
+                    <p style="display: flex; align-items: center;">
+                        <label style="margin-right: 10px">
+                            <?php _e('Chọn Icons Hiển Thị:'); ?>
+                        </label>
+                        <span>(Niếu bạn không chọn ít nhất 1 icon thì tất cả icon sẽ hiển thị)</span>
+                    </p>
                     <p>
-                        <input type="submit" class="button-primary" value="<?php _e('Generate Shortcode') ?>" />
+                        <input type="submit" class="button-primary" value="<?php _e('Tạo Shortcode') ?>" />
                     </p>
                 </form>
-                <p><strong>Note</strong>: You can also add shortcode to <strong>Text Widget</strong> but this code
-                    <code>add_filter('widget_text', 'do_shortcode');</code> needs to be added to your themes
+                <p><strong>Ghi Chú</strong>: Bạn có thể thêm shortcode vào <strong>Text Widget</strong> với đoạn mã
+                    <code>add_filter('widget_text', 'do_shortcode');</code> và cần được thêm vào theme chủ đề của bạn
                     <strong>functions.php</strong> file.
                 </p>
             </fieldset>
 
-            <fieldset class="cnss-esi-shadow" style="margin-bottom:0px;">
+            <fieldset style="display: none;" class="cnss-esi-shadow" style="margin-bottom:0px;">
                 <legend>
                     <h4 class="sec-title">Using PHP Template Tag</h4>
                 </legend>
@@ -4020,25 +4034,23 @@ function cnss_social_icon_option_fn()
                 <pre><code>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</code></pre>
                 <p><strong>Advanced Use</strong></p>
                 <pre><code>&lt;?php
-			$attr = array (
-				'width' => '32', //input only number, in pixel
-				'height' => '32', //input only number, in pixel
-				'margin' => '4', //input only number, in pixel
-				'display' => 'horizontal', //horizontal | vertical
-				'alignment' => 'center', //center | left | right
-				'attr_id' => 'custom_icon_id', //add custom id to &lt;ul&gt; wraper
-				'attr_class' => 'custom_icon_class', //add custom class to &lt;ul&gt; wraper
-				'selected_icons' => array ( '1', '3', '5', '6' )
-				//you can get the icon ID form <strong><a href="admin.php?page=cnss_social_icon_page">All Icons</a></strong> page
-			);
-			if ( function_exists('cn_social_icon') ) echo cn_social_icon( $attr );
-			?&gt;</code></pre>
+																																	$attr = array (
+																																		'width' => '32', //input only number, in pixel
+																																		'height' => '32', //input only number, in pixel
+																																		'margin' => '4', //input only number, in pixel
+																																		'display' => 'horizontal', //horizontal | vertical
+																																		'alignment' => 'center', //center | left | right
+																																		'attr_id' => 'custom_icon_id', //add custom id to &lt;ul&gt; wraper
+																																		'attr_class' => 'custom_icon_class', //add custom class to &lt;ul&gt; wraper
+																																		'selected_icons' => array ( '1', '3', '5', '6' )
+																																		//you can get the icon ID form <strong><a href="admin.php?page=cnss_social_icon_page">All Icons</a></strong> page
+																																	);
+																																	if ( function_exists('cn_social_icon') ) echo cn_social_icon( $attr );
+																																	?&gt;</code></pre>
             </fieldset>
 
         </div>
-        <div class="right">
-            <?php cnss_admin_sidebar(); ?>
-        </div>
+
     </div>
 </div>
 <?php
@@ -4214,8 +4226,8 @@ function cnss_social_icon_sort_fn()
 
 	?>
 <div class="wrap">
-    <?php echo cnss_esi_review_text(); ?>
-    <h2>Sort Icons</h2>
+
+    <h2>Sấp Xếp Icons</h2>
 
     <div id="ajax-response"></div>
     <div class="content_wrapper">
@@ -4281,9 +4293,7 @@ function cnss_social_icon_sort_fn()
             </script>
 
         </div>
-        <div class="right">
-            <?php cnss_admin_sidebar(); ?>
-        </div>
+
     </div>
 </div>
 <?php
@@ -4423,7 +4433,7 @@ function cnss_social_icon_add_fn()
 			if (!is_numeric($_GET['id']))
 				wp_die('Sequrity Issue.');
 
-			$page_title = 'Edit Icon';
+			$page_title = 'Cập Nhật Icon';
 			$uptxt = 'Icon';
 
 			$table_name = $wpdb->prefix . "cn_social_icon";
@@ -4459,18 +4469,18 @@ function cnss_social_icon_add_fn()
     <?php include_once 'fa-brand-icons.php'; ?>
 </div>
 <div class="wrap">
-    <?php echo cnss_esi_review_text(); ?>
+
     <?php
 		if ($msg != '')
 			echo '<div id="message" class="updated fade">' . esc_html($msg) . '</div>';
 		if ($err != '')
 			echo '<div id="message" class="error fade">' . esc_html($err) . '</div>';
 		?>
-    <h2>
+    <h2 style="margin-bottom: 12px;">
         <?php echo esc_attr($page_title); ?>
     </h2>
     <div class="content_wrapper">
-        <div class="left">
+        <div style="background-color: #fff; padding: 12px 24px;" class="left">
 
             <script type="text/javascript">
             jQuery(document).ready(function($) {
@@ -4495,10 +4505,11 @@ function cnss_social_icon_add_fn()
                 <?php wp_nonce_field('cn_insert_icon'); ?>
                 <table class="form-table">
                     <tr valign="top">
-                        <th scope="row">Title<em>*</em></th>
+                        <th scope="row">Tiêu Đề<em>*</em></th>
                         <td>
-                            <input list="title-autofill" type="text" name="title" id="title" class="regular-text"
-                                value="<?php echo $title ?>" /><br /><i>Type few char for suggestions</i>
+                            <input style="line-height: unset;" list="title-autofill" type="text" name="title" id="title"
+                                class="regular-text" value="<?php echo $title ?>" /><br />
+                            <p>Nhập vài ký tự để gợi ý</p>
                             <datalist style="display: none;" id="title-autofill">
                                 <?php foreach ($social_sites as $key => $value) { ?>
                                 <option value="<?php echo esc_attr($value); ?>">
@@ -4520,36 +4531,36 @@ function cnss_social_icon_add_fn()
 										?>" height="<?php //echo $cnss_height; 
 											?>" alt="<?php echo $title; ?>" />
 
-                            <a title="Choose Font Awesome Icon (Version 5.7.2)"
+                            <a title="Chọn Font Awesome Icon (Version 5.7.2)"
                                 href="#TB_inline?width=600&height=500&inlineId=cnss-font-awesome-icons-list"
-                                class="thickbox button">Choose From FontAwesome Icon </a>
-                            <span style="vertical-align:middle;">or</span>
+                                class="thickbox button">Chọn Từ FontAwesome Icon </a>
+                            <span style="vertical-align:middle;">Hoặc</span>
                             <input style="vertical-align:top" id="logo_image_button" class="button" type="button"
-                                value="Upload Your Own Image Icon" />
+                                value="Upload Hình Ảnh Icon" />
 
                             <input style="vertical-align:top" type="hidden" name="image_file" id="image_file"
                                 class="regular-text" value="<?php echo $image_url ?>" readonly="readonly" />
-                            <p><em>You can download image icon from <a target="_blank"
-                                        href="http://www.cybernetikz.com/wordpress-magento-plugins/wordpress-plugins/easy-social-icons/#inputbox-srcfield">here</a></em>
+
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <th scope="row">Đường Dẫn<em>*</em></th>
+                        <td><input style="line-height: unset;" list="url-autofill" type="text" name="url" id="url"
+                                class="regular-text" value="<?php echo $url ?>" />
+                            <datalist style="display: none;" id="url-autofill">
+                                <?php foreach ($social_sites as $key => $value) { ?>
+                                <option value="<?php echo esc_attr($key); ?>">
+                                    <?php } ?>
+                            </datalist><br />
+                            <p>Nhập vài kí tự để gợi ý &ndash; Đùng quên
+                                <strong><code>http(s)://</code></strong>
                             </p>
                         </td>
                     </tr>
 
                     <tr valign="top">
-                        <th scope="row">URL<em>*</em></th>
-                        <td><input list="url-autofill" type="text" name="url" id="url" class="regular-text"
-                                value="<?php echo $url ?>" />
-                            <datalist style="display: none;" id="url-autofill">
-                                <?php foreach ($social_sites as $key => $value) { ?>
-                                <option value="<?php echo esc_attr($key); ?>">
-                                    <?php } ?>
-                            </datalist><br /><i>Type few char for suggestions &ndash; don't forget the
-                                <strong><code>http(s)://</code></strong></i>
-                        </td>
-                    </tr>
-
-                    <tr valign="top">
-                        <th scope="row">Sort Order</th>
+                        <th scope="row">Vị trí hiển Thị</th>
                         <td>
                             <input type="number" name="sortorder" id="sortorder" class="small-text"
                                 value="<?php echo esc_attr($sortorder); ?>">
@@ -4557,12 +4568,12 @@ function cnss_social_icon_add_fn()
                     </tr>
 
                     <tr valign="top">
-                        <th scope="row">Target</th>
+                        <th scope="row">Mở trong</th>
                         <td>
                             <input type="radio" name="target" id="new" checked="checked" value="1" />&nbsp;<label
-                                for="new">Open new window</label>&nbsp;<br />
-                            <input type="radio" name="target" id="same" value="0" />&nbsp;<label for="same">Open same
-                                window</label>&nbsp;
+                                for="new">Mở trong tap mới</label>&nbsp;<br />
+                            <input type="radio" name="target" id="same" value="0" />&nbsp;<label for="same">Mở trong tap
+                                này</label>&nbsp;
                         </td>
                     </tr>
                 </table>
@@ -4580,9 +4591,7 @@ function cnss_social_icon_add_fn()
                 </p>
             </form>
         </div>
-        <div class="right">
-            <?php cnss_admin_sidebar(); ?>
-        </div>
+
     </div>
 </div>
 <script type="text/javascript">
@@ -4602,20 +4611,20 @@ jQuery(document).ready(function($) {
 
 function cnss_back_to_link()
 {
-	return '&nbsp;&nbsp;<a href="admin.php?page=cnss_social_icon_page"><input type="button" class="button-secondary" value="All Icons" /></a><small>&nbsp;&larr;Back to</small>';
+	return '&nbsp;&nbsp;<a href="admin.php?page=cnss_social_icon_page"><input type="button" class="button-secondary" value="Tất Cả Icon" /></a><small>&nbsp;&larr;Trở lại</small>';
 }
 
 function cnss_manage_icon_table_header()
 {
 	return '
 	<th class="manage-column column-title" scope="col" width="20">ID</th>
-	<th class="manage-column column-title" scope="col">Title</th>
-	<th class="manage-column column-title" scope="col">URL</th>
-	<th class="manage-column column-title" scope="col" width="100">Open In</th>
+	<th class="manage-column column-title" scope="col">Tiêu Đề</th>
+	<th class="manage-column column-title" scope="col">Đường Dẫn</th>
+	<th class="manage-column column-title" scope="col" width="100">Cách Mở</th>
 	<th class="manage-column column-title" scope="col" width="100">Icons</th>
-	<th class="manage-column column-title" scope="col" width="60"><a href="admin.php?page=cnss_social_icon_sort">Order <i class="fa fa-sort"></i></a></th>
-	<th class="manage-column column-title" scope="col" width="50">Action</th>
-	<th class="manage-column column-title" scope="col" width="50">Action</th>
+	<th class="manage-column column-title" scope="col" width="60"><a href="admin.php?page=cnss_social_icon_sort">Vị Trí <i class="fa fa-sort"></i></a></th>
+	<th class="manage-column column-title" scope="col" width="80">Hành Động</th>
+	<th class="manage-column column-title" scope="col" width="80">Hành Động</th>
 	';
 }
 
@@ -4637,9 +4646,9 @@ function cnss_social_icon_page_fn()
 	$nonce = wp_create_nonce('cnss_delete_icon');
 	?>
 <div class="wrap">
-    <?php echo cnss_esi_review_text(); ?>
-    <h1 style="margin-bottom: 10px;" class="wp-heading-inline">Social Icons</h1> <a
-        href="admin.php?page=cnss_social_icon_add" class="page-title-action">Add New</a>
+
+    <h1 style="margin-bottom: 10px;" class="wp-heading-inline">Danh Sách Icons</h1> <a
+        href="admin.php?page=cnss_social_icon_add" class="page-title-action">Thêm Mới</a>
     <script type="text/javascript">
     function show_confirm(title, id) {
         var rpath1 = "";
@@ -4683,7 +4692,7 @@ function cnss_social_icon_page_fn()
                             </a>
                         </td>
                         <td>
-                            <?php echo $icon->target == 1 ? 'New Window' : 'Same Window' ?>
+                            <?php echo $icon->target == 1 ? 'Tap Mới' : 'Tap Này' ?>
                         </td>
                         <td>
                             <?php echo cnss_get_icon_html($icon->image_url, $icon->title); ?>
@@ -4715,12 +4724,9 @@ function cnss_social_icon_page_fn()
                     </tr>
                 </tfoot>
             </table>
-            <h4>Please visit <a href="admin.php?page=cnss_social_icon_option#shortcode">How to use</a> or <a
-                    href="admin.php?page=cnss_social_icon_option">Settings</a> page</h4>
+
         </div>
-        <div class="right">
-            <?php cnss_admin_sidebar(); ?>
-        </div>
+
     </div>
 </div>
 <?php
@@ -5036,8 +5042,8 @@ class Cnss_Widget extends WP_Widget
 
 <p>
     <label>
-        <?php _e('Select Social Icons:'); ?>
-    </label> <em>(If select none all icons will be displayed)</em><br />
+        <?php _e('Chọn Icons Hiển Thị:'); ?>
+    </label> <em>(Niếu không chọn, tất cả icon sẽ được hiển thị)</em><br />
     <?php echo $this->cnss_social_icon_widget(isset($instance['selected_icons']) ? $instance['selected_icons'] : array()); ?>
 </p>
 
