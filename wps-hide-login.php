@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: CMS AME Digital
-Description: CMS AME Digital là hệ thống quản trị website chuyên nghiệp dành cho khách hàng đang sử dụng website do AME Digital cung cấp và phát triển.
+Plugin Name: CMS AME Web
+Description: CMS AME Web là hệ thống quản trị website chuyên nghiệp dành cho khách hàng đang sử dụng website do AME Web cung cấp và phát triển.
 Donate link: https://amedigital.vn/
 Author: AME Digital.
 Author URI: https://amedigital.vn/

@@ -969,13 +969,6 @@ curl_close($getAPi);
         </div>
     </div>
 
-    <!-- <div class="wrap-content__noBG pd-20">
-		<div class="banner__item">
-			<img src="https://duynh404.cf/api/files/view/ip14-pro-2880-80002-1920x533_1672068638.png" />
-
-		</div>
-	</div> -->
-
     <div class="wrap-content__noBG pd-20">
         <div class="grid">
             <div class="row">
@@ -1089,30 +1082,6 @@ curl_close($getAPi);
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="wrapper">
-                    <input type="checkbox" />
-                    <div class="icon" style="margin-top:-50px">
-                        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_KYGZ3gt17d.json"
-                            background="transparent" speed="1" style="width: 80px; height: 80px;" loop autoplay>
-                        </lottie-player>
-                    </div>
-                    <div class="fac" style="margin-top: -50px">
-                        <a href="https://amedigital.vn" class="tooltip tooltip--left"
-                            data-tooltip="Tài liệu hướng dẫn"><img
-                                style="width: 40px; height: 40px; margin-bottom: 20px"
-                                src="<?php echo plugins_url('/img/icon-book.png', __FILE__) ?>" /></a>
-                        <a href="https://www.facebook.com/amedigital.vn" class="tooltip tooltip--left"
-                            data-tooltip="Cộng đồng AME Website"><img
-                                style="width: 40px; height: 40px; margin-bottom: 20px"
-                                src="<?php echo plugins_url('/img/icon-face.png', __FILE__) ?>" /></a>
-                        <a href="tel: 0292 8881 929" class="tooltip tooltip--left" data-tooltip="Hotline hỗ trợ"><img
-                                style="width: 40px; height: 40px; margin-bottom: 20px"
-                                src="<?php echo plugins_url('/img/icon-phone.png', __FILE__) ?>" /></a>
-                        <a href="https://www.facebook.com/messages/t/305273516225421" class="tooltip tooltip--left"
-                            data-tooltip="Đóng góp ý kiến"><img style="width: 40px; height: 40px;"
-                                src="<?php echo plugins_url('/img/icon-mess.png', __FILE__) ?>" /></a>
                     </div>
                 </div>
             </div>
