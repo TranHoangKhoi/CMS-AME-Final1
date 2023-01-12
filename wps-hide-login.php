@@ -5115,47 +5115,7 @@ if (version_compare(PHP_VERSION, '5.6.0') >= 0) {
 	add_action('widgets_init', create_function('', 'register_widget( "Cnss_Widget" );'));
 }
 // ================================================
-function bhm_create_db_process(){
 
- global $wpdb;
- $table_name= $wpdb->prefix ."options";
- $wpdb->insert(
- $table_name, //table
- array('option_name' => 'hide_menu_bh_plugin'));
-
- $wpdb->insert(
- $table_name, //table
- array('option_name' => 'hide_sub_menu_bh_plugin'));
- 
- $wpdb->insert(
- $table_name, //table
- array('option_name' => 'hide_top_menu_bh_plugin'));
-
- $wpdb->insert(
- $table_name, //table
- array('option_name' => 'menu_order_bh_plugin'));
-
-}
-
-function __construct(){
-	register_activation_hook(__FILE__,'bhm_create_db_process');
-}
-function bhm_Hide_Menus()
-{
- add_menu_page("Hide Menu","Phân quyền","manage_options","hide-admin-menu","bhm_get_menu_list");
-}
-
-add_action("admin_menu","bhm_Hide_Menus");
-
-require_once(plugin_dir_path(__FILE__).'menu-list.php');
-// shortcode plugin
-if ( !function_exists( 'add_action' ) ) {
-
-	echo 'Xin chào!  Tôi được phát triển để hỗ trợ bạn quản lý việc bán hàng.';
-
-	exit;
-
-}
 
 define('AME_EDIT_SHORTCODE', '1.0.0');
 

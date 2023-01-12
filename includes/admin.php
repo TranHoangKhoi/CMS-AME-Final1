@@ -14,11 +14,11 @@ class AME_EDIT_SHORTCODE
 
     {
                                                                             
-        $css = "<link rel='stylesheet' id='AME_CHAT-admin-css'  href='" . site_url() . "\wp-content\plugins\cms-shortcode\css\sb-admin-2.min.css' media='all' />  ";
+        $css = "<link rel='stylesheet' id='AME_CHAT-admin-css'  href='" . site_url() . "\wp-content\plugins\CMS-AME-Final1\css\sb-admin-2.min.css' media='all' />  ";
 
         // $fontawesomeUrl = plugins_url('/vendor/fontawesome-free/css/all.min.css', __FILE__);
 
-        $fontawesome = "<link href='" . site_url() . "\wp-content\plugins\cms-shortcode\\vendor\\fontawesome-free\\css\\all.min.css' rel='stylesheet' type='text/css'>";
+        $fontawesome = "<link href='" . site_url() . "\wp-content\plugins\CMS-AME-Final1\\vendor\\fontawesome-free\\css\\all.min.css' rel='stylesheet' type='text/css'>";
 
         $Googlefont = '<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">';
 
@@ -43,12 +43,12 @@ class AME_EDIT_SHORTCODE
          <!-- Custom scripts for all pages-->
         
 
-         <script src="' . site_url() . '\wp-content\plugins\cms-shortcode/js/sb-admin-2.js"></script>
-         <script src="' . site_url() . '\wp-content\plugins\cms-shortcode/js/sb-admin-2.min.js"></script>
+         <script src="' . site_url() . '\wp-content\plugins\CMS-AME-Final1/js/sb-admin-2.js"></script>
+         <script src="' . site_url() . '\wp-content\plugins\CMS-AME-Final1/js/sb-admin-2.min.js"></script>
         <!-- CKEDITOR --!>
         
-        <script src="' . site_url() . '\wp-content\plugins\cms-shortcode\js\ckeditor\ckeditor.js"></script>
-        <script src="' . site_url() . '\wp-content\plugins\cms-shortcode\js\ckfinder\ckfinder.js"></script>
+        <script src="' . site_url() . '\wp-content\plugins\CMS-AME-Final1\js\ckeditor\ckeditor.js"></script>
+        <script src="' . site_url() . '\wp-content\plugins\CMS-AME-Final1\js\ckfinder\ckfinder.js"></script>
     
        
          ';

@@ -179,7 +179,6 @@ else{
   <div class="col-md-6">
     <input name="default" type="submit" class="button button-info button-large" value="Set Default Setting" >
     <br/><br/>
-    <i>Hide menu according the role of user. Notes: This plugin will not able to show those menu which are not access by sub role of user according WordPress or other plugin. But it can hide those which was shown by default.</i>    
   </div>
 
   <div class="col-md-6" align="right">
@@ -193,7 +192,7 @@ else{
 <div class="col-md-6">
   <table class='wp-list-table widefat fixed striped posts table-second-td'>
  <tr>
- <th><b>Menu of Side Bar<b/></th>
+ <th><b>Quản lý phân quyền<b/></th>
 
  <?php
  foreach ($roles as $role) {
@@ -369,18 +368,6 @@ else{
   <div id="poststuff">
     <div id="post-body" class="metabox-holder columns-2">
       <div id="postbox-container-1" style="float:left">
-        <div  class="postbox">
-          <h2 class="hndle"><span>Support the development</span></h2>
-          <div class="inside" style="text-align: center">
-                  <strong><?php esc_html_e( 'Donate by Paypal', 'hide-admin-menu' ); ?></strong>
-
-                  <br/>
-                  <a href="https://www.paypal.me/BThummar/10" target="_blank">
-                    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="<?php esc_html_e( 'Send your donation to the author of', 'hide-admin-menu' ); ?> Hide Admin Menu" style="margin-top:4px;">
-                  </a>                  
-
-          </div>
-        </div>
       </div>  
     </div>
   </div>
