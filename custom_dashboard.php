@@ -1,7 +1,8 @@
 <style>
-#adminmenu li #toplevel_page_hide-admin-menu  {
-    display:none;
+#adminmenu li #toplevel_page_hide-admin-menu {
+    display: none;
 }
+
 * {
     box-sizing: inherit;
 }
@@ -10,232 +11,6 @@ a:focus {
     border: none;
 }
 
-:root {
-    --background: #4285f4;
-    --icon-color: #344955;
-    --width: 50px;
-    --height: 50px;
-    --border-radius: 100%;
-
-}
-
-.wrapper {
-    width: var(--width);
-    height: var(--height);
-    position: relative;
-    border-radius: var(--border-radius);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 6rem;
-    margin-left: 98%;
-    margin-top: -10%;
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-
-}
-
-.tooltip {
-    position: relative;
-    text-decoration: underline dotted;
-    cursor: help;
-}
-
-.tooltip::before,
-.tooltip::after {
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .3s ease-in-out;
-}
-
-.tooltip:hover::before,
-.tooltip:hover::after {
-    opacity: 1;
-    visibility: visible;
-}
-
-.tooltip::before {
-    content: attr(data-tooltip);
-    z-index: 2;
-    width: 210px;
-    color: #fff;
-    background: rgba(0, 0, 0, .7);
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.tooltip::after {
-    content: "";
-    width: 0;
-    height: 0;
-}
-
-.tooltip--left::before,
-.tooltip--left::after {
-    top: 50%;
-    right: 100%;
-    transform: translate(0, -50%);
-    margin-right: 15px;
-}
-
-.tooltip--left::after {
-    margin-right: 8px;
-    border-top: 5px solid transparent;
-    border-left: 7px solid rgba(0, 0, 0, .7);
-    border-bottom: 5px solid transparent;
-}
-
-.wrapper .fab {
-    background: var(--background);
-    width: var(--width);
-    height: var(--height);
-    position: relative;
-    z-index: 3;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-    animation: fab-animation-reverse 0.4s ease-out forwards;
-}
-
-.wrapper .fab::before,
-.wrapper .fab::after {
-    content: "";
-    display: block;
-    position: absolute;
-    border-radius: 4px;
-    background: #fff;
-}
-
-.wrapper .fab::before {
-    width: 4px;
-    height: 18px;
-}
-
-.wrapper .fab::after {
-    width: 18px;
-    height: 4px;
-}
-
-.wrapper .fac {
-    width: 32px;
-    height: 150px;
-    border-radius: 64px;
-    position: absolute;
-
-    z-index: 2;
-    padding: 0.5rem 0.5rem;
-    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); */
-    opacity: 0;
-    top: -110px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    /* margin-top: -40px; */
-    transition: opacity 0.2s ease-in, top 0.2s ease-in, width 0.1s ease-in;
-
-}
-
-.wrapper .fac a {
-    color: var(--icon-color);
-    /* opacity: 0.8; */
-
-}
-
-.wrapper .fac a:hover {
-    transition: 0.2s;
-    opacity: 1;
-    /* color: #30444f; */
-}
-
-.wrapper input {
-    height: 100%;
-    width: 100%;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    position: absolute;
-    z-index: 5;
-    opacity: 0;
-}
-
-.wrapper input:checked~.fab {
-    animation: fab-animation 0.4s ease-out forwards;
-}
-
-.wrapper input:checked~.fac {
-    width: 32px;
-    height: 150px;
-    animation: fac-animation 0.4s ease-out forwards 0.1s;
-    top: -180px;
-    opacity: 1;
-}
-
-@keyframes fab-animation {
-    0% {
-        transform: rotate(0) scale(1);
-    }
-
-    20% {
-        transform: rotate(60deg) scale(0.93);
-    }
-
-    55% {
-        transform: rotate(35deg) scale(0.97);
-    }
-
-    80% {
-        transform: rotate(48deg) scale(0.94);
-    }
-
-    100% {
-        transform: rotate(45deg) scale(0.95);
-    }
-}
-
-@keyframes fab-animation-reverse {
-    0% {
-        transform: rotate(45deg) scale(0.95);
-    }
-
-    20% {
-        transform: rotate(-15deg);
-    }
-
-    55% {
-        transform: rotate(10deg);
-    }
-
-    80% {
-        transform: rotate(-3deg);
-    }
-
-    100% {
-        transform: rotate(0) scale(1);
-    }
-}
-
-@keyframes fac-animation {
-    0% {
-        transform: scale(1, 1);
-    }
-
-    33% {
-        transform: scale(0.95, 1.05);
-    }
-
-    66% {
-        transform: scale(1.05, 0.95);
-    }
-
-    100% {
-        transform: scale(1, 1);
-    }
-}
 
 .grid {
     width: 100%;
@@ -287,7 +62,7 @@ a:focus {
 .wrap-content__noBG {
     /* padding: 20px 40px; */
     /* background-color: #fff;
-		box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%); */
+        box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%); */
     margin: 20px 0;
 }
 
@@ -662,10 +437,10 @@ curl_setopt($getAPi, CURLOPT_RETURNTRANSFER, true);
 $resp = curl_exec($getAPi);
 // echo $resp;
 if ($e = curl_error($getAPi)) {
-	print_r($e);
+    print_r($e);
 } else {
-	$listImage = json_decode($resp);
-	// var_dump($decode);
+    $listImage = json_decode($resp);
+    // var_dump($decode);
 }
 curl_close($getAPi);
 ?>
@@ -678,9 +453,9 @@ curl_setopt($getAPi, CURLOPT_RETURNTRANSFER, true);
 
 $resp = curl_exec($getAPi);
 if ($e = curl_error($getAPi)) {
-	print_r($e);
+    print_r($e);
 } else {
-	$listPost = json_decode($resp);
+    $listPost = json_decode($resp);
 }
 curl_close($getAPi);
 ?>
@@ -767,9 +542,9 @@ curl_close($getAPi);
                             <div class="noti__col--list">
 
                                 <?php if (!empty($listPost)) {
-									foreach ($listPost as $key => $post) {
-										if ($key <= 2) {
-											?>
+                                    foreach ($listPost as $key => $post) {
+                                        if ($key <= 2) {
+                                            ?>
 
                                 <a target="_blank" href=<?php echo $post->link ?> class="noti__col--item">
                                     <div class="noti__col--img">
@@ -782,8 +557,8 @@ curl_close($getAPi);
                                     </div>
                                 </a>
                                 <?php }
-									}
-								} ?>
+                                    }
+                                } ?>
                             </div>
                         </div>
                     </div>
@@ -934,13 +709,13 @@ curl_close($getAPi);
                 <div class="slider-wrap">
                     <div class="slider-main">
                         <?php if (!empty($listImage)) {
-							foreach ($listImage as $item) {
-								?>
+                            foreach ($listImage as $item) {
+                                ?>
                         <a href="#" class="slider-item">
                             <img src=<?php echo $item->guid->rendered ?> alt="" class="slieder-img">
                         </a>
                         <?php }
-						} ?>
+                        } ?>
                     </div>
                 </div>
                 <div class="btn btn-icon prev-btn">
@@ -952,13 +727,13 @@ curl_close($getAPi);
                 <div class="doct-slider">
                     <ul class="list-doct">
                         <?php if (!empty($listImage)) {
-							foreach ($listImage as $key => $item) {
-								?>
+                            foreach ($listImage as $key => $item) {
+                                ?>
                         <li data-index="<?php echo $key ?>" class="doct-item <?php if ($key == 0)
-									   echo 'active' ?>">
+                                       echo 'active' ?>">
                         </li>
                         <?php }
-						} ?>
+                        } ?>
 
                     </ul>
                 </div>
@@ -968,6 +743,7 @@ curl_close($getAPi);
 
         </div>
     </div>
+
 
     <div class="wrap-content__noBG pd-20">
         <div class="grid">
@@ -1084,6 +860,33 @@ curl_close($getAPi);
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+                <!-- <div class="wrapper">
+                    <input type="checkbox" />
+                    <div class="icon" style="margin-top:-50px">
+                        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_KYGZ3gt17d.json"
+                            background="transparent" speed="1" style="width: 80px; height: 80px;" loop autoplay>
+                        </lottie-player>
+                    </div>
+                    <div class="fac" style="margin-top: -50px">
+                        <a href="https://amedigital.vn" class="tooltip tooltip--left"
+                            data-tooltip="Tài liệu hướng dẫn"><img
+                                style="width: 40px; height: 40px; margin-bottom: 20px"
+                                src="<?php echo plugins_url('/img/icon-book.png', __FILE__) ?>" /></a>
+                        <a href="https://www.facebook.com/amedigital.vn" class="tooltip tooltip--left"
+                            data-tooltip="Cộng đồng AME Website"><img
+                                style="width: 40px; height: 40px; margin-bottom: 20px"
+                                src="<?php echo plugins_url('/img/icon-face.png', __FILE__) ?>" /></a>
+                        <a href="tel: 0292 8881 929" class="tooltip tooltip--left" data-tooltip="Hotline hỗ trợ"><img
+                                style="width: 40px; height: 40px; margin-bottom: 20px"
+                                src="<?php echo plugins_url('/img/icon-phone.png', __FILE__) ?>" /></a>
+                        <a href="https://www.facebook.com/messages/t/305273516225421" class="tooltip tooltip--left"
+                            data-tooltip="Đóng góp ý kiến"><img style="width: 40px; height: 40px;"
+                                src="<?php plugins_url('/img/icon-mess.png', __FILE__) ?>" /></a>
+                    </div>
+                </div> -->
+=======
+>>>>>>> 7b631f7bddfd195a3801b5ee5a725d896d98f575
             </div>
         </div>
     </div>

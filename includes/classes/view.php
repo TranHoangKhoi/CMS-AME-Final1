@@ -240,22 +240,6 @@ class URE_View {
     public function advertise_pro() {        
         ?>		
         <div id="ure_pro_advertisement" style="clear:left;display:block; float: left;">
-            <a href="https://www.role-editor.com?utm_source=UserRoleEditor&utm_medium=banner&utm_campaign=Plugins " target="_new" >
-        <?php
-        $hide_pro_banner = $this->lib->get_option('ure_hide_pro_banner', 0);
-        if ($hide_pro_banner) {
-            echo 'User Role Editor Pro: extended functionality, no advertisement - from $29.</a>';
-        } else {
-        ?>
-            <img src="<?php echo URE_PLUGIN_URL; ?>images/user-role-editor-pro-728x90.jpg" alt="User Role Editor Pro" 
-            	 title="More functionality and premium support with Pro version of User Role Editor."/>
-           </a><br />
-            <label for="ure_hide_pro_banner">
-            	<input type="checkbox" name="ure_hide_pro_banner" id="ure_hide_pro_banner" onclick="ure_main.hide_pro_banner();"/>&nbsp;Thanks, hide this banner.
-            </label>
-            <?php
-        }
-            ?>
         </div>  			
         <?php
     }

@@ -81,7 +81,7 @@ class URE_Capabilities_Groups_Manager {
     private function add_ure_group() {
         
         $this->groups['user_role_editor'] = array(
-            'caption'=>esc_html__('User Role Editor', 'user-role-editor'), 
+            'caption'=>esc_html__('Phân quyền', 'user-role-editor'), 
             'parent'=>'custom', 
             'level'=>2
             );

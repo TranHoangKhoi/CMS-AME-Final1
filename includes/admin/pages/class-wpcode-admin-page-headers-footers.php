@@ -134,24 +134,24 @@ class WPCode_Admin_Page_Headers_Footers extends WPCode_Admin_Page {
 
 		$header_desc = sprintf(
 		/* translators: %s: The `<head>` tag */
-			esc_html__( 'These scripts will be printed in the %s section.', 'insert-headers-and-footers' ),
+			esc_html__( 'Các câu lệnh được nhập vào sẽ được in trong thẻ %s của bạn.', 'insert-headers-and-footers' ),
 			'<code>&lt;head&gt;</code>'
 		);
 		$body_desc   = sprintf(
 		/* translators: %s: The `<head>` tag */
-			esc_html__( 'These scripts will be printed just below the opening %s tag.', 'insert-headers-and-footers' ),
+			esc_html__( 'Các câu lệnh được nhập vào sẽ được in trong thẻ %s của bạn.', 'insert-headers-and-footers' ),
 			'<code>&lt;body&gt;</code>'
 		);
 		$footer_desc = sprintf(
 		/* translators: %s: The `</body>` tag */
-			esc_html__( 'These scripts will be printed above the closing %s tag.', 'insert-headers-and-footers' ),
+			esc_html__( 'Các câu lệnh được nhập vào sẽ được in trong thẻ %s của bạn.', 'insert-headers-and-footers' ),
 			'<code>&lt;/body&gt;</code>'
 		);
-		$this->textarea_field( 'ihaf_insert_header', __( 'Header', 'insert-headers-and-footers' ), $header_desc );
+		$this->textarea_field( 'ihaf_insert_header', __( 'Thêm code vào Header', 'insert-headers-and-footers' ), $header_desc );
 		if ( $this->body_supported() ) {
-			$this->textarea_field( 'ihaf_insert_body', __( 'Body', 'insert-headers-and-footers' ), $body_desc );
+			$this->textarea_field( 'ihaf_insert_body', __( 'Thêm code vào Body', 'insert-headers-and-footers' ), $body_desc );
 		}
-		$this->textarea_field( 'ihaf_insert_footer', __( 'Footer', 'insert-headers-and-footers' ), $footer_desc );
+		$this->textarea_field( 'ihaf_insert_footer', __( 'Thêm code vào Footer', 'insert-headers-and-footers' ), $footer_desc );
 		wp_nonce_field( $this->action, $this->nonce_name );
 	}
 
@@ -196,12 +196,12 @@ class WPCode_Admin_Page_Headers_Footers extends WPCode_Admin_Page {
 		$button_disabled      = ! $this->can_edit && ! $headers_footers_mode ? 'disabled' : '';
 		?>
 		<div class="wpcode-column">
-			<h1><?php esc_html_e( 'Global Header and Footer', 'insert-headers-and-footers' ); ?></h1>
+			<h1><?php esc_html_e( 'Tùy biến code', 'insert-headers-and-footers' ); ?></h1>
 		</div>
 		<div class="wpcode-column">
 			<?php $this->get_submenu_toggle(); ?>
 			<button class="wpcode-button" type="submit" <?php echo esc_attr( $button_disabled ); ?>>
-				<?php esc_html_e( 'Save Changes', 'insert-headers-and-footers' ); ?>
+				<?php esc_html_e( 'Lưu code', 'insert-headers-and-footers' ); ?>
 			</button>
 		</div>
 		<?php

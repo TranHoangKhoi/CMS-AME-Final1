@@ -40,8 +40,10 @@ function add_contact_footer()
   $icon_face = plugins_url('/img/icon-face.png', __FILE__);
   $icon_phone = plugins_url('/img/icon-phone.png', __FILE__);
   $icon_mess = plugins_url('/img/icon-mess.png', __FILE__);
+
+  $icon_admin = plugins_url('/img/chat_box.png', __FILE__);
+
   $icon_admin = plugins_url('/img/toan1.png', __FILE__);
-  ;
   echo '
     <style>
     
@@ -68,8 +70,7 @@ function add_contact_footer()
   position: fixed;
   bottom: 25px;
   right: 25px;
-  z-index: 999999;
-
+  z-index: 999;
 }
 
 .tooltip {
@@ -156,7 +157,6 @@ function add_contact_footer()
   width: 18px;
   height: 4px;
 }
-
 
 .wrapper .fac {
   width: 32px;
@@ -276,7 +276,7 @@ function add_contact_footer()
   <div class="wrapper">
       <input type="checkbox" />
       <div class="icon" style="margin-top:-24px">
-          <img style="width: 46px; " src="' . $icon_admin . '" />
+          <img style="width: 46px" src="' . $icon_admin . '" />
     </div>
     <div class="fac" style="margin-top: -50px">
       <a href="https://amedigital.vn" class="tooltip tooltip--left"
@@ -296,6 +296,7 @@ function add_contact_footer()
 </div>
 </div>';
 }
+
 function remove_footer_admin()
 {
   echo 'Cảm ơn bạn đã sử dụng dịch vụ tại <a href="https://amedigital.vn/" target="_blank">AME Digital</a>.';
@@ -305,6 +306,45 @@ add_filter('admin_footer_text', 'add_contact_footer');
 
 /*Dịch title search elementor*/
 add_filter('elementor/utils/get_the_archive_title', 'archive_callback');
+
+function add_active_menu()
+{
+  // wp_enqueue_script('add_active_menu_js', get_template_directory_uri() . '/js/addActiveMenu_admin.js');
+  // echo get_template_directory_uri();
+  // echo 123;
+  ?>
+  <script>
+    const queryString = window.location.search;
+    if (queryString == '?page=wpcode-headers-footers') {
+      const listMenu = document.querySelectorAll('.wp-menu-name');
+      for (let i = 0; i < listMenu.length; i++) {
+        if (listMenu[i].innerHTML == 'Tùy Biến Code') {
+          console.log(listMenu[i].innerHTML);
+          listMenu[i].setAttribute('style', 'background-color: #2271b1;color: #fff;');
+        }
+
+      }
+    }
+
+    if (queryString == '?page=so_custom_css') {
+      const listMenu = document.querySelectorAll('.wp-menu-name');
+      for (let i = 0; i < listMenu.length; i++) {
+        if (listMenu[i].innerHTML == 'Tùy Biến CSS') {
+          console.log(listMenu[i].innerHTML);
+          listMenu[i].setAttribute('style', 'background-color: #2271b1;color: #fff;');
+        }
+
+      }
+    }
+
+  </script>
+  <?php
+}
+
+// add_action('wp_footer', 'add_active_menu');
+add_filter('admin_footer_text', 'add_active_menu');
+
+
 function archive_callback($title)
 {
   if (is_search()) {
@@ -388,6 +428,7 @@ class rc_sweet_custom_dashboard
   {
 
     add_action('admin_menu', array(&$this, 'rc_scd_register_menu'));
+    add_action('admin_menu', array(&$this, 'cnp_scd_register_menu'));
     add_action('load-index.php', array(&$this, 'rc_scd_redirect_dashboard'));
   } // end constructor
 
@@ -408,8 +449,27 @@ class rc_sweet_custom_dashboard
 
   function rc_scd_register_menu()
   {
-    add_menu_page('Trang chủ', 'Trang chủ', 'read', 'custom-dashboard', array(&$this, 'rc_scd_create_dashboard'));
+    add_menu_page('Trang Chủ', 'Trang Chủ', 'read', 'custom-dashboard', array(&$this, 'rc_scd_create_dashboard'));
   }
+
+  function cnp_scd_register_menu()
+  {
+    add_menu_page('Tùy Biến Code', 'Tùy Biến Code', 'read', 'add-code', array(&$this, 'cnp_scd_redirect_add_code'), 'dashicons-html');
+  }
+
+  function cnp_scd_redirect_add_code()
+  {
+
+    if (is_admin()) {
+      $screen = get_current_screen();
+      echo $screen->base;
+      if ($screen->base == 'toplevel_page_add-code') {
+        wp_redirect(admin_url('admin.php?page=wpcode-headers-footers'));
+      }
+    }
+  }
+
+
 
   function rc_scd_create_dashboard()
   {
@@ -422,49 +482,62 @@ $GLOBALS['sweet_custom_dashboard'] = new rc_sweet_custom_dashboard();
 //
 
 /* Tự động chuyển đến một trang khác sau khi login */
-function my_login_redirect($redirect_to, $request, $user)
+// function my_login_redirect($redirect_to, $request, $user)
+// {
+//   //is there a user to check?
+//   global $user;
+//   if (isset($user->roles) && is_array($user->roles)) {
+//     //check for admins
+//     if (in_array('administrator', $user->roles)) {
+//       // redirect them to the default place
+//       return admin_url();
+//     } else {
+//       return home_url();
+//     }
+//   } else {
+//     return $redirect_to;
+//   }
+// }
+// add_filter('login_redirect', 'my_login_redirect', 10, 3);
+
+// function redirect_login_page()
+// {
+//   $login_page = home_url('/login/');
+//   $page_viewed = basename($_SERVER['REQUEST_URI']);
+//   if ($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+//     wp_redirect($login_page);
+//     exit;
+//   }
+// }
+// add_action('init', 'redirect_login_page');
+
+// /* Kiểm tra lỗi đăng nhập */
+// function login_failed()
+// {
+//   $login_page = home_url('/login/');
+//   wp_redirect($login_page . '?login=failed');
+//   exit;
+// }
+// add_action('wp_login_failed', 'login_failed');
+// function verify_username_password($user, $username, $password)
+// {
+//   $login_page = home_url('/login/');
+//   if ($username == "" || $password == "") {
+//     wp_redirect($login_page . "?login=empty");
+//     exit;
+//   }
+// }
+// add_filter('authenticate', 'verify_username_password', 1, 3);
+//
+function hide_plugin_trickspanda()
 {
-  //is there a user to check?
-  global $user;
-  if (isset($user->roles) && is_array($user->roles)) {
-    //check for admins
-    if (in_array('administrator', $user->roles)) {
-      // redirect them to the default place
-      return admin_url();
-    } else {
-      return home_url();
+  global $wp_list_table;
+  $hidearr = array('CMS-AME-Final1/init.php');
+  $myplugins = $wp_list_table->items;
+  foreach ($myplugins as $key => $val) {
+    if (in_array($key, $hidearr)) {
+      unset($wp_list_table->items[$key]);
     }
-  } else {
-    return $redirect_to;
   }
 }
-add_filter('login_redirect', 'my_login_redirect', 10, 3);
-
-function redirect_login_page()
-{
-  $login_page = home_url('/login/');
-  $page_viewed = basename($_SERVER['REQUEST_URI']);
-  if ($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
-    wp_redirect($login_page);
-    exit;
-  }
-}
-add_action('init', 'redirect_login_page');
-
-/* Kiểm tra lỗi đăng nhập */
-function login_failed()
-{
-  $login_page = home_url('/login/');
-  wp_redirect($login_page . '?login=failed');
-  exit;
-}
-add_action('wp_login_failed', 'login_failed');
-function verify_username_password($user, $username, $password)
-{
-  $login_page = home_url('/login/');
-  if ($username == "" || $password == "") {
-    wp_redirect($login_page . "?login=empty");
-    exit;
-  }
-}
-add_filter('authenticate', 'verify_username_password', 1, 3);
+//
