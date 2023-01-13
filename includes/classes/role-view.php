@@ -350,7 +350,7 @@ if ($multisite && !is_network_admin()) {
         if ($this->lib->is_super_admin() || !$multisite || !$this->lib->is_pro() || !$caps_access_restrict_for_simple_admin) {
 ?>              
             <input type="checkbox" name="ure_caps_readable" id="ure_caps_readable" value="1" <?php echo $checked; ?> onclick="ure_turn_caps_readable(0);"/>
-            <label for="ure_caps_readable"><?php esc_html_e('Show capabilities in human readable form', 'user-role-editor'); ?></label>&nbsp;&nbsp;
+            <label for="ure_caps_readable"><?php esc_html_e('Hiển thị khả năng ở dạng các thành viên có thể đọc được', 'user-role-editor'); ?></label>&nbsp;&nbsp;
 <?php
             $show_deprecated_caps = $this->editor->get('show_deprecated_caps');
             if ($show_deprecated_caps) {
@@ -360,7 +360,7 @@ if ($multisite && !is_network_admin()) {
             }
 ?>
             <input type="checkbox" name="ure_show_deprecated_caps" id="ure_show_deprecated_caps" value="1" <?php echo $checked; ?> onclick="ure_turn_deprecated_caps(0);"/>
-            <label for="ure_show_deprecated_caps"><?php esc_html_e('Show deprecated capabilities', 'user-role-editor'); ?></label>              
+            <label for="ure_show_deprecated_caps"><?php esc_html_e('Hiển thị các khả năng không dùng nữa', 'user-role-editor'); ?></label>              
 <?php
         }
         if ($multisite && $active_for_network && !is_network_admin() && is_main_site(get_current_blog_id()) && $this->lib->is_super_admin()) {
@@ -394,7 +394,7 @@ if ($multisite && !is_network_admin()) {
 ?>
     <div class="postbox" style="min-width:800px;width:100%">
         <div id="ure_role_selector">
-            <span id="ure_role_select_label"><?php esc_html_e('Select Role and change its capabilities:', 'user-role-editor'); ?></span> <?php echo $this->role_select_html; ?>
+            <span id="ure_role_select_label"><?php esc_html_e('Chọn Vai trò và thay đổi khả năng:', 'user-role-editor'); ?></span> <?php echo $this->role_select_html; ?>
         </div>    
         <div class="inside">
 <?php

@@ -1,4 +1,13 @@
 <?php
+/*
+ * Project: User Role Editor WordPress plugin 
+ * Class for Assigning to a user multiple roles
+ * Author: Vladimir Garagulya
+ * Author email: support@role-editor.com
+ * Author URI: https://www.role-editor.com
+ * License: GPL v2+
+ * 
+*/
 
 class URE_User_Other_Roles {
 

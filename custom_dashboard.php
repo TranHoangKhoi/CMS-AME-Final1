@@ -744,6 +744,7 @@ curl_close($getAPi);
         </div>
     </div>
 
+<<<<<<< HEAD
     <!-- <div class="wrap-content__noBG pd-20">
         <div class="banner__item">
             <img src="https://duynh404.cf/api/files/view/ip14-pro-2880-80002-1920x533_1672068638.png" />
@@ -752,6 +753,9 @@ curl_close($getAPi);
 </div> -->
 
 
+=======
+
+>>>>>>> 28eedffa2bef1e444a658e65d1cad0a3e05091e5
     <div class="wrap-content__noBG pd-20">
         <div class="grid">
             <div class="row">

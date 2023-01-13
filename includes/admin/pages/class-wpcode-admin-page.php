@@ -1342,25 +1342,25 @@ abstract class WPCode_Admin_Page
 		}
 		?>
 		<script type="text/html" id="tmpl-wpcode-library-connect-banner">
-				<div id="wpcode-library-connect-banner">
-					<div class="wpcode-template-content">
-						<h3>
-							<?php
-							/* translators: %d - snippets count. */
-							printf(esc_html__('Get Access to Our Library of %d FREE Snippets', 'insert-headers-and-footers'), $count);
-							?>
-						</h3>
+						<div id="wpcode-library-connect-banner">
+							<div class="wpcode-template-content">
+								<h3>
+									<?php
+									/* translators: %d - snippets count. */
+									printf(esc_html__('Get Access to Our Library of %d FREE Snippets', 'insert-headers-and-footers'), $count);
+									?>
+								</h3>
 
-						<p>
-							<?php esc_html_e('Connect your website with WPCode Library and get instant access to FREE code snippets written by our experts. Snippets can be installed with just 1-click from inside the plugin and come automatically-configured to save you time.', 'insert-headers-and-footers'); ?>
-						</p>
-					</div>
-					<div class="wpcode-template-upgrade-button">
-						<button
-							class="wpcode-button wpcode-start-auth"><?php esc_html_e('Connect to Library', 'insert-headers-and-footers'); ?></button>
-					</div>
-				</div>
-				</script>
+								<p>
+									<?php esc_html_e('Connect your website with WPCode Library and get instant access to FREE code snippets written by our experts. Snippets can be installed with just 1-click from inside the plugin and come automatically-configured to save you time.', 'insert-headers-and-footers'); ?>
+								</p>
+							</div>
+							<div class="wpcode-template-upgrade-button">
+								<button
+									class="wpcode-button wpcode-start-auth"><?php esc_html_e('Connect to Library', 'insert-headers-and-footers'); ?></button>
+							</div>
+						</div>
+						</script>
 		<?php
 	}
 

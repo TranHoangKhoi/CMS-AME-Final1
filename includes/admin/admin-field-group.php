@@ -74,16 +74,18 @@ if (!class_exists('acf_admin_field_group')) {
 
 			// append to messages.
 			$messages['acf-field-group'] = array(
-				0  => '', // Unused. Messages start at index 1.
-				1  => __('Field group updated.', 'acf'),
-				2  => __('Field group updated.', 'acf'),
-				3  => __('Field group deleted.', 'acf'),
-				4  => __('Field group updated.', 'acf'),
-				5  => false, // field group does not support revisions.
-				6  => __('Field group published.', 'acf'),
-				7  => __('Field group saved.', 'acf'),
-				8  => __('Field group submitted.', 'acf'),
-				9  => __('Field group scheduled for.', 'acf'),
+				0 => '',
+				// Unused. Messages start at index 1.
+				1 => __('Field group updated.', 'acf'),
+				2 => __('Field group updated.', 'acf'),
+				3 => __('Field group deleted.', 'acf'),
+				4 => __('Field group updated.', 'acf'),
+				5 => false,
+				// field group does not support revisions.
+				6 => __('Field group published.', 'acf'),
+				7 => __('Field group saved.', 'acf'),
+				8 => __('Field group submitted.', 'acf'),
+				9 => __('Field group scheduled for.', 'acf'),
 				10 => __('Field group draft updated.', 'acf'),
 			);
 
@@ -163,36 +165,36 @@ if (!class_exists('acf_admin_field_group')) {
 					'The string "field_" may not be used at the start of a field name' => __('The string "field_" may not be used at the start of a field name', 'acf'),
 					'This field cannot be moved until its changes have been saved' => __('This field cannot be moved until its changes have been saved', 'acf'),
 					'Field group title is required' => __('Field group title is required', 'acf'),
-					'Move field group to trash?'    => __('Move field group to trash?', 'acf'),
-					'No toggle fields available'    => __('No toggle fields available', 'acf'),
-					'Move Custom Field'             => __('Move Custom Field', 'acf'),
-					'Close modal'                   => __('Close modal', 'acf'),
-					'Field moved to other group'    => __('Field moved to other group', 'acf'),
-					'Checked'                       => __('Checked', 'acf'),
-					'(no label)'                    => __('(no label)', 'acf'),
-					'(this field)'                  => __('(this field)', 'acf'),
-					'copy'                          => __('copy', 'acf'),
-					'or'                            => __('or', 'acf'),
-					'Show this field group if'      => __('Show this field group if', 'acf'),
-					'Null'                          => __('Null', 'acf'),
+					'Move field group to trash?' => __('Move field group to trash?', 'acf'),
+					'No toggle fields available' => __('No toggle fields available', 'acf'),
+					'Move Custom Field' => __('Move Custom Field', 'acf'),
+					'Close modal' => __('Close modal', 'acf'),
+					'Field moved to other group' => __('Field moved to other group', 'acf'),
+					'Checked' => __('Checked', 'acf'),
+					'(no label)' => __('(no label)', 'acf'),
+					'(this field)' => __('(this field)', 'acf'),
+					'copy' => __('copy', 'acf'),
+					'or' => __('or', 'acf'),
+					'Show this field group if' => __('Show this field group if', 'acf'),
+					'Null' => __('Null', 'acf'),
 
 					// Conditions.
-					'Has any value'                 => __('Has any value', 'acf'),
-					'Has no value'                  => __('Has no value', 'acf'),
-					'Value is equal to'             => __('Value is equal to', 'acf'),
-					'Value is not equal to'         => __('Value is not equal to', 'acf'),
-					'Value matches pattern'         => __('Value matches pattern', 'acf'),
-					'Value contains'                => __('Value contains', 'acf'),
-					'Value is greater than'         => __('Value is greater than', 'acf'),
-					'Value is less than'            => __('Value is less than', 'acf'),
-					'Selection is greater than'     => __('Selection is greater than', 'acf'),
-					'Selection is less than'        => __('Selection is less than', 'acf'),
+					'Has any value' => __('Has any value', 'acf'),
+					'Has no value' => __('Has no value', 'acf'),
+					'Value is equal to' => __('Value is equal to', 'acf'),
+					'Value is not equal to' => __('Value is not equal to', 'acf'),
+					'Value matches pattern' => __('Value matches pattern', 'acf'),
+					'Value contains' => __('Value contains', 'acf'),
+					'Value is greater than' => __('Value is greater than', 'acf'),
+					'Value is less than' => __('Value is less than', 'acf'),
+					'Selection is greater than' => __('Selection is greater than', 'acf'),
+					'Selection is less than' => __('Selection is less than', 'acf'),
 
 					// Pro-only fields.
-					'Repeater (Pro only)'           => __('Repeater (Pro only)', 'acf'),
-					'Flexibly Content (Pro only)'   => __('Flexible Content (Pro only)', 'acf'),
-					'Clone (Pro only)'              => __('Clone (Pro only)', 'acf'),
-					'Gallery (Pro only)'            => __('Gallery (Pro only)', 'acf'),
+					'Repeater (Pro only)' => __('Repeater (Pro only)', 'acf'),
+					'Flexibly Content (Pro only)' => __('Flexible Content (Pro only)', 'acf'),
+					'Clone (Pro only)' => __('Clone (Pro only)', 'acf'),
+					'Gallery (Pro only)' => __('Gallery (Pro only)', 'acf'),
 				)
 			);
 
@@ -261,10 +263,10 @@ if (!class_exists('acf_admin_field_group')) {
 			// render post data.
 			acf_form_data(
 				array(
-					'screen'        => 'field_group',
-					'post_id'       => $post->ID,
+					'screen' => 'field_group',
+					'post_id' => $post->ID,
 					'delete_fields' => 0,
-					'validation'    => 0,
+					'validation' => 0,
 				)
 			);
 		}
@@ -325,7 +327,7 @@ if (!class_exists('acf_admin_field_group')) {
 		 */
 		public function screen_settings($html)
 		{
-			$show_field_keys          = acf_get_user_setting('show_field_keys') ? 'checked="checked"' : '';
+			$show_field_keys = acf_get_user_setting('show_field_keys') ? 'checked="checked"' : '';
 			$show_field_settings_tabs = acf_get_user_setting('show_field_settings_tabs', true) ? 'checked="checked"' : '';
 			$hide_field_settings_tabs = apply_filters('acf/field_group/disable_field_settings_tabs', false);
 
@@ -365,13 +367,13 @@ if (!class_exists('acf_admin_field_group')) {
 			global $field_group;
 			$status_label = $field_group['active'] ? _x('Active', 'post status', 'acf') : _x('Inactive', 'post status', 'acf');
 
-?>
+			?>
 			<script type="text/javascript">
-				(function($) {
+				(function ($) {
 					$('#post-status-display').html('<?php echo esc_html($status_label); ?>');
 				})(jQuery);
 			</script>
-<?php
+			<?php
 		}
 
 
@@ -428,7 +430,7 @@ if (!class_exists('acf_admin_field_group')) {
 
 					// vars.
 					$specific = false;
-					$save     = acf_extract_var($field, 'save');
+					$save = acf_extract_var($field, 'save');
 
 					// only saved field if has changed.
 					if ($save == 'meta') {
@@ -599,12 +601,12 @@ if (!class_exists('acf_admin_field_group')) {
 			}
 
 			$field['prefix'] = acf_maybe_get_POST('prefix');
-			$field           = acf_get_valid_field($field);
+			$field = acf_get_valid_field($field);
 
 			$tabs = array(
-				'general'           => '',
-				'validation'        => '',
-				'presentation'      => '',
+				'general' => '',
+				'validation' => '',
+				'presentation' => '',
 				'conditional_logic' => '',
 			);
 
@@ -641,9 +643,9 @@ if (!class_exists('acf_admin_field_group')) {
 				//phpcs:ignore WordPress.Security.NonceVerification.Missing
 				$_POST,
 				array(
-					'nonce'          => '',
-					'post_id'        => 0,
-					'field_id'       => 0,
+					'nonce' => '',
+					'post_id' => 0,
+					'field_id' => 0,
 					'field_group_id' => 0,
 				)
 			);
@@ -662,7 +664,7 @@ if (!class_exists('acf_admin_field_group')) {
 			if ($args['field_id'] && $args['field_group_id']) {
 
 				// vars.
-				$field       = acf_get_field($args['field_id']);
+				$field = acf_get_field($args['field_id']);
 				$field_group = acf_get_field_group($args['field_group_id']);
 
 				// update parent.
@@ -683,7 +685,7 @@ if (!class_exists('acf_admin_field_group')) {
 						/* translators: Confirmation message once a field has been moved to a different field group. */
 						acf_punctify(__('The %1$s field can now be found in the %2$s field group', 'acf')),
 						esc_html($field['label']),
-						$link  //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						$link //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					) . '</p>' .
 					'<a href="#" class="button button-primary acf-close-popup">' . __('Close Modal', 'acf') . '</a>';
 				die();
@@ -691,7 +693,7 @@ if (!class_exists('acf_admin_field_group')) {
 
 			// get all field groups.
 			$field_groups = acf_get_field_groups();
-			$choices      = array();
+			$choices = array();
 
 			// check.
 			if (!empty($field_groups)) {
@@ -716,9 +718,9 @@ if (!class_exists('acf_admin_field_group')) {
 			// render options.
 			$field = acf_get_valid_field(
 				array(
-					'type'       => 'select',
-					'name'       => 'acf_field_group',
-					'choices'    => $choices,
+					'type' => 'select',
+					'name' => 'acf_field_group',
+					'choices' => $choices,
 					'aria-label' => __('Please select the destination for this field', 'acf'),
 				)
 			);

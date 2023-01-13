@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * admin_notices action support for User Role Editor plugin
+ *
+ * Author: Vladimir Garagulya
+ * Author email: support@role-editor.com
+ * Author URI: https://role-editor.com
+ */
  
 class URE_Admin_Notice {
     

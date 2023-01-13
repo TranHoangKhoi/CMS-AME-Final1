@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * Project: User Role Editor plugin
+ * Author: Vladimir Garagulya
+ * Author email: support@role-editor.com
+ * Author URI: https://www.role-editor.com
+ * License: GPL v2+
+ * 
+ * Assign multiple roles to the list of selected users directly from the "Users" page
+ * Grant/Revoke single role to/from selected users 
+ */
 
 class URE_Grant_Roles {
 

@@ -1,5 +1,23 @@
 <?php
+/*
+ * User Role Editor Pro WordPress plugin
+ * Author: Vladimir Garagulya
+ * Author email: support@role-editor.com
+ * Author URI: https://www.role-editor.com
+ * License: GPL v3
+ * 
+ */
 
+/* 
+ * User Role Editor's internal tasks queue
+ * Usage: on URE plugin activation  URE adds 'on_activation' task to this queue, which fires 'ure_on_activation' action 
+ * on the next WordPress call. It's useful when some action is needed unavailable at standard plugin activation point, 
+ * like 'admin_menu', which is used for the admin menu access data conversion - class URE_Admin_Menu_Hashes.
+ * Class User_Role_Editor_Pro adds execute_once method for the 'ure_on_activation' action, where 
+ * URE_Admin_Menu_Hashes::require_data_conversion(); method is called which registers tasks for data coversion, including 
+ * individual tasks for every site of the multisite network
+ * 
+ */
 class URE_Task_Queue {
     
     private static $instance = null; // object exemplar reference  according to singleton patern

@@ -67,9 +67,9 @@ class AME_EDIT_SHORTCODE
             'edit_short',
 
             array($this, 'show_index'),
-            AME_EDIT_SHORTCODE_URL . '/img/ame-edit.png',
-
-            '3'
+            // AME_EDIT_SHORTCODE_URL . '/img/ame-edit.png',
+            'dashicons-share-alt',
+            '3',
         );
         add_submenu_page('edit_short', '', 'Header', 'delete_others_pages', 'show_plugin_dashboard', array($this, 'show_plugin_dashboard'));
         add_submenu_page('edit_short', '', 'Logo', 'delete_others_pages', 'show_edit_img', array($this, 'show_edit_img'));

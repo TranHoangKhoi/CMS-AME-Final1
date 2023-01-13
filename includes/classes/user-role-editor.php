@@ -1,5 +1,12 @@
 <?php
-
+/*
+ * Main class of User Role Editor WordPress plugin
+ * Author: Vladimir Garagulya
+ * Author email: support@role-editor.com
+ * Author URI: https://www.role-editor.com
+ * License: GPL v2+
+ * 
+ */
 
 class User_Role_Editor {
     
@@ -582,7 +589,7 @@ class User_Role_Editor {
             $ure_page = add_submenu_page(
                     'users.php', 
                     esc_html__('User Role Editor', 'user-role-editor'),
-                    esc_html__('Phân Quyền', 'user-role-editor'),
+                    esc_html__('Phân quyền', 'user-role-editor'),
                     'ure_edit_roles', 
                     'users-' . URE_PLUGIN_FILE, 
                     array($this, 'edit_roles'));

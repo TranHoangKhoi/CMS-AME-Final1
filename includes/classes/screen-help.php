@@ -1,5 +1,10 @@
 <?php
 
+/* 
+ * User Role Editor Settings page on Screen Help class
+ * 
+ */
+
 class URE_Screen_Help {
     
     protected function get_general_tab() {

@@ -239,17 +239,7 @@ class URE_View {
     // content of User Role Editor Pro advertisement slot - for direct call
     public function advertise_pro() {        
         ?>		
-        
-        <?php
-        $hide_pro_banner = $this->lib->get_option('ure_hide_pro_banner', 0);
-        if ($hide_pro_banner) {
-           
-        } else {
-        ?>
-            
-            <?php
-        }
-            ?>
+        <div id="ure_pro_advertisement" style="clear:left;display:block; float: left;">
         </div>  			
         <?php
     }

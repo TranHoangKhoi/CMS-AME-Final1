@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Support for bbPress user roles and capabilities
+ * 
+ * Project: User Role Editor WordPress plugin
+ * Author: Vladimir Garagulya
+ * Author email: vladimir@shinephp.com
+ * Author URI: http://shinephp.com
+ * 
+ **/
 
 class URE_bbPress {
    
