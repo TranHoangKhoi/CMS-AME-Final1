@@ -414,6 +414,47 @@ if (!defined('RC_SCD_PLUGIN_URL')) {
 |--------------------------------------------------------------------------
 */
 
+function admin_style()
+{
+  $logo = plugins_url('/img/ame_web.png', __FILE__);
+
+  echo '<style>
+     #toplevel_page_home_admin {
+      // background-image: url("' . $logo . '");
+      // color: #000;
+      
+      // background-image: url("http://localhost/AME/AME-Digital/wp-content/plugins/CMS-AME-Final1/img/logo-ame.jpg");
+      background-image: url("' . $logo . '");
+      background-size: contain;
+      background-repeat: no-repeat;
+      // background-color: #fff;
+      height: 70px;
+      background-position: center;
+      background-color: #F0F0F1;
+    }
+
+    #adminmenu #toplevel_page_home_admin:hover {
+      background-color: #F0F0F1;
+    }
+
+    #adminmenu {
+      margin: 0 0 12px 0 !important;
+    }
+
+     #toplevel_page_home_admin > a, #toplevel_page_home_admin > a > div.wp-menu-image {
+      display: none;
+    }
+
+    #toplevel_page_home_admin > a {
+      display: block;
+      height: 100%;
+      background-color: transparent !important;
+    }
+   </style>';
+}
+
+add_action('admin_enqueue_scripts', 'admin_style');
+
 class rc_sweet_custom_dashboard
 {
 
@@ -429,7 +470,10 @@ class rc_sweet_custom_dashboard
 
     add_action('admin_menu', array(&$this, 'rc_scd_register_menu'));
     add_action('admin_menu', array(&$this, 'cnp_scd_register_menu'));
+    add_action('admin_menu', array(&$this, 'register_my_custom_menu_page'));
     add_action('load-index.php', array(&$this, 'rc_scd_redirect_dashboard'));
+
+
   } // end constructor
 
   function rc_scd_redirect_dashboard()
@@ -449,7 +493,8 @@ class rc_sweet_custom_dashboard
 
   function rc_scd_register_menu()
   {
-    add_menu_page('Trang Chủ', 'Trang Chủ', 'read', 'custom-dashboard', array(&$this, 'rc_scd_create_dashboard'));
+    add_menu_page('Trang Chủ', 'Trang Chủ', 'read', 'custom-dashboard', array(&$this, 'rc_scd_create_dashboard'), 'dashicons-admin-home', '2');
+
   }
 
   function cnp_scd_register_menu()
@@ -469,13 +514,36 @@ class rc_sweet_custom_dashboard
     }
   }
 
+  function ad_scd_redirect_link()
+  {
+
+    if (is_admin()) {
+      $screen = get_current_screen();
+      echo $screen->base;
+      if ($screen->base == 'toplevel_page_home_admin') {
+
+        wp_redirect('https://amedigital.vn/');
+      }
+    }
+  }
 
 
   function rc_scd_create_dashboard()
   {
     include_once('custom_dashboard.php');
   }
+
+  // ADD LOGO
+  function register_my_custom_menu_page()
+  {
+    add_menu_page('Custom Menu Page Title', '', 'read', 'home_admin', array(&$this, 'ad_scd_redirect_link'), '', 1);
+    // add_menu_page('Trang Chủ', 'Trang Chủ', 'read', 'custom-dashboard', array(&$this, 'rc_scd_create_dashboard'));
+    // add_menu_page('Tùy Biến Code', 'Tùy Biến Code', 'read', 'add-code', array(&$this, 'cnp_scd_redirect_add_code'), 'dashicons-html');
+  }
+
 }
+
+
 
 // instantiate plugin's class
 $GLOBALS['sweet_custom_dashboard'] = new rc_sweet_custom_dashboard();

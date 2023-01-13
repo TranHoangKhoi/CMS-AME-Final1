@@ -209,13 +209,13 @@ abstract class WPCode_Admin_Page
 	{
 		$this->output_header();
 		?>
-<div class="wpcode-content">
-    <?php
+		<div class="wpcode-content">
+			<?php
 			$this->output_content();
 			do_action("wpcode_admin_page_content_{$this->page_slug}", $this);
 			?>
-</div>
-<?php
+		</div>
+		<?php
 	}
 
 	/**
@@ -226,13 +226,13 @@ abstract class WPCode_Admin_Page
 	public function output_header()
 	{
 		?>
-<div class="wpcode-header">
-    <div class="wpcode-header-bottom">
-        <?php $this->output_header_bottom(); ?>
-    </div>
-</div>
-<?php $this->maybe_output_message(); ?>
-<?php
+		<div class="wpcode-header">
+			<div class="wpcode-header-bottom">
+				<?php $this->output_header_bottom(); ?>
+			</div>
+		</div>
+		<?php $this->maybe_output_message(); ?>
+	<?php
 	}
 
 	/**
@@ -243,74 +243,74 @@ abstract class WPCode_Admin_Page
 	public function output_footer()
 	{
 		?>
-<div class="wpcode-modal-overlay"></div>
-<div class="wpcode-notifications-overlay"></div>
-<div class="wpcode-docs-overlay" id="wpcode-docs-overlay">
-    <?php $this->logo_image('wpcode-help-logo'); ?>
-    <button id="wpcode-help-close" class="wpcode-button-just-icon" type="button">
-        <?php wpcode_icon('close', 19, 19); ?>
-    </button>
-    <div class="wpcode-docs-content">
-        <div id="wpcode-help-search" class="wpcode-search-empty">
-            <label>
-                <span class="screen-reader-text">
-                    <?php esc_html_e('Search docs', 'insert-headers-and-footers'); ?>
-                </span>
-                <?php wpcode_icon('search'); ?>
-                <input type="text" class="wpcode-input-text" />
-            </label>
-            <div id="wpcode-help-search-clear" title="<?php esc_attr_e('Clear', 'insert-headers-and-footers'); ?>">
-                <?php wpcode_icon('close', 14, 14); ?>
-            </div>
-        </div>
-        <div id="wpcode-help-no-result" style="display: none;">
-            <ul class="wpcode-help-docs">
-                <li>
-                    <span>
-                        <?php esc_html_e('No docs found', 'insert-headers-and-footers'); ?>
-                    </span>
-                </li>
-            </ul>
-        </div>
-        <div id="wpcode-help-result">
-            <ul class="wpcode-help-docs"></ul>
-        </div>
-        <?php
+		<div class="wpcode-modal-overlay"></div>
+		<div class="wpcode-notifications-overlay"></div>
+		<div class="wpcode-docs-overlay" id="wpcode-docs-overlay">
+			<?php $this->logo_image('wpcode-help-logo'); ?>
+			<button id="wpcode-help-close" class="wpcode-button-just-icon" type="button">
+				<?php wpcode_icon('close', 19, 19); ?>
+			</button>
+			<div class="wpcode-docs-content">
+				<div id="wpcode-help-search" class="wpcode-search-empty">
+					<label>
+						<span class="screen-reader-text">
+							<?php esc_html_e('Search docs', 'insert-headers-and-footers'); ?>
+						</span>
+						<?php wpcode_icon('search'); ?>
+						<input type="text" class="wpcode-input-text" />
+					</label>
+					<div id="wpcode-help-search-clear" title="<?php esc_attr_e('Clear', 'insert-headers-and-footers'); ?>">
+						<?php wpcode_icon('close', 14, 14); ?>
+					</div>
+				</div>
+				<div id="wpcode-help-no-result" style="display: none;">
+					<ul class="wpcode-help-docs">
+						<li>
+							<span>
+								<?php esc_html_e('No docs found', 'insert-headers-and-footers'); ?>
+							</span>
+						</li>
+					</ul>
+				</div>
+				<div id="wpcode-help-result">
+					<ul class="wpcode-help-docs"></ul>
+				</div>
+				<?php
 				$docs = new WPCode_Docs();
 				$docs->get_categories_accordion();
 				$support_url = wpcode_utm_url('https://wpcode.com/contact/', 'help-overlay', 'support-url');
 				?>
-        <div class="wpcode-help-footer">
-            <div class="wpcode-help-footer-box">
-                <?php wpcode_icon('file', 48, 48); ?>
-                <h3><?php esc_html_e('View Documentation', 'insert-headers-and-footers'); ?></h3>
-                <p>
-                    <?php esc_html_e('Browse documentation, reference material, and tutorials for WPCode.', 'insert-headers-and-footers'); ?>
-                </p>
-                <a class="wpcode-button wpcode-button-secondary"
-                    href="<?php echo esc_url(wpcode_utm_url('https://wpcode.com/docs/', 'help-overlay', 'docs', 'footer')); ?>"
-                    target="_blank">
-                    <?php esc_html_e('View All Documentation', 'insert-headers-and-footers'); ?>
-                </a>
-            </div>
-            <div class="wpcode-help-footer-box">
-                <?php wpcode_icon('support', 48, 48); ?>
-                <h3><?php esc_html_e('Get Support', 'insert-headers-and-footers'); ?></h3>
-                <p>
-                    <?php esc_html_e('Submit a ticket and our world class support team will be in touch soon.', 'insert-headers-and-footers'); ?>
-                </p>
-                <a class="wpcode-button wpcode-button-secondary" href="<?php echo esc_url($support_url); ?>"
-                    target="_blank">
-                    <?php esc_html_e('Submit a Support Ticket', 'insert-headers-and-footers'); ?>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="wpcode-notifications-drawer" id="wpcode-notifications-drawer">
-    <div class="wpcode-notifications-header">
-        <h3 id="wpcode-active-title">
-            <?php
+				<div class="wpcode-help-footer">
+					<div class="wpcode-help-footer-box">
+						<?php wpcode_icon('file', 48, 48); ?>
+						<h3><?php esc_html_e('View Documentation', 'insert-headers-and-footers'); ?></h3>
+						<p>
+							<?php esc_html_e('Browse documentation, reference material, and tutorials for WPCode.', 'insert-headers-and-footers'); ?>
+						</p>
+						<a class="wpcode-button wpcode-button-secondary"
+							href="<?php echo esc_url(wpcode_utm_url('https://wpcode.com/docs/', 'help-overlay', 'docs', 'footer')); ?>"
+							target="_blank">
+							<?php esc_html_e('View All Documentation', 'insert-headers-and-footers'); ?>
+						</a>
+					</div>
+					<div class="wpcode-help-footer-box">
+						<?php wpcode_icon('support', 48, 48); ?>
+						<h3><?php esc_html_e('Get Support', 'insert-headers-and-footers'); ?></h3>
+						<p>
+							<?php esc_html_e('Submit a ticket and our world class support team will be in touch soon.', 'insert-headers-and-footers'); ?>
+						</p>
+						<a class="wpcode-button wpcode-button-secondary" href="<?php echo esc_url($support_url); ?>"
+							target="_blank">
+							<?php esc_html_e('Submit a Support Ticket', 'insert-headers-and-footers'); ?>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wpcode-notifications-drawer" id="wpcode-notifications-drawer">
+			<div class="wpcode-notifications-header">
+				<h3 id="wpcode-active-title">
+					<?php
 					printf(
 						wp_kses_post(
 							// Translators: Placeholder for the number of active notifications.
@@ -319,9 +319,9 @@ abstract class WPCode_Admin_Page
 						'<span id="wpcode-notifications-count">' . absint(wpcode()->notifications->get_count()) . '</span>'
 					);
 					?>
-        </h3>
-        <h3 id="wpcode-dismissed-title">
-            <?php
+				</h3>
+				<h3 id="wpcode-dismissed-title">
+					<?php
 					printf(
 						wp_kses_post(
 							// Translators: Placeholder for the number of dismissed notifications.
@@ -330,44 +330,44 @@ abstract class WPCode_Admin_Page
 						'<span id="wpcode-notifications-dismissed-count">' . absint(wpcode()->notifications->get_dismissed_count()) . '</span>'
 					);
 					?>
-        </h3>
-        <button type="button" class="wpcode-button-text" id="wpcode-notifications-show-dismissed">
-            <?php esc_html_e('Dismissed Notifications', 'insert-headers-and-footers'); ?>
-        </button>
-        <button type="button" class="wpcode-button-text" id="wpcode-notifications-show-active">
-            <?php esc_html_e('Active Notifications', 'insert-headers-and-footers'); ?>
-        </button>
-        <button type="button" class="wpcode-just-icon-button wpcode-notifications-close">
-            <?php wpcode_icon('close', 12, 12, '0 0 16 16'); ?>
-        </button>
-    </div>
-    <div class="wpcode-notifications-list">
-        <ul class="wpcode-notifications-active">
-            <?php
+				</h3>
+				<button type="button" class="wpcode-button-text" id="wpcode-notifications-show-dismissed">
+					<?php esc_html_e('Dismissed Notifications', 'insert-headers-and-footers'); ?>
+				</button>
+				<button type="button" class="wpcode-button-text" id="wpcode-notifications-show-active">
+					<?php esc_html_e('Active Notifications', 'insert-headers-and-footers'); ?>
+				</button>
+				<button type="button" class="wpcode-just-icon-button wpcode-notifications-close">
+					<?php wpcode_icon('close', 12, 12, '0 0 16 16'); ?>
+				</button>
+			</div>
+			<div class="wpcode-notifications-list">
+				<ul class="wpcode-notifications-active">
+					<?php
 					$notifications = wpcode()->notifications->get_active_notifications();
 					foreach ($notifications as $notification) {
 						$this->get_notification_markup($notification);
 					}
 					?>
-        </ul>
-        <ul class="wpcode-notifications-dismissed">
-            <?php
+				</ul>
+				<ul class="wpcode-notifications-dismissed">
+					<?php
 					$notifications = wpcode()->notifications->get_dismissed_notifications();
 					foreach ($notifications as $notification) {
 						$this->get_notification_markup($notification);
 					}
 					?>
-        </ul>
-    </div>
-    <div class="wpcode-notifications-footer">
-        <button type="button" class="wpcode-button-text wpcode-notification-dismiss" id="wpcode-dismiss-all"
-            data-id="all">
-            <?php esc_html_e('Dismiss all', 'insert-headers-and-footers'); ?>
-        </button>
-    </div>
-</div>
-<span class="wpcode-loading-spinner" id="wpcode-admin-spinner"></span>
-<?php
+				</ul>
+			</div>
+			<div class="wpcode-notifications-footer">
+				<button type="button" class="wpcode-button-text wpcode-notification-dismiss" id="wpcode-dismiss-all"
+					data-id="all">
+					<?php esc_html_e('Dismiss all', 'insert-headers-and-footers'); ?>
+				</button>
+			</div>
+		</div>
+		<span class="wpcode-loading-spinner" id="wpcode-admin-spinner"></span>
+		<?php
 	}
 
 	/**
@@ -381,47 +381,47 @@ abstract class WPCode_Admin_Page
 	{
 		$type = !empty($notification['icon']) ? $notification['icon'] : 'info';
 		?>
-<li>
-    <div class="wpcode-notification-icon">
-        <?php wpcode_icon($type, 18, 18); ?>
-    </div>
-    <div class="wpcode-notification-content">
-        <h4>
-            <?php echo esc_html($notification['title']); ?>
-        </h4>
-        <p><?php echo wp_kses_post($notification['content']); ?></p>
-        <p class="wpcode-start">
-            <?php echo esc_html($notification['start']); ?>
-        </p>
-        <div class="wpcode-notification-actions">
-            <?php
+		<li>
+			<div class="wpcode-notification-icon">
+				<?php wpcode_icon($type, 18, 18); ?>
+			</div>
+			<div class="wpcode-notification-content">
+				<h4>
+					<?php echo esc_html($notification['title']); ?>
+				</h4>
+				<p><?php echo wp_kses_post($notification['content']); ?></p>
+				<p class="wpcode-start">
+					<?php echo esc_html($notification['start']); ?>
+				</p>
+				<div class="wpcode-notification-actions">
+					<?php
 					$main_button = !empty($notification['btns']['main']) ? $notification['btns']['main'] : false;
 					$alt_button = !empty($notification['btns']['alt']) ? $notification['btns']['alt'] : false;
 					if ($main_button) {
 						?>
-            <a href="<?php echo esc_url($main_button['url']); ?>" class="wpcode-button wpcode-button-small"
-                target="_blank">
-                <?php echo esc_html($main_button['text']); ?>
-            </a>
-            <?php
+						<a href="<?php echo esc_url($main_button['url']); ?>" class="wpcode-button wpcode-button-small"
+							target="_blank">
+							<?php echo esc_html($main_button['text']); ?>
+						</a>
+						<?php
 					}
 					if ($alt_button) {
 						?>
-            <a href="<?php echo esc_url($alt_button['url']); ?>"
-                class="wpcode-button wpcode-button-secondary wpcode-button-small" target="_blank">
-                <?php echo esc_html($alt_button['text']); ?>
-            </a>
-            <?php
+						<a href="<?php echo esc_url($alt_button['url']); ?>"
+							class="wpcode-button wpcode-button-secondary wpcode-button-small" target="_blank">
+							<?php echo esc_html($alt_button['text']); ?>
+						</a>
+						<?php
 					}
 					?>
-            <button type="button" class="wpcode-button-text wpcode-notification-dismiss"
-                data-id="<?php echo esc_attr($notification['id']); ?>">
-                <?php esc_html_e('Dismiss', 'insert-headers-and-footers'); ?>
-            </button>
-        </div>
-    </div>
-</li>
-<?php
+					<button type="button" class="wpcode-button-text wpcode-notification-dismiss"
+						data-id="<?php echo esc_attr($notification['id']); ?>">
+						<?php esc_html_e('Dismiss', 'insert-headers-and-footers'); ?>
+					</button>
+				</div>
+			</div>
+		</li>
+		<?php
 	}
 
 	/**
@@ -447,9 +447,9 @@ abstract class WPCode_Admin_Page
 		// Translators: This simply adds the plugin name before the logo text.
 		$alt = sprintf(__('%s logo', 'insert-headers-and-footers'), 'WPCode')
 			?>
-<img src="<?php echo esc_url($logo_src); ?>" width="132" alt="<?php echo esc_attr($alt); ?>"
-    id="<?php echo esc_attr($id); ?>" />
-<?php
+		<img src="<?php echo esc_url($logo_src); ?>" width="132" alt="<?php echo esc_attr($alt); ?>"
+			id="<?php echo esc_attr($id); ?>" />
+		<?php
 	}
 
 	/**
@@ -469,17 +469,16 @@ abstract class WPCode_Admin_Page
 			);
 		}
 		?>
-<button type="button" id="wpcode-notifications-button"
-    class="wpcode-button-just-icon wpcode-notifications-inbox wpcode-open-notifications"
-    data-dismissed="<?php echo esc_attr($dismissed_count); ?>"
-    <?php echo $data_count; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-    <?php wpcode_icon('inbox', 15, 16); ?>
-</button>
-<button class="wpcode-text-button-icon wpcode-show-help" type="button">
-    <?php wpcode_icon('help', 21); ?>
-    <?php esc_html_e('Help', 'insert-headers-and-footers'); ?>
-</button>
-<?php
+		<button type="button" id="wpcode-notifications-button"
+			class="wpcode-button-just-icon wpcode-notifications-inbox wpcode-open-notifications"
+			data-dismissed="<?php echo esc_attr($dismissed_count); ?>" <?php echo $data_count; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+			<?php wpcode_icon('inbox', 15, 16); ?>
+		</button>
+		<button class="wpcode-text-button-icon wpcode-show-help" type="button">
+			<?php wpcode_icon('help', 21); ?>
+			<?php esc_html_e('Help', 'insert-headers-and-footers'); ?>
+		</button>
+		<?php
 	}
 
 	/**
@@ -503,30 +502,32 @@ abstract class WPCode_Admin_Page
 		$error_message = $this->get_error_message();
 		$success_message = $this->get_success_message();
 		?>
-<div class="wrap" id="wpcode-notice-area">
-    <?php
+		<div class="wrap" id="wpcode-notice-area">
+			<?php
 			if ($error_message) {
 				?>
-    <div class="error fade notice is-dismissible">
-        <p>
-            <?php echo wp_kses_post($error_message); ?>
-        </p>
-    </div>
-    <?php
+				<div class="error fade notice is-dismissible">
+					<p>
+						<!-- <?php echo wp_kses_post($error_message); ?> -->
+						Lưu Thay Đổi Thất Bại
+					</p>
+				</div>
+				<?php
 			}
 			if ($success_message) {
 				?>
-    <div class="updated fade notice is-dismissible">
-        <p>
-            <?php echo wp_kses_post($success_message); ?>
-        </p>
-    </div>
-    <?php
+				<div class="updated fade notice is-dismissible">
+					<p>
+						<!-- <?php echo wp_kses_post($success_message); ?> -->
+						Đã Lưu Thay Đổi
+					</p>
+				</div>
+				<?php
 			}
 			do_action('wpcode_admin_notices');
 			?>
-</div>
-<?php
+		</div>
+		<?php
 	}
 
 	/**
@@ -638,27 +639,27 @@ abstract class WPCode_Admin_Page
 	public function metabox($title, $content, $help = '')
 	{
 		?>
-<div class="wpcode-metabox">
-    <div class="wpcode-metabox-title">
-        <div class="wpcode-metabox-title-text">
-            <?php echo esc_html($title); ?>
-            <?php $this->help_icon($help); ?>
-        </div>
-        <div class="wpcode-metabox-title-toggle">
-            <button class="wpcode-metabox-button-toggle" type="button">
-                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M1.41 7.70508L6 3.12508L10.59 7.70508L12 6.29508L6 0.295079L-1.23266e-07 6.29508L1.41 7.70508Z"
-                        fill="#454545" />
-                </svg>
-            </button>
-        </div>
-    </div>
-    <div class="wpcode-metabox-content">
-        <?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-    </div>
-</div>
-<?php
+		<div class="wpcode-metabox">
+			<div class="wpcode-metabox-title">
+				<div class="wpcode-metabox-title-text">
+					<?php echo esc_html($title); ?>
+					<?php $this->help_icon($help); ?>
+				</div>
+				<div class="wpcode-metabox-title-toggle">
+					<button class="wpcode-metabox-button-toggle" type="button">
+						<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M1.41 7.70508L6 3.12508L10.59 7.70508L12 6.29508L6 0.295079L-1.23266e-07 6.29508L1.41 7.70508Z"
+								fill="#454545" />
+						</svg>
+					</button>
+				</div>
+			</div>
+			<div class="wpcode-metabox-content">
+				<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			</div>
+		</div>
+		<?php
 	}
 
 	/**
@@ -674,13 +675,13 @@ abstract class WPCode_Admin_Page
 			return;
 		}
 		?>
-<span class="wpcode-help-tooltip">
-    <?php wpcode_icon('help', 16, 16, '0 0 20 20'); ?>
-    <span class="wpcode-help-tooltip-text">
-        <?php echo wp_kses_post($text); ?>
-    </span>
-</span>
-<?php
+		<span class="wpcode-help-tooltip">
+			<?php wpcode_icon('help', 16, 16, '0 0 20 20'); ?>
+			<span class="wpcode-help-tooltip-text">
+				<?php echo wp_kses_post($text); ?>
+			</span>
+		</span>
+		<?php
 	}
 
 	/**
@@ -703,27 +704,27 @@ abstract class WPCode_Admin_Page
 			$show_if_rules = sprintf('data-show-if-id="%1$s" data-show-if-value="%2$s"', $show_if_id, $show_if_value);
 		}
 		?>
-<div class="wpcode-metabox-form-row" <?php echo $show_if_rules; ?>>
-    <div class="wpcode-metabox-form-row-label">
-        <label for="<?php echo esc_attr($id); ?>">
-            <?php echo esc_html($label); ?>
-            <?php
+		<div class="wpcode-metabox-form-row" <?php echo $show_if_rules; ?>>
+			<div class="wpcode-metabox-form-row-label">
+				<label for="<?php echo esc_attr($id); ?>">
+					<?php echo esc_html($label); ?>
+					<?php
 					if ($is_pro) {
 						echo '<span class="wpcode-pro-pill">PRO</span>';
 					}
 					?>
-        </label>
-    </div>
-    <div class="wpcode-metabox-form-row-input">
-        <?php echo $input; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-        <?php if (!empty($description)) { ?>
-        <p>
-            <?php echo wp_kses_post($description); ?>
-        </p>
-        <?php } ?>
-    </div>
-</div>
-<?php
+				</label>
+			</div>
+			<div class="wpcode-metabox-form-row-input">
+				<?php echo $input; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php if (!empty($description)) { ?>
+					<p>
+						<?php echo wp_kses_post($description); ?>
+					</p>
+				<?php } ?>
+			</div>
+		</div>
+		<?php
 	}
 
 	/**
@@ -863,30 +864,30 @@ abstract class WPCode_Admin_Page
 			)
 		);
 		?>
-<li class="<?php echo esc_attr(implode(' ', $item_class)); ?>" data-id="<?php echo esc_attr($id); ?>"
-    data-categories='<?php echo wp_json_encode($categories); ?>' style="<?php echo esc_attr($style); ?>">
-    <h3 title="<?php echo esc_attr($title); ?>">
-        <?php echo esc_html($title); ?>
-    </h3>
-    <?php if (!empty($pill_text)) { ?>
-    <span class="wpcode-list-item-pill wpcode-list-item-pill-<?php echo esc_attr($pill_class); ?>">
-        <?php echo esc_html($pill_text); ?>
-    </span>
-    <?php } ?>
-    <div class="wpcode-list-item-actions">
-        <div class="wpcode-list-item-description">
-            <p>
-                <?php echo esc_html($description); ?>
-            </p>
-        </div>
-        <div class="wpcode-list-item-buttons">
-            <?php self::get_list_item_button($button_1); ?>
-            <?php self::get_list_item_button($button_2); ?>
-        </div>
-    </div>
-    <?php $this->get_list_item_top_actions($id); ?>
-</li>
-<?php
+		<li class="<?php echo esc_attr(implode(' ', $item_class)); ?>" data-id="<?php echo esc_attr($id); ?>"
+			data-categories='<?php echo wp_json_encode($categories); ?>' style="<?php echo esc_attr($style); ?>">
+			<h3 title="<?php echo esc_attr($title); ?>">
+				<?php echo esc_html($title); ?>
+			</h3>
+			<?php if (!empty($pill_text)) { ?>
+				<span class="wpcode-list-item-pill wpcode-list-item-pill-<?php echo esc_attr($pill_class); ?>">
+					<?php echo esc_html($pill_text); ?>
+				</span>
+			<?php } ?>
+			<div class="wpcode-list-item-actions">
+				<div class="wpcode-list-item-description">
+					<p>
+						<?php echo esc_html($description); ?>
+					</p>
+				</div>
+				<div class="wpcode-list-item-buttons">
+					<?php self::get_list_item_button($button_1); ?>
+					<?php self::get_list_item_button($button_2); ?>
+				</div>
+			</div>
+			<?php $this->get_list_item_top_actions($id); ?>
+		</li>
+		<?php
 	}
 
 	/**
@@ -980,28 +981,28 @@ abstract class WPCode_Admin_Page
 		$categories = $this->add_available_category_label($categories, $snippets, $count);
 		$snippets = $this->add_available_category_to_snippets($snippets);
 		?>
-<div class="wpcode-items-metabox wpcode-metabox">
-    <?php $this->get_items_list_sidebar($categories, __('All Snippets', 'insert-headers-and-footers'), __('Search Snippets', 'insert-headers-and-footers'), $selected_category, $count); ?>
-    <div class="wpcode-items-list">
-        <?php
+		<div class="wpcode-items-metabox wpcode-metabox">
+			<?php $this->get_items_list_sidebar($categories, __('All Snippets', 'insert-headers-and-footers'), __('Search Snippets', 'insert-headers-and-footers'), $selected_category, $count); ?>
+			<div class="wpcode-items-list">
+				<?php
 				if (empty($snippets)) {
 					?>
-        <div class="wpcode-alert wpcode-alert-warning">
-            <?php printf('<h4>%s</h4>', esc_html__('We encountered a problem loading the Snippet Library items, please try again later.', 'insert-headers-and-footers')); ?>
-        </div>
-        <?php
+					<div class="wpcode-alert wpcode-alert-warning">
+						<?php printf('<h4>%s</h4>', esc_html__('We encountered a problem loading the Snippet Library items, please try again later.', 'insert-headers-and-footers')); ?>
+					</div>
+					<?php
 				}
 				?>
-        <ul class="wpcode-items-list-category">
-            <?php
+				<ul class="wpcode-items-list-category">
+					<?php
 					foreach ($snippets as $snippet) {
 						call_user_func(array($this, $item_method), $snippet, $selected_category);
 					}
 					?>
-        </ul>
-    </div>
-</div>
-<?php
+				</ul>
+			</div>
+		</div>
+		<?php
 	}
 
 	/**
@@ -1110,50 +1111,50 @@ abstract class WPCode_Admin_Page
 	public function get_items_list_sidebar($categories, $all_text = '', $search_label = '', $selected_category = '', $all_count = 0)
 	{
 		?>
-<div class="wpcode-items-sidebar">
-    <?php if (!empty($search_label)) { ?>
-    <div class="wpcode-items-search">
-        <label for="wpcode-items-search">
-            <span class="screen-reader-text">
-                <?php echo esc_html($search_label); ?>
-            </span>
-            <?php wpcode_icon('search', 16, 16); ?>
-        </label>
-        <input type="search" id="wpcode-items-search" placeholder="<?php echo esc_html($search_label); ?>" />
-    </div>
-    <?php } ?>
-    <ul class="wpcode-items-categories-list wpcode-items-filters">
-        <li>
-            <button type="button" data-category="*"
-                class="<?php echo empty($selected_category) ? 'wpcode-active' : ''; ?>">
-                <?php echo esc_html($all_text); ?>
-                <?php if ($all_count) { ?>
-                <span class="wpcode-items-count">
-                    <?php echo esc_html($all_count); ?>
-                </span>
-                <?php } ?>
-            </button>
-        </li>
-        <?php
+		<div class="wpcode-items-sidebar">
+			<?php if (!empty($search_label)) { ?>
+				<div class="wpcode-items-search">
+					<label for="wpcode-items-search">
+						<span class="screen-reader-text">
+							<?php echo esc_html($search_label); ?>
+						</span>
+						<?php wpcode_icon('search', 16, 16); ?>
+					</label>
+					<input type="search" id="wpcode-items-search" placeholder="<?php echo esc_html($search_label); ?>" />
+				</div>
+			<?php } ?>
+			<ul class="wpcode-items-categories-list wpcode-items-filters">
+				<li>
+					<button type="button" data-category="*"
+						class="<?php echo empty($selected_category) ? 'wpcode-active' : ''; ?>">
+						<?php echo esc_html($all_text); ?>
+						<?php if ($all_count) { ?>
+							<span class="wpcode-items-count">
+								<?php echo esc_html($all_count); ?>
+							</span>
+						<?php } ?>
+					</button>
+				</li>
+				<?php
 				foreach ($categories as $category) {
 					// Mark the first category as active.
 					$class = $category['slug'] === $selected_category ? 'wpcode-active' : '';
 					?>
-        <li>
-            <button type="button" class="<?php echo esc_attr($class); ?>"
-                data-category="<?php echo esc_attr($category['slug']); ?>">
-                <?php echo esc_html($category['name']); ?>
-                <?php if (isset($category['count'])) { ?>
-                <span class="wpcode-items-count">
-                    <?php echo esc_html($category['count']); ?>
-                </span>
-                <?php } ?>
-            </button>
-        </li>
-        <?php } ?>
-    </ul>
-</div>
-<?php
+					<li>
+						<button type="button" class="<?php echo esc_attr($class); ?>"
+							data-category="<?php echo esc_attr($category['slug']); ?>">
+							<?php echo esc_html($category['name']); ?>
+							<?php if (isset($category['count'])) { ?>
+								<span class="wpcode-items-count">
+									<?php echo esc_html($category['count']); ?>
+								</span>
+							<?php } ?>
+						</button>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+		<?php
 	}
 
 	/**
@@ -1164,28 +1165,28 @@ abstract class WPCode_Admin_Page
 	public function library_preview_modal_content()
 	{
 		?>
-<div class="wpcode-library-preview wpcode-modal" id="wpcode-library-preview">
-    <div class="wpcode-library-preview-header">
-        <button type="button" class="wpcode-just-icon-button wpcode-close-modal">
-            <?php wpcode_icon('close', 15, 14); ?>
-        </button>
-        <h2><?php esc_html_e('Preview Snippet', 'insert-headers-and-footers'); ?></h2>
-    </div>
-    <div class="wpcode-library-preview-content">
-        <h3>
-            <label for="wpcode-code-preview" id="wpcode-preview-title">
-                <?php esc_html_e('Code Preview', 'insert-headers-and-footers'); ?>
-            </label>
-        </h3>
-        <textarea id="wpcode-code-preview"></textarea>
-    </div>
-    <div class="wpcode-library-preview-buttons">
-        <a class="wpcode-button wpcode-button-wide" id="wpcode-preview-use-code">
-            <?php esc_html_e('Use Snippet', 'insert-headers-and-footers'); ?>
-        </a>
-    </div>
-</div>
-<?php
+		<div class="wpcode-library-preview wpcode-modal" id="wpcode-library-preview">
+			<div class="wpcode-library-preview-header">
+				<button type="button" class="wpcode-just-icon-button wpcode-close-modal">
+					<?php wpcode_icon('close', 15, 14); ?>
+				</button>
+				<h2><?php esc_html_e('Preview Snippet', 'insert-headers-and-footers'); ?></h2>
+			</div>
+			<div class="wpcode-library-preview-content">
+				<h3>
+					<label for="wpcode-code-preview" id="wpcode-preview-title">
+						<?php esc_html_e('Code Preview', 'insert-headers-and-footers'); ?>
+					</label>
+				</h3>
+				<textarea id="wpcode-code-preview"></textarea>
+			</div>
+			<div class="wpcode-library-preview-buttons">
+				<a class="wpcode-button wpcode-button-wide" id="wpcode-preview-use-code">
+					<?php esc_html_e('Use Snippet', 'insert-headers-and-footers'); ?>
+				</a>
+			</div>
+		</div>
+		<?php
 		$editor = new WPCode_Code_Editor('text');
 		$editor->set_setting('readOnly', 'nocursor');
 		$editor->register_editor('wpcode-code-preview');
@@ -1340,27 +1341,27 @@ abstract class WPCode_Admin_Page
 			$count = count($data['snippets']);
 		}
 		?>
-<script type="text/html" id="tmpl-wpcode-library-connect-banner">
-<div id="wpcode-library-connect-banner">
-    <div class="wpcode-template-content">
-        <h3>
-            <?php
-					/* translators: %d - snippets count. */
-					printf(esc_html__('Get Access to Our Library of %d FREE Snippets', 'insert-headers-and-footers'), $count);
-					?>
-        </h3>
+		<script type="text/html" id="tmpl-wpcode-library-connect-banner">
+				<div id="wpcode-library-connect-banner">
+					<div class="wpcode-template-content">
+						<h3>
+							<?php
+							/* translators: %d - snippets count. */
+							printf(esc_html__('Get Access to Our Library of %d FREE Snippets', 'insert-headers-and-footers'), $count);
+							?>
+						</h3>
 
-        <p>
-            <?php esc_html_e('Connect your website with WPCode Library and get instant access to FREE code snippets written by our experts. Snippets can be installed with just 1-click from inside the plugin and come automatically-configured to save you time.', 'insert-headers-and-footers'); ?>
-        </p>
-    </div>
-    <div class="wpcode-template-upgrade-button">
-        <button
-            class="wpcode-button wpcode-start-auth"><?php esc_html_e('Connect to Library', 'insert-headers-and-footers'); ?></button>
-    </div>
-</div>
-</script>
-<?php
+						<p>
+							<?php esc_html_e('Connect your website with WPCode Library and get instant access to FREE code snippets written by our experts. Snippets can be installed with just 1-click from inside the plugin and come automatically-configured to save you time.', 'insert-headers-and-footers'); ?>
+						</p>
+					</div>
+					<div class="wpcode-template-upgrade-button">
+						<button
+							class="wpcode-button wpcode-start-auth"><?php esc_html_e('Connect to Library', 'insert-headers-and-footers'); ?></button>
+					</div>
+				</div>
+				</script>
+		<?php
 	}
 
 	/**

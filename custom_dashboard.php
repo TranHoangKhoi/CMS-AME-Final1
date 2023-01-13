@@ -1,419 +1,419 @@
 <style>
-#adminmenu li #toplevel_page_hide-admin-menu {
-    display: none;
-}
+    #adminmenu li #toplevel_page_hide-admin-menu {
+        display: none;
+    }
 
-* {
-    box-sizing: inherit;
-}
+    * {
+        box-sizing: inherit;
+    }
 
-a:focus {
-    border: none;
-}
-
-
-.grid {
-    width: 100%;
-    display: block;
-    padding: 0;
-}
+    a:focus {
+        border: none;
+    }
 
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -12px;
-    margin-right: -12px;
-}
+    .grid {
+        width: 100%;
+        display: block;
+        padding: 0;
+    }
 
-.col {
-    padding-left: 12px;
-    padding-right: 12px;
-}
 
-.l-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-    margin: 10px 0;
-}
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -12px;
+        margin-right: -12px;
+    }
 
-.l-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-    margin: 10px 0;
-}
+    .col {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 
-.pd-20 {
-    padding: 20px 0;
-}
+    .l-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin: 10px 0;
+    }
 
-.about-wrap {
-    max-width: unset;
-    margin: 10px 20px 0 2px
-}
+    .l-4 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+        margin: 10px 0;
+    }
 
-.wrap-content {
-    padding: 20px 40px;
-    background-color: #fff;
-    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%);
-    margin: 20px 0;
-}
+    .pd-20 {
+        padding: 20px 0;
+    }
 
-.wrap-content__noBG {
-    /* padding: 20px 40px; */
-    /* background-color: #fff;
+    .about-wrap {
+        max-width: unset;
+        margin: 10px 20px 0 2px
+    }
+
+    .wrap-content {
+        padding: 20px 40px;
+        background-color: #fff;
+        box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%);
+        margin: 20px 0;
+    }
+
+    .wrap-content__noBG {
+        /* padding: 20px 40px; */
+        /* background-color: #fff;
         box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%); */
-    margin: 20px 0;
-}
+        margin: 20px 0;
+    }
 
-.flex-block {
-    display: flex;
-    align-items: center;
+    .flex-block {
+        display: flex;
+        align-items: center;
 
-    justify-content: center;
-}
+        justify-content: center;
+    }
 
-.icon-noti {
-    font-size: 60px;
-    margin-right: 40px;
-}
+    .icon-noti {
+        font-size: 60px;
+        margin-right: 40px;
+    }
 
-.sub-content {
-    line-height: 18px;
-    font-size: 15px;
-    color: #555;
-}
+    .sub-content {
+        line-height: 18px;
+        font-size: 15px;
+        color: #555;
+    }
 
-.noti-content {
-    flex: 1;
-}
+    .noti-content {
+        flex: 1;
+    }
 
-.noti-content h3 {
-    line-height: 2rem;
-    margin: 0;
-}
+    .noti-content h3 {
+        line-height: 2rem;
+        margin: 0;
+    }
 
-.title__col,
-.title {
-    text-transform: uppercase;
-    font-size: 15px;
-}
+    .title__col,
+    .title {
+        text-transform: uppercase;
+        font-size: 15px;
+    }
 
-.title__col {
-    padding: 10px 0;
+    .title__col {
+        padding: 10px 0;
 
-}
+    }
 
-.item__block {
-    height: 100%;
-    overflow: hidden;
-}
+    .item__block {
+        height: 100%;
+        overflow: hidden;
+    }
 
-.title {
-    /* text-transform: capitalize; */
-    font-weight: 500;
-    font-size: 18px;
-    padding-top: 20px;
-}
+    .title {
+        /* text-transform: capitalize; */
+        font-weight: 500;
+        font-size: 18px;
+        padding-top: 20px;
+    }
 
-.quict__item {
-    background-color: #fff;
-    display: block;
-    width: 100%;
-    padding: 20px 0;
-    color: #333;
-    text-decoration: none;
-    text-align: center;
-    border: 2px solid transparent;
-    overflow: hidden;
-    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%);
-}
+    .quict__item {
+        background-color: #fff;
+        display: block;
+        width: 100%;
+        padding: 20px 0;
+        color: #333;
+        text-decoration: none;
+        text-align: center;
+        border: 2px solid transparent;
+        overflow: hidden;
+        box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%);
+    }
 
-.noti__col--block {
-    background-color: #fff;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 20px 0;
-    color: #333;
-    text-decoration: none;
-    text-align: center;
-    overflow: hidden;
-    box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%);
-}
+    .noti__col--block {
+        background-color: #fff;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 20px 0;
+        color: #333;
+        text-decoration: none;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%);
+    }
 
-.noti__col--list {
-    min-height: 200px;
-    padding: 0 20px;
-}
+    .noti__col--list {
+        min-height: 200px;
+        padding: 0 20px;
+    }
 
-.noti__social--list {}
+    .noti__social--list {}
 
-.noti__social--item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-decoration: none;
-    color: #333;
-    padding: 6px 0;
-}
+    .noti__social--item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-decoration: none;
+        color: #333;
+        padding: 6px 0;
+    }
 
-.social__img {
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
-}
+    .social__img {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+    }
 
-.social__title {}
+    .social__title {}
 
-.noti__col--item {
-    text-decoration: none;
-    color: #333;
-    /* padding: 0; */
-    display: flex;
-    padding: 10px 0;
-    align-items: center;
-}
+    .noti__col--item {
+        text-decoration: none;
+        color: #333;
+        /* padding: 0; */
+        display: flex;
+        padding: 10px 0;
+        align-items: center;
+    }
 
-.noti__col--item:hover .noti__col--title h3 {
-    color: var(--e-context-primary-color);
-}
+    .noti__col--item:hover .noti__col--title h3 {
+        color: var(--e-context-primary-color);
+    }
 
-.noti__col--item+.noti__col--item {
-    margin-top: 4px;
-    /* padding-top: 10px; */
-    border-top: 1px solid #eee;
-}
+    .noti__col--item+.noti__col--item {
+        margin-top: 4px;
+        /* padding-top: 10px; */
+        border-top: 1px solid #eee;
+    }
 
-.noti__col--img img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-right: 20px;
+    .noti__col--img img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-right: 20px;
 
-}
+    }
 
-.noti__col--title h3 {
-    font-size: 15px;
-    line-height: 24px;
-    margin: 0;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    --webkit-user-select: none;
-    text-align: left;
-    padding: 0 10px;
-}
+    .noti__col--title h3 {
+        font-size: 15px;
+        line-height: 24px;
+        margin: 0;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        --webkit-user-select: none;
+        text-align: left;
+        padding: 0 10px;
+    }
 
-.quict__item:hover {
-    color: transparent;
-    border: 2px solid var(--e-context-primary-color);
-}
+    .quict__item:hover {
+        color: transparent;
+        border: 2px solid var(--e-context-primary-color);
+    }
 
-.quict__item--img {
-    text-align: center;
-    margin-bottom: 20px;
-}
+    .quict__item--img {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-.quict__item--img img {
-    width: 60%;
-    height: 160px;
-    object-fit: contain;
-}
-
-
-.quict__item--title p {
-    text-transform: capitalize;
-    font-weight: 500;
-    font-size: 18px;
-    color: #333;
-    margin: 4px;
-}
-
-.quict__item--link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--e-context-primary-color);
-}
-
-.quict__item--link p {
-    margin: 0;
-    text-transform: capitalize;
-}
-
-.quict__item--icon {
-    position: relative;
-    top: 1px;
-}
-
-.banner__item {
-    height: 300px;
-    object-fit: cover;
-}
-
-/* SLide */
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-.slider {
-    max-width: 100%;
-    margin: 20px auto;
-    position: relative;
-}
-
-.slider-wrap {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.slider-main {
-    display: flex;
-    align-items: center;
-    position: relative;
-    transition: transform 0.5s linear;
-}
-
-.slider-item {
-    width: 100%;
-    flex: 1 0 100%;
-    cursor: pointer;
-    text-decoration: none;
-    color: transparent;
-    display: block;
-}
-
-.slieder-img {
-    width: 100%;
-    /* border-radius: 8px; */
-    height: 300px !important;
-    object-fit: cover;
-}
-
-.btn-icon {
-    width: 40px;
-    height: 40px;
-    /* padding: unset !important; */
-    /* display: none; */
-    text-align: center;
-    overflow: hidden;
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.btn {
-    font-size: 20px;
-    position: absolute;
-    border-radius: 50%;
-}
-
-.btn:hover {
-    color: #BDC3C7;
-    cursor: pointer;
-}
-
-.prev-btn {
-    top: 50%;
-    left: 0;
-
-    transform: translate(50%, -50%);
-}
-
-.next-btn {
-    top: 50%;
-    right: 0;
-    transform: translate(-50%);
-}
-
-.icon {
-    position: relative;
-    top: 4px;
-}
-
-.doct-slider {
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
-    text-align: center;
-}
-
-.list-doct {
-    padding: 0;
-    list-style: none;
-}
-
-.doct-item {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background-color: #95A5A6;
-    border-radius: 50%;
-    margin: 0 6px;
-    cursor: pointer;
-    /* display: none; */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-
-}
-
-.doct-item.active {
-    background-color: #0D3380;
-}
-
-/*  */
-
-.info__list {}
-
-.info__heading {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-}
-
-.info__img img {
-    width: 100%;
-    height: 100px;
-    object-fit: contain;
-}
-
-.info__content {
-    padding-top: 10px;
-}
+    .quict__item--img img {
+        width: 60%;
+        height: 160px;
+        object-fit: contain;
+    }
 
 
-.info__content--item {}
+    .quict__item--title p {
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 18px;
+        color: #333;
+        margin: 4px;
+    }
 
-.bd-l {
-    border-left: 1px solid #ccc;
-}
+    .quict__item--link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--e-context-primary-color);
+    }
 
-.info__content--item a {
-    display: block;
-}
+    .quict__item--link p {
+        margin: 0;
+        text-transform: capitalize;
+    }
 
-.info__content--item a:hover {
-    color: var(--e-context-primary-color);
-}
+    .quict__item--icon {
+        position: relative;
+        top: 1px;
+    }
 
-.info__content--item p {
-    margin: 0;
-}
+    .banner__item {
+        height: 300px;
+        object-fit: cover;
+    }
 
-.info__content--item p,
-.info__content--item a {
-    text-align: justify;
-    text-decoration: none;
-    line-height: 20px;
-    color: #333;
-    font-size: 16px;
-}
+    /* SLide */
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    .slider {
+        max-width: 100%;
+        margin: 20px auto;
+        position: relative;
+    }
+
+    .slider-wrap {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .slider-main {
+        display: flex;
+        align-items: center;
+        position: relative;
+        transition: transform 0.5s linear;
+    }
+
+    .slider-item {
+        width: 100%;
+        flex: 1 0 100%;
+        cursor: pointer;
+        text-decoration: none;
+        color: transparent;
+        display: block;
+    }
+
+    .slieder-img {
+        width: 100%;
+        /* border-radius: 8px; */
+        height: 487px !important;
+        object-fit: cover;
+    }
+
+    .btn-icon {
+        width: 40px;
+        height: 40px;
+        /* padding: unset !important; */
+        /* display: none; */
+        text-align: center;
+        overflow: hidden;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .btn {
+        font-size: 20px;
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .btn:hover {
+        color: #BDC3C7;
+        cursor: pointer;
+    }
+
+    .prev-btn {
+        top: 50%;
+        left: 0;
+
+        transform: translate(50%, -50%);
+    }
+
+    .next-btn {
+        top: 50%;
+        right: 0;
+        transform: translate(-50%);
+    }
+
+    .icon {
+        position: relative;
+        top: 4px;
+    }
+
+    .doct-slider {
+        position: absolute;
+        bottom: 40px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .list-doct {
+        padding: 0;
+        list-style: none;
+    }
+
+    .doct-item {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background-color: #95A5A6;
+        border-radius: 50%;
+        margin: 0 6px;
+        cursor: pointer;
+        /* display: none; */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+
+    }
+
+    .doct-item.active {
+        background-color: #0D3380;
+    }
+
+    /*  */
+
+    .info__list {}
+
+    .info__heading {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+    }
+
+    .info__img img {
+        width: 100%;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .info__content {
+        padding-top: 10px;
+    }
+
+
+    .info__content--item {}
+
+    .bd-l {
+        border-left: 1px solid #ccc;
+    }
+
+    .info__content--item a {
+        display: block;
+    }
+
+    .info__content--item a:hover {
+        color: var(--e-context-primary-color);
+    }
+
+    .info__content--item p {
+        margin: 0;
+    }
+
+    .info__content--item p,
+    .info__content--item a {
+        text-align: justify;
+        text-decoration: none;
+        line-height: 20px;
+        color: #333;
+        font-size: 16px;
+    }
 </style>
 
 <?php
@@ -546,17 +546,17 @@ curl_close($getAPi);
                                         if ($key <= 2) {
                                             ?>
 
-                                <a target="_blank" href=<?php echo $post->link ?> class="noti__col--item">
-                                    <div class="noti__col--img">
-                                        <img src=<?php echo plugins_url('/img/post.png', __FILE__) ?> alt="">
-                                    </div>
-                                    <div class="noti__col--title">
-                                        <h3>
-                                            <?php echo $post->title->rendered ?>
-                                        </h3>
-                                    </div>
-                                </a>
-                                <?php }
+                                            <a target="_blank" href=<?php echo $post->link ?> class="noti__col--item">
+                                                <div class="noti__col--img">
+                                                    <img src=<?php echo plugins_url('/img/post.png', __FILE__) ?> alt="">
+                                                </div>
+                                                <div class="noti__col--title">
+                                                    <h3>
+                                                        <?php echo $post->title->rendered ?>
+                                                    </h3>
+                                                </div>
+                                            </a>
+                                        <?php }
                                     }
                                 } ?>
                             </div>
@@ -711,10 +711,10 @@ curl_close($getAPi);
                         <?php if (!empty($listImage)) {
                             foreach ($listImage as $item) {
                                 ?>
-                        <a href="#" class="slider-item">
-                            <img src=<?php echo $item->guid->rendered ?> alt="" class="slieder-img">
-                        </a>
-                        <?php }
+                                <a href="#" class="slider-item">
+                                    <img src=<?php echo $item->guid->rendered ?> alt="" class="slieder-img">
+                                </a>
+                            <?php }
                         } ?>
                     </div>
                 </div>
@@ -729,10 +729,10 @@ curl_close($getAPi);
                         <?php if (!empty($listImage)) {
                             foreach ($listImage as $key => $item) {
                                 ?>
-                        <li data-index="<?php echo $key ?>" class="doct-item <?php if ($key == 0)
+                                <li data-index="<?php echo $key ?>" class="doct-item <?php if ($key == 0)
                                        echo 'active' ?>">
-                        </li>
-                        <?php }
+                                    </li>
+                            <?php }
                         } ?>
 
                     </ul>
@@ -744,16 +744,14 @@ curl_close($getAPi);
         </div>
     </div>
 
-<<<<<<< HEAD
     <!-- <div class="wrap-content__noBG pd-20">
         <div class="banner__item">
             <img src="https://duynh404.cf/api/files/view/ip14-pro-2880-80002-1920x533_1672068638.png" />
 
         </div>
-    </div> -->
+</div> -->
 
-=======
->>>>>>> 7b631f7bddfd195a3801b5ee5a725d896d98f575
+
     <div class="wrap-content__noBG pd-20">
         <div class="grid">
             <div class="row">
@@ -770,7 +768,7 @@ curl_close($getAPi);
                                 <div class="info__list">
                                     <div class="info__heading">
                                         <a href="https://amedigital.vn/" target="_blank" class="info__img">
-                                            <img src=<?php echo plugins_url('/img/ameweb.jpg', __FILE__) ?> />
+                                            <img src=<?php echo plugins_url('/img/ame_logo.png', __FILE__) ?> />
                                         </a>
                                     </div>
                                     <div class="info__content">
@@ -869,7 +867,6 @@ curl_close($getAPi);
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
                 <!-- <div class="wrapper">
                     <input type="checkbox" />
                     <div class="icon" style="margin-top:-50px">
@@ -894,8 +891,6 @@ curl_close($getAPi);
                                 src="<?php plugins_url('/img/icon-mess.png', __FILE__) ?>" /></a>
                     </div>
                 </div> -->
-=======
->>>>>>> 7b631f7bddfd195a3801b5ee5a725d896d98f575
             </div>
         </div>
     </div>
@@ -903,96 +898,96 @@ curl_close($getAPi);
 
 <footer>
     <script type="text/javascript">
-    window.addEventListener('load', function() {
-        const $ = document.querySelector.bind(document);
-        const $$ = document.querySelectorAll.bind(document);
-        let doctActive = Number($('.doct-item.active').dataset.index);
-        const slider = $('.slider');
-        const sliderMain = $('.slider-main');
-        const nextBtn = $('.next-btn');
-        const prevBtn = $('.prev-btn');
-        const sliderItems = $$('.slider-item');
-        const doctItem = $$('.doct-item');
-        let positionX = 0;
-        let index = 0;
+        window.addEventListener('load', function () {
+            const $ = document.querySelector.bind(document);
+            const $$ = document.querySelectorAll.bind(document);
+            let doctActive = Number($('.doct-item.active').dataset.index);
+            const slider = $('.slider');
+            const sliderMain = $('.slider-main');
+            const nextBtn = $('.next-btn');
+            const prevBtn = $('.prev-btn');
+            const sliderItems = $$('.slider-item');
+            const doctItem = $$('.doct-item');
+            let positionX = 0;
+            let index = 0;
 
-        const sliderItemWidth = sliderItems[0].offsetWidth;
-        const slidersItemLenght = sliderItems.length;
-        const slidersLenght = sliderItemWidth * slidersItemLenght;
+            const sliderItemWidth = sliderItems[0].offsetWidth;
+            const slidersItemLenght = sliderItems.length;
+            const slidersLenght = sliderItemWidth * slidersItemLenght;
 
 
 
-        nextBtn.onclick = function() {
-            nextSlider();
-        }
-
-        prevBtn.onclick = function() {
-            prevSlider();
-        }
-
-        let curentActive = doctActive;
-        setInterval(function() {
-            // if()
-            let doctCurrent = Number($('.doct-item.active').dataset.index);
-            if (curentActive == doctCurrent) {
+            nextBtn.onclick = function () {
                 nextSlider();
-            } else {
-                curentActive = doctCurrent;
-            }
-        }, 3000);
-
-        // sliderItems.forEach(function(sliderItem) {
-        // 	sliderItem.onclick = function() {
-        // 		nextSlider();
-        // 	}
-        // })
-
-        doctItem.forEach(function(e) {
-            e.onclick = function() {
-                let docActive = Number(e.dataset.index);
-                positionX = (-(docActive * sliderItemWidth) + sliderItemWidth);
-                index = docActive - 1;
-                nextSlider();
-                console.log(positionX, index)
             }
 
-        })
-
-        function nextSlider() {
-            index++;
-            positionX -= sliderItemWidth;
-            if (index >= slidersItemLenght) {
-                index = 0;
-                positionX = 0;
+            prevBtn.onclick = function () {
+                prevSlider();
             }
-            dotActiveSlider();
-            sliderMain.style.transform = `translateX(${positionX}px)`;
 
-        }
+            let curentActive = doctActive;
+            setInterval(function () {
+                // if()
+                let doctCurrent = Number($('.doct-item.active').dataset.index);
+                if (curentActive == doctCurrent) {
+                    nextSlider();
+                } else {
+                    curentActive = doctCurrent;
+                }
+            }, 3000);
 
-        function prevSlider() {
-            index--;
-            positionX += sliderItemWidth;
-            if (index < 0) {
-                index = slidersItemLenght - 1;
-                positionX = -(slidersLenght - sliderItemWidth);
-            }
-            dotActiveSlider();
-            sliderMain.style.transform = `translateX(${positionX}px)`;
-        }
+            // sliderItems.forEach(function(sliderItem) {
+            // 	sliderItem.onclick = function() {
+            // 		nextSlider();
+            // 	}
+            // })
 
-        function dotActiveSlider() {
-            doctItem.forEach(function(e) {
-                let docActive = Number(e.dataset.index);
-                if (index === (docActive)) {
-                    $('.doct-item.active').classList.remove('active');
-
-                    e.classList.add('active')
+            doctItem.forEach(function (e) {
+                e.onclick = function () {
+                    let docActive = Number(e.dataset.index);
+                    positionX = (-(docActive * sliderItemWidth) + sliderItemWidth);
+                    index = docActive - 1;
+                    nextSlider();
+                    console.log(positionX, index)
                 }
 
             })
-        }
-    })
+
+            function nextSlider() {
+                index++;
+                positionX -= sliderItemWidth;
+                if (index >= slidersItemLenght) {
+                    index = 0;
+                    positionX = 0;
+                }
+                dotActiveSlider();
+                sliderMain.style.transform = `translateX(${positionX}px)`;
+
+            }
+
+            function prevSlider() {
+                index--;
+                positionX += sliderItemWidth;
+                if (index < 0) {
+                    index = slidersItemLenght - 1;
+                    positionX = -(slidersLenght - sliderItemWidth);
+                }
+                dotActiveSlider();
+                sliderMain.style.transform = `translateX(${positionX}px)`;
+            }
+
+            function dotActiveSlider() {
+                doctItem.forEach(function (e) {
+                    let docActive = Number(e.dataset.index);
+                    if (index === (docActive)) {
+                        $('.doct-item.active').classList.remove('active');
+
+                        e.classList.add('active')
+                    }
+
+                })
+            }
+        })
     </script>
 </footer>
 

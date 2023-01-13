@@ -3,7 +3,6 @@
 
 
 class AME_EDIT_SHORTCODE
-
 {
 
     static public $shortcodes = array();
@@ -11,9 +10,8 @@ class AME_EDIT_SHORTCODE
     //=====================Add css vào header admin========================================
 
     public function CustomHeaderAdmin()
-
     {
-                                                                            
+
         $css = "<link rel='stylesheet' id='AME_CHAT-admin-css'  href='" . site_url() . "\wp-content\plugins\CMS-AME-Final1\css\sb-admin-2.min.css' media='all' />  ";
 
         // $fontawesomeUrl = plugins_url('/vendor/fontawesome-free/css/all.min.css', __FILE__);
@@ -33,7 +31,6 @@ class AME_EDIT_SHORTCODE
     //=========Add js cript vào footer admin===
 
     public function CustomFooterAdmin()
-
     {
 
         echo '
@@ -57,7 +54,6 @@ class AME_EDIT_SHORTCODE
     //========Add Admin menu plugin===========
 
     public function AddAdminMenu()
-
     {
 
         add_menu_page(
@@ -73,7 +69,7 @@ class AME_EDIT_SHORTCODE
             array($this, 'show_index'),
             AME_EDIT_SHORTCODE_URL . '/img/ame-edit.png',
 
-            '2'
+            '3'
         );
         add_submenu_page('edit_short', '', 'Header', 'delete_others_pages', 'show_plugin_dashboard', array($this, 'show_plugin_dashboard'));
         add_submenu_page('edit_short', '', 'Logo', 'delete_others_pages', 'show_edit_img', array($this, 'show_edit_img'));
@@ -83,21 +79,18 @@ class AME_EDIT_SHORTCODE
 
 
     public function show_index()
-
     {
 
         require(AME_EDIT_SHORTCODE_DIR . 'views/index.php');
     }
     // 
     public function show_edit_img()
-
     {
 
         require(AME_EDIT_SHORTCODE_DIR . 'views/edit-img.php');
     }
 
     public function show_plugin_dashboard()
-
     {
 
         require(AME_EDIT_SHORTCODE_DIR . 'views/dashboard.php');
@@ -209,21 +202,21 @@ class AME_EDIT_SHORTCODE
         $ame_shortcode = $wpdb->prefix . 'ame_shortcoder';
         $sql = "SELECT * FROM `" . $ame_shortcode . "` WHERE tag LIKE '" . $filterPage . "'";
         $data = $wpdb->get_results($sql);
-        if (!empty($data))                        // Checking if $results have some values or not
+        if (!empty($data)) // Checking if $results have some values or not
         {
-            foreach ($data as $row) {              //putting the user_ip field value in variable to use it later in update query
-                echo '<tr>';                           // Adding rows of table inside foreach loop
+            foreach ($data as $row) { //putting the user_ip field value in variable to use it later in update query
+                echo '<tr>'; // Adding rows of table inside foreach loop
                 echo '<td>' . $row->SC_name . '</td>';
                 echo '<td>' . $row->tag . '</td>';
-                echo '<td>[video src="'. $row->url_video .'"]</td>';
-                echo '<td> <a href="#" id="'.$row -> ID.'" class="btn btn-danger btn-icon-split edit_shortcode2">
+                echo '<td>[video src="' . $row->url_video . '"]</td>';
+                echo '<td> <a href="#" id="' . $row->ID . '" class="btn btn-danger btn-icon-split edit_shortcode2">
                                     <span class="text">Chỉnh sửa </span>
                             </a> </td>';
-                echo '<td><input type="checkbox" '.$row -> ID.'></td>';
+                echo '<td><input type="checkbox" ' . $row->ID . '></td>';
                 echo '</tr>';
-          
+
             }
-    
+
         }
         wp_die();
     }
@@ -233,101 +226,102 @@ class AME_EDIT_SHORTCODE
         $filterPage1 = $_POST['filterPage1'];
         global $wpdb;
         $table_post = $wpdb->prefix . "posts";
-        $sql = "SELECT * FROM `" . $table_post . "` WHERE post_title LIKE '".$filterPage1."'";
-        $data = $wpdb -> get_results($sql);
-            foreach ($data as $row) {              //putting the user_ip field value in variable to use it later in update query
-                echo '<tr>';                           // Adding rows of table inside foreach loop
-                echo '<td>'.$row-> post_title.'</td>';
-                echo '<td>[sc name="'.$row->post_title.'"][/sc]</td>';
-                echo '<td> <a href="#" id="'.$row -> ID.'" class="btn btn-danger btn-icon-split edit_shortcode2">
+        $sql = "SELECT * FROM `" . $table_post . "` WHERE post_title LIKE '" . $filterPage1 . "'";
+        $data = $wpdb->get_results($sql);
+        foreach ($data as $row) { //putting the user_ip field value in variable to use it later in update query
+            echo '<tr>'; // Adding rows of table inside foreach loop
+            echo '<td>' . $row->post_title . '</td>';
+            echo '<td>[sc name="' . $row->post_title . '"][/sc]</td>';
+            echo '<td> <a href="#" id="' . $row->ID . '" class="btn btn-danger btn-icon-split edit_shortcode2">
                                     <span class="text">Chỉnh sửa </span>
                             </a> </td>';
-                echo '</tr>';
-            }
-    
-        
-         
+            echo '</tr>';
+        }
+
+
+
         wp_die();
     }
     //
     public static function show_pageFilter_post2()
-    {   
+    {
         $post_id = $_POST['post_id'];
         $filterPage2 = $_POST['filterPage2'];
         global $wpdb;
         $table_post = $wpdb->prefix . "posts";
-        $sql = "SELECT * FROM `" . $table_post . "` WHERE post_title LIKE '".$filterPage2."'";
-        $data = $wpdb -> get_results($sql);
-            foreach ($data as $row) {              //putting the user_ip field value in variable to use it later in update query
-                echo '<tr>';                           // Adding rows of table inside foreach loop
-                echo '<td>'.$row-> post_title.'</td>';
-                echo '<td>[sc name="'.$row->post_title.'"][/sc]</td>';
-                echo '<td> <a href="#" id="'.$row -> ID.'"class="btn btn-danger btn-icon-split edit_shortcode2">
+        $sql = "SELECT * FROM `" . $table_post . "` WHERE post_title LIKE '" . $filterPage2 . "'";
+        $data = $wpdb->get_results($sql);
+        foreach ($data as $row) { //putting the user_ip field value in variable to use it later in update query
+            echo '<tr>'; // Adding rows of table inside foreach loop
+            echo '<td>' . $row->post_title . '</td>';
+            echo '<td>[sc name="' . $row->post_title . '"][/sc]</td>';
+            echo '<td> <a href="#" id="' . $row->ID . '"class="btn btn-danger btn-icon-split edit_shortcode2">
                                     <span class="text">Chỉnh sửa </span>
                             </a> </td>';
-                echo '</tr>';
-            }
+            echo '</tr>';
+        }
         wp_die();
     }
     //
     public static function show_pageFilter_post3()
-    {   
+    {
         $post_id = $_POST['post_id'];
         $filterPage3 = $_POST['filterPage3'];
         global $wpdb;
         $table_post = $wpdb->prefix . "posts";
-        $sql = "SELECT * FROM `" . $table_post . "` WHERE post_title LIKE '".$filterPage3."'";
-        $data = $wpdb -> get_results($sql);
-            foreach ($data as $row) {              //putting the user_ip field value in variable to use it later in update query
-                echo '<tr>';                           // Adding rows of table inside foreach loop
-                echo '<td>Slide: <span style="font-weight: 900;">'.$row-> post_title.'</span></td>';
-                echo '<td>[soliloquy id="'.$row-> ID.'"]</td>';
-                echo '<td> <a href="http://localhost/Alphamedia/wp-admin/post.php?post='.$row -> ID.'&action=edit" id="'.$row -> ID.'"class="btn btn-danger btn-icon-split edit_shortcode2">
+        $sql = "SELECT * FROM `" . $table_post . "` WHERE post_title LIKE '" . $filterPage3 . "'";
+        $data = $wpdb->get_results($sql);
+        foreach ($data as $row) { //putting the user_ip field value in variable to use it later in update query
+            echo '<tr>'; // Adding rows of table inside foreach loop
+            echo '<td>Slide: <span style="font-weight: 900;">' . $row->post_title . '</span></td>';
+            echo '<td>[soliloquy id="' . $row->ID . '"]</td>';
+            echo '<td> <a href="http://localhost/Alphamedia/wp-admin/post.php?post=' . $row->ID . '&action=edit" id="' . $row->ID . '"class="btn btn-danger btn-icon-split edit_shortcode2">
                                     <span class="text">Chỉnh sửa </span>
                             </a> </td>';
-                echo '</tr>';
-            }
+            echo '</tr>';
+        }
         wp_die();
     }
     //
-    public static function del_sc_video(){
+    public static function del_sc_video()
+    {
         $post_id = $_POST['post_id'];
         global $wpdb;
         $ame_shortcode = $wpdb->prefix . "ame_shortcoder";
-        $sql = "DELETE FROM `".$ame_shortcode."` WHERE ID = '".$post_id."' ";
+        $sql = "DELETE FROM `" . $ame_shortcode . "` WHERE ID = '" . $post_id . "' ";
         $wpdb->query($sql);
         wp_die();
-    
+
 
     }
-  // PHÂN TRANG
-  public static function show_Pagination()
-  {   
-      $post_id = $_POST['post_id'];
-      $pagination1 = $_POST['pagination1'];
-      global $wpdb;
-      $table_post = $wpdb->prefix . "posts";
-      $sql = "SELECT * FROM `" . $table_post . "` WHERE post_type = 'shortcoder' ORDER BY ID ASC LIMIT 0,3";
-      echo $sql;
-      
-    //   $data = $wpdb -> get_results($sql);
-    //       foreach ($data as $row) {              //putting the user_ip field value in variable to use it later in update query
-    //           echo '<tr>';                           // Adding rows of table inside foreach loop
-    //           echo '<td>Slide: <span style="font-weight: 900;">'.$row-> post_title.'</span></td>';
-    //           echo '<td>[soliloquy id="'.$row-> ID.'"]</td>';
-    //           echo '<td> <a href="http://localhost/Alphamedia/wp-admin/post.php?post='.$row -> ID.'&action=edit" id="'.$row -> ID.'"class="btn btn-danger btn-icon-split edit_shortcode2">
-    //                               <span class="icon text-white-50">
-    //                                   <i class="fas fa-pencil-alt"></i>
-    //                               </span>
-    //                               <span class="text">Chỉnh sửa </span>
-    //                       </a> </td>';
-    //           echo '</tr>';
-    //       }
-          
-    //   wp_die();
-  }
-//
-public static function update_shortcode_tag()
+    // PHÂN TRANG
+    public static function show_Pagination()
+    {
+        $post_id = $_POST['post_id'];
+        $pagination1 = $_POST['pagination1'];
+        global $wpdb;
+        $table_post = $wpdb->prefix . "posts";
+        $sql = "SELECT * FROM `" . $table_post . "` WHERE post_type = 'shortcoder' ORDER BY ID ASC LIMIT 0,3";
+        echo $sql;
+
+        //   $data = $wpdb -> get_results($sql);
+        //       foreach ($data as $row) {              //putting the user_ip field value in variable to use it later in update query
+        //           echo '<tr>';                           // Adding rows of table inside foreach loop
+        //           echo '<td>Slide: <span style="font-weight: 900;">'.$row-> post_title.'</span></td>';
+        //           echo '<td>[soliloquy id="'.$row-> ID.'"]</td>';
+        //           echo '<td> <a href="http://localhost/Alphamedia/wp-admin/post.php?post='.$row -> ID.'&action=edit" id="'.$row -> ID.'"class="btn btn-danger btn-icon-split edit_shortcode2">
+        //                               <span class="icon text-white-50">
+        //                                   <i class="fas fa-pencil-alt"></i>
+        //                               </span>
+        //                               <span class="text">Chỉnh sửa </span>
+        //                       </a> </td>';
+        //           echo '</tr>';
+        //       }
+
+        //   wp_die();
+    }
+    //
+    public static function update_shortcode_tag()
     {
         $post_id = $_POST['post_id'];
         $tag = $_POST['tag'];
