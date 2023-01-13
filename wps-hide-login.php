@@ -3810,14 +3810,14 @@ function cnss_social_icon_option_fn()
                     </tr>
 
                     <!-- <tr class="wrap-icon-bg-color" valign="top"
-																																				style="<?php echo $cnss_original_icon_color == 1 ? 'display: none;' : ''; ?>"> -->
+																																					style="<?php echo $cnss_original_icon_color == 1 ? 'display: none;' : ''; ?>"> -->
                     <tr class="wrap-icon-bg-color" valign="top">
                         <th scope="row">Màu Sắc Background Icon</th>
                         <td><input type="text" name="cnss-icon-bg-color" id="cnss-icon-bg-color"
                                 class="cnss-fa-icon-color" value="<?php echo esc_attr($icon_bg_color) ?>" /></td>
                     </tr>
                     <!-- <tr class="wrap-icon-bg-color" valign="top"
-																																			style="<?php echo $cnss_original_icon_color == 1 ? 'display: none;' : ''; ?>"> -->
+																																				style="<?php echo $cnss_original_icon_color == 1 ? 'display: none;' : ''; ?>"> -->
                     <tr class="wrap-icon-bg-color" valign="top">
                         <th scope="row">Màu Sắc Background Khi Di Chuột Vào Icon</th>
                         <td><input type="text" name="cnss-icon-bg-hover-color" id="cnss-icon-bg-hover-color"
@@ -3839,9 +3839,9 @@ function cnss_social_icon_option_fn()
                         <th scope="row">Hình Dạng Icon</th>
                         <td><select name="cnss-icon-shape" id="cnss-icon-shape">
                                 <!-- <option <?php selected($icon_shape, 'square'); ?> value="square">Square</option>
-																																				<option <?php selected($icon_shape, 'circle'); ?> value="circle">Circle</option>
-																																				<option <?php selected($icon_shape, 'round-corner'); ?> value="round-corner">Round
-																																					Corner</option> -->
+																																					<option <?php selected($icon_shape, 'circle'); ?> value="circle">Circle</option>
+																																					<option <?php selected($icon_shape, 'round-corner'); ?> value="round-corner">Round
+																																						Corner</option> -->
                                 <option <?php selected($icon_shape, 'square'); ?> value="square">Hình Vuông</option>
                                 <option <?php selected($icon_shape, 'circle'); ?> value="circle">Hình Tròn</option>
                                 <option <?php selected($icon_shape, 'round-corner'); ?> value="round-corner">Round
@@ -3936,7 +3936,7 @@ function cnss_social_icon_option_fn()
                 <p><input onclick="this.select();" readonly="readonly" type="text"
                         value="<?php echo esc_attr($shortcode); ?>" class="large-text" /></p>
                 <!-- <p>Or you can change following icon settings and click <strong>Generate Shortcode</strong> button to get
-																												updated shortcode.</p> -->
+																													updated shortcode.</p> -->
                 <form method="post" action="admin.php?page=cnss_social_icon_option#shortcode"
                     enctype="application/x-www-form-urlencoded">
                     <?php wp_nonce_field('cn_gen_sc'); ?>
@@ -4034,19 +4034,19 @@ function cnss_social_icon_option_fn()
                 <pre><code>&lt;?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?&gt;</code></pre>
                 <p><strong>Advanced Use</strong></p>
                 <pre><code>&lt;?php
-																																	$attr = array (
-																																		'width' => '32', //input only number, in pixel
-																																		'height' => '32', //input only number, in pixel
-																																		'margin' => '4', //input only number, in pixel
-																																		'display' => 'horizontal', //horizontal | vertical
-																																		'alignment' => 'center', //center | left | right
-																																		'attr_id' => 'custom_icon_id', //add custom id to &lt;ul&gt; wraper
-																																		'attr_class' => 'custom_icon_class', //add custom class to &lt;ul&gt; wraper
-																																		'selected_icons' => array ( '1', '3', '5', '6' )
-																																		//you can get the icon ID form <strong><a href="admin.php?page=cnss_social_icon_page">All Icons</a></strong> page
-																																	);
-																																	if ( function_exists('cn_social_icon') ) echo cn_social_icon( $attr );
-																																	?&gt;</code></pre>
+																																		$attr = array (
+																																			'width' => '32', //input only number, in pixel
+																																			'height' => '32', //input only number, in pixel
+																																			'margin' => '4', //input only number, in pixel
+																																			'display' => 'horizontal', //horizontal | vertical
+																																			'alignment' => 'center', //center | left | right
+																																			'attr_id' => 'custom_icon_id', //add custom id to &lt;ul&gt; wraper
+																																			'attr_class' => 'custom_icon_class', //add custom class to &lt;ul&gt; wraper
+																																			'selected_icons' => array ( '1', '3', '5', '6' )
+																																			//you can get the icon ID form <strong><a href="admin.php?page=cnss_social_icon_page">All Icons</a></strong> page
+																																		);
+																																		if ( function_exists('cn_social_icon') ) echo cn_social_icon( $attr );
+																																		?&gt;</code></pre>
             </fieldset>
 
         </div>
@@ -5129,36 +5129,40 @@ define('AME_EDIT_SHORTCODE_URL', plugin_dir_url(__FILE__));
 
 define('AME_EDIT_SHORTCODE_DIR', plugin_dir_path(__FILE__));
 
-register_activation_hook(__FILE__,'ame_shortcoder');
+register_activation_hook(__FILE__, 'ame_shortcoder');
 
-function upload_file(){
-    mkdir("img/upload", 0700);
+function upload_file()
+{
+	mkdir("img/upload", 0700);
 }
 
 add_action('init', 'do_output_buffer');
-function do_output_buffer() {
-        ob_start();
+function do_output_buffer()
+{
+	ob_start();
 }
-function insert_attachment($file_handler,$post_id,$setthumb='false') {
-    // check to make sure its a successful upload
-    if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
-    require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-    require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-    require_once(ABSPATH . "wp-admin" . '/includes/media.php');
-    $attach_id = media_handle_upload( $file_handler, $post_id );
-  
-    if ($setthumb) update_post_meta($post_id,'_thumbnail_id',$attach_id);
-    return $attach_id;
+function insert_attachment($file_handler, $post_id, $setthumb = 'false')
+{
+	// check to make sure its a successful upload
+	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK)
+		__return_false();
+	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+	$attach_id = media_handle_upload($file_handler, $post_id);
+
+	if ($setthumb)
+		update_post_meta($post_id, '_thumbnail_id', $attach_id);
+	return $attach_id;
 }
 
 function ame_shortcoder()
 {
-    global $wpdb; // Gọi hàm làm việc với database
-    $table_shortcode= $wpdb->prefix . "ame_shortcoder";
-    // $table_page_list = $wpdb -> prefix . "ame_chat_page_list";
-    if($wpdb -> get_var("SHOW TABLE LIKE`".$table_shortcode."`") != $table_shortcode)
-    {
-        $sql= " CREATE TABLE `".$table_shortcode."`(
+	global $wpdb; // Gọi hàm làm việc với database
+	$table_shortcode = $wpdb->prefix . "ame_shortcoder";
+	// $table_page_list = $wpdb -> prefix . "ame_chat_page_list";
+	if ($wpdb->get_var("SHOW TABLE LIKE`" . $table_shortcode . "`") != $table_shortcode) {
+		$sql = " CREATE TABLE `" . $table_shortcode . "`(
         `ID` INT NOT NULL AUTO_INCREMENT,
         `SC_name` VARCHAR(20) NULL , 
         `SC_Content` VARCHAR(5000) NULL ,
@@ -5170,489 +5174,509 @@ function ame_shortcoder()
         PRIMARY KEY (`ID`)) ENGINE = InnoDB
         ;
     ";
-    require_once ABSPATH. "wp-admin/includes/upgrade.php";
-    dbDelta($sql);
-    }
+		require_once ABSPATH . "wp-admin/includes/upgrade.php";
+		dbDelta($sql);
+	}
 }
 
-if(is_admin()){
+if (is_admin()) {
 
-    // $includeDir = AME_CHAT_DIR . '/includes';
+	// $includeDir = AME_CHAT_DIR . '/includes';
 
-    require_once AME_EDIT_SHORTCODE_DIR.'includes/admin.php'; 
+	require_once AME_EDIT_SHORTCODE_DIR . 'includes/admin.php';
 
-    $AME_EDIT_SHORTCODE = new AME_EDIT_SHORTCODE(); 
-    add_action( 'admin_menu', array($AME_EDIT_SHORTCODE,'AddAdminMenu'));
-    add_action( 'admin_head', array($AME_EDIT_SHORTCODE,'CustomHeaderAdmin'));
-    add_action( 'admin_footer', array($AME_EDIT_SHORTCODE,'CustomFooterAdmin'));
-    //==========================Add  ajax edit shortcode ========================
-    
-    add_action( 'wp_ajax_show_edit_shortcode', array($AME_EDIT_SHORTCODE,'show_edit_shortcode'));
-    add_action( 'wp_ajax_nopriv_show_edit_shortcode',array($AME_EDIT_SHORTCODE,'show_edit_shortcode'));
-    // update sc
-    add_action( 'wp_ajax_update_shortcode', array($AME_EDIT_SHORTCODE,'update_shortcode'));
-    add_action( 'wp_ajax_nopriv_update_shortcode',array($AME_EDIT_SHORTCODE,'update_shortcode'));
-    // show video
-    add_action( 'wp_ajax_show_shortcode_video', array($AME_EDIT_SHORTCODE,'show_shortcode_video'));
-    add_action( 'wp_ajax_nopriv_show_shortcode_video',array($AME_EDIT_SHORTCODE,'show_shortcode_video'));
-    // show add video
-    add_action( 'wp_ajax_show_add_shortcode', array($AME_EDIT_SHORTCODE,'show_add_shortcode'));
-    add_action( 'wp_ajax_nopriv_show_add_shortcode',array($AME_EDIT_SHORTCODE,'show_add_shortcode'));
-    // add
-    add_action( 'wp_ajax_add_shortcode', array($AME_EDIT_SHORTCODE,'add_shortcode'));
-    add_action( 'wp_ajax_nopriv_add_shortcode',array($AME_EDIT_SHORTCODE,'add_shortcode'));
-    // update sc video
-    add_action( 'wp_ajax_update_shortcode2', array($AME_EDIT_SHORTCODE,'update_shortcode2'));
-    add_action( 'wp_ajax_nopriv_update_shortcode2',array($AME_EDIT_SHORTCODE,'update_shortcode2'));
-    // show edit video
-    add_action( 'wp_ajax_show_edit_shortcode_video', array($AME_EDIT_SHORTCODE,'show_edit_shortcode_video'));
-    add_action( 'wp_ajax_nopriv_show_edit_shortcode_video',array($AME_EDIT_SHORTCODE,'show_edit_shortcode_video'));
-    // show sc img
-    add_action( 'wp_ajax_show_shortcode_img', array($AME_EDIT_SHORTCODE,'show_shortcode_img'));
-    add_action( 'wp_ajax_nopriv_show_shortcode_img',array($AME_EDIT_SHORTCODE,'show_shortcode_img'));
-    // show edit img
-    add_action( 'wp_ajax_show_edit_shortcode_img', array($AME_EDIT_SHORTCODE,'show_edit_shortcode_img'));
-    add_action( 'wp_ajax_nopriv_show_edit_shortcode_img',array($AME_EDIT_SHORTCODE,'show_edit_shortcode_img'));
-    //add img
-    add_action( 'wp_ajax_add_img', array($AME_EDIT_SHORTCODE,'add_img'));
-    add_action( 'wp_ajax_nopriv_add_img',array($AME_EDIT_SHORTCODE,'add_img'));
-    //show page
-    add_action( 'wp_ajax_show_pageFilter', array($AME_EDIT_SHORTCODE,'show_pageFilter'));
-    add_action( 'wp_ajax_nopriv_show_pageFilter',array($AME_EDIT_SHORTCODE,'show_pageFilter'));
-    //show page db post
-    add_action( 'wp_ajax_show_pageFilter_post', array($AME_EDIT_SHORTCODE,'show_pageFilter_post'));
-    add_action( 'wp_ajax_nopriv_show_pageFilter_post',array($AME_EDIT_SHORTCODE,'show_pageFilter_post'));
-    //show page db post2
-    add_action( 'wp_ajax_show_pageFilter_post2', array($AME_EDIT_SHORTCODE,'show_pageFilter_post2'));
-    add_action( 'wp_ajax_nopriv_show_pageFilter_post2',array($AME_EDIT_SHORTCODE,'show_pageFilter_post2'));
-     //show page db post3
-     add_action( 'wp_ajax_show_pageFilter_post3', array($AME_EDIT_SHORTCODE,'show_pageFilter_post3'));
-     add_action( 'wp_ajax_nopriv_show_pageFilter_post3',array($AME_EDIT_SHORTCODE,'show_pageFilter_post3'));
-    //show slide
-    add_action( 'wp_ajax_show_shortcode_slide', array($AME_EDIT_SHORTCODE,'show_shortcode_slide'));
-    add_action( 'wp_ajax_nopriv_show_shortcode_slide',array($AME_EDIT_SHORTCODE,'show_shortcode_slide'));
-    //del
-    add_action( 'wp_ajax_del_sc_video', array($AME_EDIT_SHORTCODE,'del_sc_video'));
-    add_action( 'wp_ajax_nopriv_del_sc_video',array($AME_EDIT_SHORTCODE,'del_sc_video'));
-    //paging
-    add_action( 'wp_ajax_show_Pagination', array($AME_EDIT_SHORTCODE,'show_Pagination'));
-    add_action( 'wp_ajax_nopriv_show_Pagination',array($AME_EDIT_SHORTCODE,'show_Pagination'));
-    //
-    add_action( 'wp_ajax_show_edit_tag', array($AME_EDIT_SHORTCODE,'show_edit_tag'));
-    add_action( 'wp_ajax_nopriv_show_edit_tag',array($AME_EDIT_SHORTCODE,'show_edit_tag'));
-    //
-    add_action( 'wp_ajax_update_shortcode_tag', array($AME_EDIT_SHORTCODE,'update_shortcode_tag'));
-    add_action( 'wp_ajax_nopriv_update_shortcode_tag',array($AME_EDIT_SHORTCODE,'update_shortcode_tag'));
-}else{}
+	$AME_EDIT_SHORTCODE = new AME_EDIT_SHORTCODE();
+	add_action('admin_menu', array($AME_EDIT_SHORTCODE, 'AddAdminMenu'));
+	add_action('admin_head', array($AME_EDIT_SHORTCODE, 'CustomHeaderAdmin'));
+	add_action('admin_footer', array($AME_EDIT_SHORTCODE, 'CustomFooterAdmin'));
+	//==========================Add  ajax edit shortcode ========================
+
+	add_action('wp_ajax_show_edit_shortcode', array($AME_EDIT_SHORTCODE, 'show_edit_shortcode'));
+	add_action('wp_ajax_nopriv_show_edit_shortcode', array($AME_EDIT_SHORTCODE, 'show_edit_shortcode'));
+	// update sc
+	add_action('wp_ajax_update_shortcode', array($AME_EDIT_SHORTCODE, 'update_shortcode'));
+	add_action('wp_ajax_nopriv_update_shortcode', array($AME_EDIT_SHORTCODE, 'update_shortcode'));
+	// show video
+	add_action('wp_ajax_show_shortcode_video', array($AME_EDIT_SHORTCODE, 'show_shortcode_video'));
+	add_action('wp_ajax_nopriv_show_shortcode_video', array($AME_EDIT_SHORTCODE, 'show_shortcode_video'));
+	// show add video
+	add_action('wp_ajax_show_add_shortcode', array($AME_EDIT_SHORTCODE, 'show_add_shortcode'));
+	add_action('wp_ajax_nopriv_show_add_shortcode', array($AME_EDIT_SHORTCODE, 'show_add_shortcode'));
+	// add
+	add_action('wp_ajax_add_shortcode', array($AME_EDIT_SHORTCODE, 'add_shortcode'));
+	add_action('wp_ajax_nopriv_add_shortcode', array($AME_EDIT_SHORTCODE, 'add_shortcode'));
+	// update sc video
+	add_action('wp_ajax_update_shortcode2', array($AME_EDIT_SHORTCODE, 'update_shortcode2'));
+	add_action('wp_ajax_nopriv_update_shortcode2', array($AME_EDIT_SHORTCODE, 'update_shortcode2'));
+	// show edit video
+	add_action('wp_ajax_show_edit_shortcode_video', array($AME_EDIT_SHORTCODE, 'show_edit_shortcode_video'));
+	add_action('wp_ajax_nopriv_show_edit_shortcode_video', array($AME_EDIT_SHORTCODE, 'show_edit_shortcode_video'));
+	// show sc img
+	add_action('wp_ajax_show_shortcode_img', array($AME_EDIT_SHORTCODE, 'show_shortcode_img'));
+	add_action('wp_ajax_nopriv_show_shortcode_img', array($AME_EDIT_SHORTCODE, 'show_shortcode_img'));
+	// show edit img
+	add_action('wp_ajax_show_edit_shortcode_img', array($AME_EDIT_SHORTCODE, 'show_edit_shortcode_img'));
+	add_action('wp_ajax_nopriv_show_edit_shortcode_img', array($AME_EDIT_SHORTCODE, 'show_edit_shortcode_img'));
+	//add img
+	add_action('wp_ajax_add_img', array($AME_EDIT_SHORTCODE, 'add_img'));
+	add_action('wp_ajax_nopriv_add_img', array($AME_EDIT_SHORTCODE, 'add_img'));
+	//show page
+	add_action('wp_ajax_show_pageFilter', array($AME_EDIT_SHORTCODE, 'show_pageFilter'));
+	add_action('wp_ajax_nopriv_show_pageFilter', array($AME_EDIT_SHORTCODE, 'show_pageFilter'));
+	//show page db post
+	add_action('wp_ajax_show_pageFilter_post', array($AME_EDIT_SHORTCODE, 'show_pageFilter_post'));
+	add_action('wp_ajax_nopriv_show_pageFilter_post', array($AME_EDIT_SHORTCODE, 'show_pageFilter_post'));
+	//show page db post2
+	add_action('wp_ajax_show_pageFilter_post2', array($AME_EDIT_SHORTCODE, 'show_pageFilter_post2'));
+	add_action('wp_ajax_nopriv_show_pageFilter_post2', array($AME_EDIT_SHORTCODE, 'show_pageFilter_post2'));
+	//show page db post3
+	add_action('wp_ajax_show_pageFilter_post3', array($AME_EDIT_SHORTCODE, 'show_pageFilter_post3'));
+	add_action('wp_ajax_nopriv_show_pageFilter_post3', array($AME_EDIT_SHORTCODE, 'show_pageFilter_post3'));
+	//show slide
+	add_action('wp_ajax_show_shortcode_slide', array($AME_EDIT_SHORTCODE, 'show_shortcode_slide'));
+	add_action('wp_ajax_nopriv_show_shortcode_slide', array($AME_EDIT_SHORTCODE, 'show_shortcode_slide'));
+	//del
+	add_action('wp_ajax_del_sc_video', array($AME_EDIT_SHORTCODE, 'del_sc_video'));
+	add_action('wp_ajax_nopriv_del_sc_video', array($AME_EDIT_SHORTCODE, 'del_sc_video'));
+	//paging
+	add_action('wp_ajax_show_Pagination', array($AME_EDIT_SHORTCODE, 'show_Pagination'));
+	add_action('wp_ajax_nopriv_show_Pagination', array($AME_EDIT_SHORTCODE, 'show_Pagination'));
+	//
+	add_action('wp_ajax_show_edit_tag', array($AME_EDIT_SHORTCODE, 'show_edit_tag'));
+	add_action('wp_ajax_nopriv_show_edit_tag', array($AME_EDIT_SHORTCODE, 'show_edit_tag'));
+	//
+	add_action('wp_ajax_update_shortcode_tag', array($AME_EDIT_SHORTCODE, 'update_shortcode_tag'));
+	add_action('wp_ajax_nopriv_update_shortcode_tag', array($AME_EDIT_SHORTCODE, 'update_shortcode_tag'));
+} else {
+}
 
 // ============================================================================================================
-define( 'SC_VERSION', '6.1' );
-define( 'SC_PATH', plugin_dir_path( __FILE__ ) ); // All have trailing slash
-define( 'SC_URL', plugin_dir_url( __FILE__ ) );
-define( 'SC_ADMIN_URL', trailingslashit( plugin_dir_url( __FILE__ ) . 'admin' ) );
-define( 'SC_BASE_NAME', plugin_basename( __FILE__ ) );
-define( 'SC_POST_TYPE', 'shortcoder' );
+define('SC_VERSION', '6.1');
+define('SC_PATH', plugin_dir_path(__FILE__)); // All have trailing slash
+define('SC_URL', plugin_dir_url(__FILE__));
+define('SC_ADMIN_URL', trailingslashit(plugin_dir_url(__FILE__) . 'admin'));
+define('SC_BASE_NAME', plugin_basename(__FILE__));
+define('SC_POST_TYPE', 'shortcoder');
 
 // error_reporting(E_ALL);
 
-final class Shortcoder{
+final class Shortcoder
+{
 
-    static public $shortcodes = array();
+	static public $shortcodes = array();
 
-    static public $current_shortcode = false;
+	static public $current_shortcode = false;
 
-    public static function init(){
-        
-        // Include the required
-        self::includes();
+	public static function init()
+	{
 
-        add_shortcode( 'sc', array( __CLASS__, 'execute_shortcode' ) );
-        
-    }
+		// Include the required
+		self::includes();
 
-    public static function includes(){
+		add_shortcode('sc', array(__CLASS__, 'execute_shortcode'));
 
-        include_once( SC_PATH . 'includes/updates.php' );
-        include_once( SC_PATH . 'includes/metadata.php' );
-        include_once( SC_PATH . 'admin/admin.php' );
-        include_once( SC_PATH . 'admin/form.php' );
-        include_once( SC_PATH . 'admin/edit.php' );
-        include_once( SC_PATH . 'admin/settings.php' );
-        include_once( SC_PATH . 'admin/manage.php' );
-        include_once( SC_PATH . 'admin/tools.php' );
+	}
 
-    }
+	public static function includes()
+	{
 
-    public static function execute_shortcode( $atts, $enclosed_content = null ){
+		include_once(SC_PATH . 'includes/updates.php');
+		include_once(SC_PATH . 'includes/metadata.php');
+		include_once(SC_PATH . 'admin/admin.php');
+		include_once(SC_PATH . 'admin/form.php');
+		include_once(SC_PATH . 'admin/edit.php');
+		include_once(SC_PATH . 'admin/settings.php');
+		include_once(SC_PATH . 'admin/manage.php');
+		include_once(SC_PATH . 'admin/tools.php');
 
-        $atts = (array) $atts;
-        $shortcodes = self::get_shortcodes();
+	}
 
-        if( empty( $shortcodes ) ){
-            return '<!-- No shortcodes are defined -->';
-        }
+	public static function execute_shortcode($atts, $enclosed_content = null)
+	{
 
-        $shortcode = self::find_shortcode( $atts, $shortcodes );
+		$atts = (array) $atts;
+		$shortcodes = self::get_shortcodes();
 
-        $shortcode = apply_filters( 'sc_mod_shortcode', $shortcode, $atts, $enclosed_content );
-        do_action( 'sc_do_before', $shortcode, $atts );
+		if (empty($shortcodes)) {
+			return '<!-- No shortcodes are defined -->';
+		}
 
-        if( !is_array( $shortcode ) ){
-            return $shortcode;
-        }
+		$shortcode = self::find_shortcode($atts, $shortcodes);
 
-        // Prevent same shortcode nested loop
-        if( self::$current_shortcode == $shortcode[ 'name' ] ){
-            return '';
-        }
-        self::$current_shortcode = $shortcode[ 'name' ];
+		$shortcode = apply_filters('sc_mod_shortcode', $shortcode, $atts, $enclosed_content);
+		do_action('sc_do_before', $shortcode, $atts);
 
-        $sc_content = $shortcode[ 'content' ];
-        $sc_settings = $shortcode[ 'settings' ];
+		if (!is_array($shortcode)) {
+			return $shortcode;
+		}
 
-        if( !self::can_display( $shortcode ) ){
-            $sc_content = '<!-- Shortcode does not match the conditions -->';
-        }else{
-            $sc_content = self::replace_sc_params( $sc_content, $atts );
-            $sc_content = self::replace_wp_params( $sc_content, $enclosed_content );
-            $sc_content = self::replace_custom_fields( $sc_content );
-            $sc_content = do_shortcode( $sc_content );
-        }
+		// Prevent same shortcode nested loop
+		if (self::$current_shortcode == $shortcode['name']) {
+			return '';
+		}
+		self::$current_shortcode = $shortcode['name'];
 
-        $sc_content = apply_filters( 'sc_mod_output', $sc_content, $atts, $sc_settings, $enclosed_content );
-        do_action( 'sc_do_after', $shortcode, $atts );
+		$sc_content = $shortcode['content'];
+		$sc_settings = $shortcode['settings'];
 
-        self::$current_shortcode = false;
+		if (!self::can_display($shortcode)) {
+			$sc_content = '<!-- Shortcode does not match the conditions -->';
+		} else {
+			$sc_content = self::replace_sc_params($sc_content, $atts);
+			$sc_content = self::replace_wp_params($sc_content, $enclosed_content);
+			$sc_content = self::replace_custom_fields($sc_content);
+			$sc_content = do_shortcode($sc_content);
+		}
 
-        return $sc_content;
+		$sc_content = apply_filters('sc_mod_output', $sc_content, $atts, $sc_settings, $enclosed_content);
+		do_action('sc_do_after', $shortcode, $atts);
 
-    }
+		self::$current_shortcode = false;
 
-    public static function get_shortcodes(){
+		return $sc_content;
 
-        if( !empty( self::$shortcodes ) ){
-            return self::$shortcodes;
-        }
+	}
 
-        $shortcodes = array();
-        $shortcode_posts = get_posts(array(
-            'post_type' => SC_POST_TYPE,
-            'posts_per_page' => -1,
-            'post_status' => 'publish'
-        ));
+	public static function get_shortcodes()
+	{
 
-        foreach( $shortcode_posts as $index => $post ){
-            $shortcodes[ $post->post_name ] = array(
-                'id' => $post->ID,
-                'name' => $post->post_name,
-                'content' => $post->post_content,
-                'settings' => self::get_sc_settings( $post->ID )
-            );
-        }
+		if (!empty(self::$shortcodes)) {
+			return self::$shortcodes;
+		}
 
-        self::$shortcodes = $shortcodes;
+		$shortcodes = array();
+		$shortcode_posts = get_posts(
+			array(
+				'post_type' => SC_POST_TYPE,
+				'posts_per_page' => -1,
+				'post_status' => 'publish'
+			)
+		);
 
-        return $shortcodes;
+		foreach ($shortcode_posts as $index => $post) {
+			$shortcodes[$post->post_name] = array(
+				'id' => $post->ID,
+				'name' => $post->post_name,
+				'content' => $post->post_content,
+				'settings' => self::get_sc_settings($post->ID)
+			);
+		}
 
-    }
+		self::$shortcodes = $shortcodes;
 
-    public static function default_sc_settings(){
+		return $shortcodes;
 
-        return apply_filters( 'sc_mod_sc_settings', array(
-            '_sc_description' => '',
-            '_sc_disable_sc' => 'no',
-            '_sc_disable_admin' => 'no',
-            '_sc_editor' => '',
-            '_sc_allowed_devices' => 'all'
-        ));
+	}
 
-    }
+	public static function default_sc_settings()
+	{
 
-    public static function default_settings(){
+		return apply_filters('sc_mod_sc_settings', array(
+			'_sc_description' => '',
+			'_sc_disable_sc' => 'no',
+			'_sc_disable_admin' => 'no',
+			'_sc_editor' => '',
+			'_sc_allowed_devices' => 'all'
+		)
+		);
 
-        return apply_filters( 'sc_mod_settings', array(
-            'default_editor' => 'code',
-            'default_content' => ''
-        ));
+	}
 
-    }
+	public static function default_settings()
+	{
 
-    public static function get_settings(){
+		return apply_filters('sc_mod_settings', array(
+			'default_editor' => 'code',
+			'default_content' => ''
+		)
+		);
 
-        $settings = get_option( 'sc_settings', array() );
-        $default_settings = self::default_settings();
+	}
 
-        return self::set_defaults( $settings, $default_settings );
+	public static function get_settings()
+	{
 
-    }
+		$settings = get_option('sc_settings', array());
+		$default_settings = self::default_settings();
 
-    public static function get_sc_settings( $post_id ){
+		return self::set_defaults($settings, $default_settings);
 
-        $meta_vals = get_post_meta( $post_id, '', true );
-        $default_vals = self::default_sc_settings();
-        $settings = array();
+	}
 
-        if( !is_array( $meta_vals ) ){
-            return $default_vals;
-        }
+	public static function get_sc_settings($post_id)
+	{
 
-        foreach( $default_vals as $key => $val ){
-            $settings[ $key ] = array_key_exists( $key, $meta_vals ) ? $meta_vals[$key][0] : $val;
-        }
+		$meta_vals = get_post_meta($post_id, '', true);
+		$default_vals = self::default_sc_settings();
+		$settings = array();
 
-        $settings[ '_sc_title' ] = get_the_title( $post_id );
+		if (!is_array($meta_vals)) {
+			return $default_vals;
+		}
 
-        return $settings;
+		foreach ($default_vals as $key => $val) {
+			$settings[$key] = array_key_exists($key, $meta_vals) ? $meta_vals[$key][0] : $val;
+		}
 
-    }
+		$settings['_sc_title'] = get_the_title($post_id);
 
-    public static function get_sc_tag( $post_id ){
-        $post = get_post( $post_id );
-        return '[sc name="' . $post->post_name . '"][/sc]';
-    }
+		return $settings;
 
-    public static function find_shortcode( $atts, $shortcodes ){
+	}
 
-        $sc_name = false;
+	public static function get_sc_tag($post_id)
+	{
+		$post = get_post($post_id);
+		return '[sc name="' . $post->post_name . '"][/sc]';
+	}
 
-        // Find by shortcode ID
-        if( array_key_exists( 'sc_id', $atts ) ){
-            $sc_id = $atts[ 'sc_id' ];
-            foreach( $shortcodes as $temp_name => $temp_props ){
-                if( $temp_props[ 'id' ] == $sc_id ){
-                    $sc_name = $temp_name;
-                    break;
-                }
-            }
-        }
+	public static function find_shortcode($atts, $shortcodes)
+	{
 
-        // If shortcode ID is not passed, then get the shortcode name
-        if( !$sc_name ){
-            if( !array_key_exists( 'name', $atts ) ){
-                return '<!-- Shortcode is missing "name" attribute -->';
-            }
-            $sc_name = $atts[ 'name' ];
-        }
+		$sc_name = false;
 
-        // Check if the shortcode name exists
-        if( !array_key_exists( $sc_name, $shortcodes ) ){
-            $sc_name = sanitize_title_with_dashes( $sc_name );
-            if( !array_key_exists( $sc_name, $shortcodes ) ){
-                return '<!-- Shortcode does not exist -->';
-            }
-        }
+		// Find by shortcode ID
+		if (array_key_exists('sc_id', $atts)) {
+			$sc_id = $atts['sc_id'];
+			foreach ($shortcodes as $temp_name => $temp_props) {
+				if ($temp_props['id'] == $sc_id) {
+					$sc_name = $temp_name;
+					break;
+				}
+			}
+		}
 
-        return $shortcodes[ $sc_name ];
+		// If shortcode ID is not passed, then get the shortcode name
+		if (!$sc_name) {
+			if (!array_key_exists('name', $atts)) {
+				return '<!-- Shortcode is missing "name" attribute -->';
+			}
+			$sc_name = $atts['name'];
+		}
 
-    }
+		// Check if the shortcode name exists
+		if (!array_key_exists($sc_name, $shortcodes)) {
+			$sc_name = sanitize_title_with_dashes($sc_name);
+			if (!array_key_exists($sc_name, $shortcodes)) {
+				return '<!-- Shortcode does not exist -->';
+			}
+		}
 
-    public static function can_display( $sc_props ){
+		return $shortcodes[$sc_name];
 
-        $settings = $sc_props['settings'];
+	}
 
-        if( $settings[ '_sc_disable_sc' ] == 'yes' ){
-            return false;
-        }
+	public static function can_display($sc_props)
+	{
 
-        $devices = $settings[ '_sc_allowed_devices' ];
+		$settings = $sc_props['settings'];
 
-        if( $devices == 'mobile_only' && !wp_is_mobile() ){
-            return false;
-        }
+		if ($settings['_sc_disable_sc'] == 'yes') {
+			return false;
+		}
 
-        if( $devices == 'desktop_only' && wp_is_mobile() ){
-            return false;
-        }
+		$devices = $settings['_sc_allowed_devices'];
 
-        if( current_user_can( 'manage_options' ) && $settings[ '_sc_disable_admin' ] == 'yes' ){
-            return false;
-        }
+		if ($devices == 'mobile_only' && !wp_is_mobile()) {
+			return false;
+		}
 
-        return true;
+		if ($devices == 'desktop_only' && wp_is_mobile()) {
+			return false;
+		}
 
-    }
+		if (current_user_can('manage_options') && $settings['_sc_disable_admin'] == 'yes') {
+			return false;
+		}
 
-    public static function replace_sc_params( $content, $params ){
+		return true;
 
-        $params = array_change_key_case( $params, CASE_LOWER );
+	}
 
-        preg_match_all('/%%([a-zA-Z0-9_\-]+)\:?(.*?)%%/', $content, $matches);
+	public static function replace_sc_params($content, $params)
+	{
 
-        $cp_tags = $matches[0];
-        $cp_names = $matches[1];
-        $cp_defaults = $matches[2];
-        $to_replace = array();
+		$params = array_change_key_case($params, CASE_LOWER);
 
-        for( $i = 0; $i < count( $cp_names ); $i++ ){
+		preg_match_all('/%%([a-zA-Z0-9_\-]+)\:?(.*?)%%/', $content, $matches);
 
-            $name = strtolower( $cp_names[ $i ] );
-            $default = $cp_defaults[ $i ];
-            $value = '';
+		$cp_tags = $matches[0];
+		$cp_names = $matches[1];
+		$cp_defaults = $matches[2];
+		$to_replace = array();
 
-            if( array_key_exists( $name, $params ) ){
-                $value = $params[ $name ];
+		for ($i = 0; $i < count($cp_names); $i++) {
 
-                // Handle scenario when the attributes are added with paragraph tags by autop
-                if( substr( $value, 0, 4 ) == '</p>' ){
-                    $value = substr( $value, 4 );
-                    if( substr( $value, -3 ) == '<p>' ){
-                        $value = substr( $value, 0, -3 );
-                    }
-                }
+			$name = strtolower($cp_names[$i]);
+			$default = $cp_defaults[$i];
+			$value = '';
 
-            }
+			if (array_key_exists($name, $params)) {
+				$value = $params[$name];
 
-            if( $value == '' ){
-                array_push( $to_replace, $default );
-            }else{
-                array_push( $to_replace, $value );
-            }
+				// Handle scenario when the attributes are added with paragraph tags by autop
+				if (substr($value, 0, 4) == '</p>') {
+					$value = substr($value, 4);
+					if (substr($value, -3) == '<p>') {
+						$value = substr($value, 0, -3);
+					}
+				}
 
-        }
+			}
 
-        $content = str_ireplace( $cp_tags, $to_replace, $content );
+			if ($value == '') {
+				array_push($to_replace, $default);
+			} else {
+				array_push($to_replace, $value);
+			}
 
-        return $content;
+		}
 
-    }
+		$content = str_ireplace($cp_tags, $to_replace, $content);
 
-    public static function replace_wp_params( $content, $enc_content = null ){
+		return $content;
 
-        $params = self::wp_params_list();
-        $metadata = Shortcoder_Metadata::metadata();
-        $metadata[ 'enclosed_content' ] = $enc_content;
-        $all_params = array();
-        $to_replace = array();
+	}
 
-        foreach( $params as $group => $group_info ){
-            $all_params = array_merge( $group_info[ 'params' ], $all_params );
-        }
-
-        foreach( $all_params as $id => $name ){
-            if( array_key_exists( $id, $metadata ) ){
-                $placeholder = '$$' . $id . '$$';
-                $to_replace[ $placeholder ] = $metadata[ $id ];
-            }
-        }
-
-        $content = strtr( $content, $to_replace );
-
-        return $content;
-
-    }
-
-    public static function replace_custom_fields( $content ){
-
-        global $post;
-
-        preg_match_all('/\$\$[^\s^$]+\$\$/', $content, $matches );
-
-        $cf_tags = $matches[0];
-
-        if( empty( $cf_tags ) ){
-            return $content;
-        }
-
-        foreach( $cf_tags as $tag ){
-            
-            if( strpos( $tag, 'custom_field:' ) === false ){
-                continue;
-            }
-            
-            preg_match( '/:[^\s\$]+/', $tag, $match );
-
-            if( empty( $match ) ){
-                continue;
-            }
-
-            $match = substr( $match[0], 1 );
-            $value = is_object( $post ) ? get_post_meta( $post->ID, $match, true ) : '';
-            $content = str_replace( $tag, $value, $content );
-
-        }
-        
-        return $content;
-
-    }
-
-    public static function wp_params_list(){
-
-        return apply_filters( 'sc_mod_wp_params', array(
-            'wp_info' => array(
-                'name' => __( 'WordPress information', 'shortcoder' ),
-                'icon' => 'wordpress-alt',
-                'params' => array(
-                    'url' => __( 'URL of the post/location', 'shortcoder' ),
-                    'title' => __( 'Title of the post/location', 'shortcoder' ),
-                    'short_url' => __( 'Short URL of the post/location', 'shortcoder' ),
-                    
-                    'post_id' => __( 'Post ID', 'shortcoder' ),
-                    'post_image' => __( 'Post featured image URL', 'shortcoder' ),
-                    'post_excerpt' => __( 'Post excerpt', 'shortcoder' ),
-                    'post_author' => __( 'Post author', 'shortcoder' ),
-                    'post_date' => __( 'Post date', 'shortcoder' ),
-                    'post_modified_date' => __( 'Post modified date', 'shortcoder' ),
-                    'post_comments_count' => __( 'Post comments count', 'shortcoder' ),
-                    'post_slug' => __( 'Post slug', 'shortcoder' ),
-                    
-                    'site_name' => __( 'Site title', 'shortcoder' ),
-                    'site_description' => __( 'Site description', 'shortcoder' ),
-                    'site_url' => __( 'Site URL', 'shortcoder' ),
-                    'site_wpurl' => __( 'WordPress URL', 'shortcoder' ),
-                    'site_charset' => __( 'Site character set', 'shortcoder' ),
-                    'wp_version' => __( 'WordPress version', 'shortcoder' ),
-                    'stylesheet_url' => __( 'Active theme\'s stylesheet URL', 'shortcoder' ),
-                    'stylesheet_directory' => __( 'Active theme\'s directory', 'shortcoder' ),
-                    'atom_url' => __( 'Atom feed URL', 'shortcoder' ),
-                    'rss_url' => __( 'RSS 2.0 feed URL', 'shortcoder' )
-                )
-            ),
-            'date_info' => array(
-                'name' => __( 'Date parameters', 'shortcoder' ),
-                'icon' => 'calendar-alt',
-                'params' => array(
-                    'day' => __( 'Day', 'shortcoder' ),
-                    'day_lz' => __( 'Day - leading zeros', 'shortcoder' ),
-                    'day_ws' => __( 'Day - words - short form', 'shortcoder' ),
-                    'day_wf' => __( 'Day - words - full form', 'shortcoder' ),
-                    'month' => __( 'Month', 'shortcoder' ),
-                    'month_lz' => __( 'Month - leading zeros', 'shortcoder' ),
-                    'month_ws' => __( 'Month - words - short form', 'shortcoder' ),
-                    'month_wf' => __( 'Month - words - full form', 'shortcoder' ),
-                    'year' => __( 'Year', 'shortcoder' ),
-                    'year_2d' => __( 'Year - 2 digit', 'shortcoder' ),
-                )
-            ),
-            'sc_cnt' => array(
-                'name' => __( 'Shortcode enclosed content', 'shortcoder' ),
-                'icon' => 'text',
-                'params' => array(
-                    'enclosed_content' => __( 'Shortcode enclosed content', 'shortcoder' )
-                )
-            )
-        ));
-
-    }
-
-    public static function set_defaults( $a, $b ){
-        
-        $a = (array) $a;
-        $b = (array) $b;
-        $result = $b;
-        
-        foreach ( $a as $k => &$v ) {
-            if ( is_array( $v ) && isset( $result[ $k ] ) ) {
-                $result[ $k ] = self::set_defaults( $v, $result[ $k ] );
-            } else {
-                $result[ $k ] = $v;
-            }
-        }
-        return $result;
-    }
+	public static function replace_wp_params($content, $enc_content = null)
+	{
+
+		$params = self::wp_params_list();
+		$metadata = Shortcoder_Metadata::metadata();
+		$metadata['enclosed_content'] = $enc_content;
+		$all_params = array();
+		$to_replace = array();
+
+		foreach ($params as $group => $group_info) {
+			$all_params = array_merge($group_info['params'], $all_params);
+		}
+
+		foreach ($all_params as $id => $name) {
+			if (array_key_exists($id, $metadata)) {
+				$placeholder = '$$' . $id . '$$';
+				$to_replace[$placeholder] = $metadata[$id];
+			}
+		}
+
+		$content = strtr($content, $to_replace);
+
+		return $content;
+
+	}
+
+	public static function replace_custom_fields($content)
+	{
+
+		global $post;
+
+		preg_match_all('/\$\$[^\s^$]+\$\$/', $content, $matches);
+
+		$cf_tags = $matches[0];
+
+		if (empty($cf_tags)) {
+			return $content;
+		}
+
+		foreach ($cf_tags as $tag) {
+
+			if (strpos($tag, 'custom_field:') === false) {
+				continue;
+			}
+
+			preg_match('/:[^\s\$]+/', $tag, $match);
+
+			if (empty($match)) {
+				continue;
+			}
+
+			$match = substr($match[0], 1);
+			$value = is_object($post) ? get_post_meta($post->ID, $match, true) : '';
+			$content = str_replace($tag, $value, $content);
+
+		}
+
+		return $content;
+
+	}
+
+	public static function wp_params_list()
+	{
+
+		return apply_filters('sc_mod_wp_params', array(
+			'wp_info' => array(
+				'name' => __('WordPress information', 'shortcoder'),
+				'icon' => 'wordpress-alt',
+				'params' => array(
+					'url' => __('URL of the post/location', 'shortcoder'),
+					'title' => __('Title of the post/location', 'shortcoder'),
+					'short_url' => __('Short URL of the post/location', 'shortcoder'),
+
+					'post_id' => __('Post ID', 'shortcoder'),
+					'post_image' => __('Post featured image URL', 'shortcoder'),
+					'post_excerpt' => __('Post excerpt', 'shortcoder'),
+					'post_author' => __('Post author', 'shortcoder'),
+					'post_date' => __('Post date', 'shortcoder'),
+					'post_modified_date' => __('Post modified date', 'shortcoder'),
+					'post_comments_count' => __('Post comments count', 'shortcoder'),
+					'post_slug' => __('Post slug', 'shortcoder'),
+
+					'site_name' => __('Site title', 'shortcoder'),
+					'site_description' => __('Site description', 'shortcoder'),
+					'site_url' => __('Site URL', 'shortcoder'),
+					'site_wpurl' => __('WordPress URL', 'shortcoder'),
+					'site_charset' => __('Site character set', 'shortcoder'),
+					'wp_version' => __('WordPress version', 'shortcoder'),
+					'stylesheet_url' => __('Active theme\'s stylesheet URL', 'shortcoder'),
+					'stylesheet_directory' => __('Active theme\'s directory', 'shortcoder'),
+					'atom_url' => __('Atom feed URL', 'shortcoder'),
+					'rss_url' => __('RSS 2.0 feed URL', 'shortcoder')
+				)
+			),
+			'date_info' => array(
+				'name' => __('Date parameters', 'shortcoder'),
+				'icon' => 'calendar-alt',
+				'params' => array(
+					'day' => __('Day', 'shortcoder'),
+					'day_lz' => __('Day - leading zeros', 'shortcoder'),
+					'day_ws' => __('Day - words - short form', 'shortcoder'),
+					'day_wf' => __('Day - words - full form', 'shortcoder'),
+					'month' => __('Month', 'shortcoder'),
+					'month_lz' => __('Month - leading zeros', 'shortcoder'),
+					'month_ws' => __('Month - words - short form', 'shortcoder'),
+					'month_wf' => __('Month - words - full form', 'shortcoder'),
+					'year' => __('Year', 'shortcoder'),
+					'year_2d' => __('Year - 2 digit', 'shortcoder'),
+				)
+			),
+			'sc_cnt' => array(
+				'name' => __('Shortcode enclosed content', 'shortcoder'),
+				'icon' => 'text',
+				'params' => array(
+					'enclosed_content' => __('Shortcode enclosed content', 'shortcoder')
+				)
+			)
+		)
+		);
+
+	}
+
+	public static function set_defaults($a, $b)
+	{
+
+		$a = (array) $a;
+		$b = (array) $b;
+		$result = $b;
+
+		foreach ($a as $k => &$v) {
+			if (is_array($v) && isset($result[$k])) {
+				$result[$k] = self::set_defaults($v, $result[$k]);
+			} else {
+				$result[$k] = $v;
+			}
+		}
+		return $result;
+	}
 
 }
 
 Shortcoder::init();
-
-
-     
