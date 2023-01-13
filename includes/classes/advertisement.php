@@ -1,6 +1,12 @@
 <?php
 
-
+/*
+ * User Role Editor plugin: advertisement showing class
+ * Author: Vladimir Garagulya
+ * email: vladimir@shinephp.com
+ * site: http://shinephp.com
+ * 
+ */
 
 class URE_Advertisement {
 

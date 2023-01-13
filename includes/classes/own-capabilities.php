@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * Class to provide the routine for the own User Role Editor user capabilities list
+ *
+ * @package    User-Role-Editor
+ * @subpackage Admin
+ * @author     Vladimir Garagulya <support@role-editor.com>
+ * @copyright  Copyright (c) 2010 - 2016, Vladimir Garagulya
+ **/
 class URE_Own_Capabilities {
     const URE_SETTINGS_CAP_TR = 'ure_settings_cap';
 

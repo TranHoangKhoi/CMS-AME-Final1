@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * Project: User Role Editor WordPress plugin
+ * Load related files
+ *  
+ * Author: Vladimir Garagulia
+ * email: support@role-editor.com
+ *
+**/
 
 require_once( URE_PLUGIN_DIR .'includes/define-constants.php' );
 require_once( URE_PLUGIN_DIR .'includes/misc-support-stuff.php' );

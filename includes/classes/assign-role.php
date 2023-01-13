@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * Project: User Role Editor plugin
+ * Author: Vladimir Garagulya
+ * Author email: support@role-editor.com
+ * Author URI: https://www.role-editor.com
+ * Greetings: some ideas and code samples for long running cron job was taken from the "Broken Link Checker" plugin (Janis Elst).
+ * License: GPL v2+
+ * 
+ * Assign role to the users without role stuff
+ */
 class URE_Assign_Role {
     
     const MAX_USERS_TO_PROCESS = 50;

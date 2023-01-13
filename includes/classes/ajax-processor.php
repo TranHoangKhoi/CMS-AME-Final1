@@ -1,5 +1,18 @@
 <?php
 
+/*
+ * User Role Editor WordPress plugin
+ * Author: Vladimir Garagulya
+ * Email: support@role-editor.com
+ * License: GPLv2 or later
+ */
+
+
+/**
+ * Process AJAX request from User Role Editor
+ *
+ * @author vladimir
+ */
 class URE_Ajax_Processor {
 
     protected $lib = null;

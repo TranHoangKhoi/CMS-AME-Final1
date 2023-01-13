@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * Main class of User Role Editor WordPress plugin
+ * Author: Vladimir Garagulya
+ * Author email: support@role-editor.com
+ * Author URI: https://www.role-editor.com
+ * License: GPL v2+
+ * 
+ */
+
 class URE_Protect_Admin {
     
     private $lib = null;

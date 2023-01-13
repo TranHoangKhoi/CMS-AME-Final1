@@ -1,5 +1,11 @@
 <?php
-
+/*
+ * User Role Editor WordPress plugin options page
+ *
+ * @Author: Vladimir Garagulia
+ * @URL: https://role-editor.com
+ * 
+ */
 
 $tabs_index = array();
 ?>

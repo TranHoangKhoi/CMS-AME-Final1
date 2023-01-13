@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Settings manager
+ * 
+ * Project: User Role Editor WordPress plugin
+ * 
+ * Author: Vladimir Garagulya
+ * email: support@role-editor.com
+ *
+**/
 class URE_Settings {
     
     protected static function get_action() {

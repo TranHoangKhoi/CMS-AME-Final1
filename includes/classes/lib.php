@@ -1,5 +1,11 @@
 <?php
-
+/*
+ * Stuff specific for User Role Editor WordPress plugin
+ * Author: Vladimir Garagulya
+ * Author email: support@role-editor.com
+ * Author URI: https://www.role-editor.com
+ * 
+*/
 
 
 /**
