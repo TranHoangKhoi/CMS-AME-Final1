@@ -1,11 +1,10 @@
 <?php
 /*
-Plugin Name: Hide admin menu
+Plugin Name: Quản lý menu hiển thị
 Plugin URI: 
-Description: User can hide the admin menu of side bar and top bar that he want accoding user role.
-Author: Bhavin Thummar & Maulik Patel (BM Studio)
-Version: 1.1.1
-Author URI: https://www.linkedin.com/in/bhavin-thummar
+Description: Phân Quyền test
+Version: Đầu tiên
+Author URI: https://amedigital.vn/
 */
 
 //for table create when plgin activate
@@ -36,7 +35,7 @@ function __construct(){
 }
 function bhm_Hide_Menus()
 {
- add_menu_page("Hide Menu","Hide Menu","manage_options","hide-admin-menu","bhm_get_menu_list");
+ add_menu_page("Hide Menu","Hiển thị Menu","manage_options","hide-admin-menu","bhm_get_menu_list");
 }
 
 add_action("admin_menu","bhm_Hide_Menus");

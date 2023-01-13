@@ -430,7 +430,7 @@ require_once(ABSPATH . 'wp-admin/admin-header.php');
 
 <?php
 $getAPi = curl_init();
-$mediaUrl = 'https://amedigital.vn/wp-json/wp/v2/media';
+$mediaUrl = 'https://alphasoftware.vn/wp-json/wp/v2/media';
 curl_setopt($getAPi, CURLOPT_URL, $mediaUrl);
 curl_setopt($getAPi, CURLOPT_RETURNTRANSFER, true);
 
@@ -744,6 +744,7 @@ curl_close($getAPi);
         </div>
     </div>
 
+<<<<<<< HEAD
     <!-- <div class="wrap-content__noBG pd-20">
         <div class="banner__item">
             <img src="https://duynh404.cf/api/files/view/ip14-pro-2880-80002-1920x533_1672068638.png" />
@@ -751,6 +752,8 @@ curl_close($getAPi);
         </div>
     </div> -->
 
+=======
+>>>>>>> 7b631f7bddfd195a3801b5ee5a725d896d98f575
     <div class="wrap-content__noBG pd-20">
         <div class="grid">
             <div class="row">
@@ -767,7 +770,7 @@ curl_close($getAPi);
                                 <div class="info__list">
                                     <div class="info__heading">
                                         <a href="https://amedigital.vn/" target="_blank" class="info__img">
-                                            <img src=<?php echo plugins_url('/img/ame_logo.png', __FILE__) ?> />
+                                            <img src=<?php echo plugins_url('/img/ameweb.jpg', __FILE__) ?> />
                                         </a>
                                     </div>
                                     <div class="info__content">
@@ -866,6 +869,7 @@ curl_close($getAPi);
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <!-- <div class="wrapper">
                     <input type="checkbox" />
                     <div class="icon" style="margin-top:-50px">
@@ -890,6 +894,8 @@ curl_close($getAPi);
                                 src="<?php plugins_url('/img/icon-mess.png', __FILE__) ?>" /></a>
                     </div>
                 </div> -->
+=======
+>>>>>>> 7b631f7bddfd195a3801b5ee5a725d896d98f575
             </div>
         </div>
     </div>

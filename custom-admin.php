@@ -40,8 +40,10 @@ function add_contact_footer()
   $icon_face = plugins_url('/img/icon-face.png', __FILE__);
   $icon_phone = plugins_url('/img/icon-phone.png', __FILE__);
   $icon_mess = plugins_url('/img/icon-mess.png', __FILE__);
+
   $icon_admin = plugins_url('/img/chat_box.png', __FILE__);
-  ;
+
+  $icon_admin = plugins_url('/img/toan1.png', __FILE__);
   echo '
     <style>
     
@@ -315,10 +317,24 @@ function add_active_menu()
     const queryString = window.location.search;
     if (queryString == '?page=wpcode-headers-footers') {
       const listMenu = document.querySelectorAll('.wp-menu-name');
-      console.log(listMenu);
-      listMenu.map((item => (
-        console.log(item.innerText)
-      )))
+      for (let i = 0; i < listMenu.length; i++) {
+        if (listMenu[i].innerHTML == 'Tùy Biến Code') {
+          console.log(listMenu[i].innerHTML);
+          listMenu[i].setAttribute('style', 'background-color: #2271b1;color: #fff;');
+        }
+
+      }
+    }
+
+    if (queryString == '?page=so_custom_css') {
+      const listMenu = document.querySelectorAll('.wp-menu-name');
+      for (let i = 0; i < listMenu.length; i++) {
+        if (listMenu[i].innerHTML == 'Tùy Biến CSS') {
+          console.log(listMenu[i].innerHTML);
+          listMenu[i].setAttribute('style', 'background-color: #2271b1;color: #fff;');
+        }
+
+      }
     }
 
   </script>
