@@ -430,11 +430,11 @@ function admin_style()
       // background-color: #fff;
       height: 70px;
       background-position: center;
-      background-color: #F0F0F1;
+      // background-color: #F0F0F1;
     }
 
     #adminmenu #toplevel_page_home_admin:hover {
-      background-color: #F0F0F1;
+      // background-color: #F0F0F1;
     }
 
     #adminmenu {

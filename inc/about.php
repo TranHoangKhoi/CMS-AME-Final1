@@ -12,7 +12,7 @@
 // phpcs:disable WebDevStudios.All.RequireAuthor
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
@@ -21,20 +21,21 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.6.0
  */
-function cptui_about_assets() {
+function cptui_about_assets()
+{
 	$current_screen = get_current_screen();
 
-	if ( ! is_object( $current_screen ) || 'toplevel_page_cptui_main_menu' !== $current_screen->base ) {
+	if (!is_object($current_screen) || 'toplevel_page_cptui_main_menu' !== $current_screen->base) {
 		return;
 	}
 
-	if ( wp_doing_ajax() ) {
+	if (wp_doing_ajax()) {
 		return;
 	}
 
-	wp_enqueue_style( 'cptui-css' );
+	wp_enqueue_style('cptui-css');
 }
-add_action( 'admin_enqueue_scripts', 'cptui_about_assets' );
+add_action('admin_enqueue_scripts', 'cptui_about_assets');
 
 /**
  * Display our primary menu page.
@@ -43,7 +44,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_about_assets' );
  *
  * @internal
  */
-function cptui_settings() {
+function cptui_settings()
+{
 	?>
 	<div class="wrap about-wrap">
 		<?php
@@ -53,9 +55,11 @@ function cptui_settings() {
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'cptui_main_page_start' );
+		do_action('cptui_main_page_start');
 		?>
-		<h1><?php esc_html_e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo esc_html( CPTUI_VERSION ); ?></h1>
+		<h1><?php esc_html_e('Custom Post Type UI', 'custom-post-type-ui'); ?>
+			<?php echo esc_html(CPTUI_VERSION); ?>
+		</h1>
 
 		<?php
 
@@ -64,11 +68,11 @@ function cptui_settings() {
 		 *
 		 * @since 1.3.0
 		 */
-		do_action( 'cptui_main_page_after_header' );
+		do_action('cptui_main_page_after_header');
 		?>
 		<div class="cptui-intro-devblock">
 			<p class="about-text cptui-about-text">
-				<?php esc_html_e( 'Thank you for choosing Custom Post Type UI! We hope that your experience with our plugin makes creating post types and taxonomies and organizing your content quick and easy.', 'custom-post-type-ui' ); ?>
+				<?php esc_html_e('Thank you for choosing Custom Post Type UI! We hope that your experience with our plugin makes creating post types and taxonomies and organizing your content quick and easy.', 'custom-post-type-ui'); ?>
 			</p>
 			<div class="cptui-badge"></div>
 		</div>
@@ -78,29 +82,38 @@ function cptui_settings() {
 		 *
 		 * @since 1.4.0
 		 */
-		do_action( 'cptui_main_page_before_changelog' );
+		do_action('cptui_main_page_before_changelog');
 		?>
 
 		<h2>
 			<?php
 			printf(
-			// translators: Placeholder will hold the plugin version.
-				esc_html__( "What's new in version %s", 'custom-post-type-ui' ),
-				esc_html( CPTUI_VERSION )
+				// translators: Placeholder will hold the plugin version.
+				esc_html__("What's new in version %s", 'custom-post-type-ui'),
+				esc_html(CPTUI_VERSION)
 			);
 			?>
 		</h2>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div class="col">
-					<h2><?php esc_html_e( 'Post type descriptions', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'We have updated a number of details around the post type description field. First we addressed issues with the Tools area when descriptions included quotes. Second we fixed an issue around stripping HTML from the field from previous security updates.', 'custom-post-type-ui' ); ?></p>
-					<h2><?php esc_html_e( 'Miscellaneous code cleanup and separation.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'Largely under the hood, but we have done some separation of our code and done more to help ensure code quality.', 'custom-post-type-ui' ); ?></p>
-					<h2><?php esc_html_e( 'Branding.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'We updated our branding for the plugin. Both within our UI but also on WordPress.org', 'custom-post-type-ui' ); ?></p>
-					<h2><?php esc_html_e( 'Miscellaneous.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'Added notes about some post type features also needing theme support declared for them to work. Fixed a pluralization issue with our UI and forms.', 'custom-post-type-ui' ); ?></p>
+					<h2>
+						<?php esc_html_e('Post type descriptions', 'custom-post-type-ui'); ?>
+					</h2>
+					<p><?php esc_html_e('We have updated a number of details around the post type description field. First we addressed issues with the Tools area when descriptions included quotes. Second we fixed an issue around stripping HTML from the field from previous security updates.', 'custom-post-type-ui'); ?>
+					</p>
+					<h2>
+						<?php esc_html_e('Miscellaneous code cleanup and separation.', 'custom-post-type-ui'); ?>
+					</h2>
+					<p><?php esc_html_e('Largely under the hood, but we have done some separation of our code and done more to help ensure code quality.', 'custom-post-type-ui'); ?></p>
+					<h2>
+						<?php esc_html_e('Branding.', 'custom-post-type-ui'); ?>
+					</h2>
+					<p><?php esc_html_e('We updated our branding for the plugin. Both within our UI but also on WordPress.org', 'custom-post-type-ui'); ?></p>
+					<h2>
+						<?php esc_html_e('Miscellaneous.', 'custom-post-type-ui'); ?>
+					</h2>
+					<p><?php esc_html_e('Added notes about some post type features also needing theme support declared for them to work. Fixed a pluralization issue with our UI and forms.', 'custom-post-type-ui'); ?></p>
 				</div>
 			</div>
 		</div>
@@ -113,7 +126,7 @@ function cptui_settings() {
 			 *
 			 * @since 1.3.0
 			 */
-			do_action( 'cptui_main_page_extra_notes' );
+			do_action('cptui_main_page_extra_notes');
 			?>
 		</div>
 	</div>
@@ -125,41 +138,43 @@ function cptui_settings() {
  *
  * @since 1.4.0
  */
-function cptui_pluginize_content() {
+function cptui_pluginize_content()
+{
 	// translators: Placeholder will hold the name of the author of the plugin.
-	echo '<h1>' . sprintf( esc_html__( 'More from %s', 'custom-post-type-ui' ), 'WebDevStudios' ) . '</h1>';
+	echo '<h1>' . sprintf(esc_html__('More from %s', 'custom-post-type-ui'), 'WebDevStudios') . '</h1>';
 	echo '<div class="wdspromos-about">';
 	$ads = cptui_get_ads();
-	if ( ! empty( $ads ) ) {
+	if (!empty($ads)) {
 
-		foreach ( $ads as $ad ) {
+		foreach ($ads as $ad) {
 
 			$the_ad = sprintf(
 				'<img src="%s" alt="%s">',
-				esc_attr( $ad['image'] ),
-				esc_attr( $ad['text'] )
+				esc_attr($ad['image']),
+				esc_attr($ad['text'])
 			);
 
 			// Escaping $the_ad breaks the html.
 			printf(
 				'<p><a href="%s">%s</a></p>',
-				esc_url( $ad['url'] ),
+				esc_url($ad['url']),
 				$the_ad // phpcs:ignore
 			);
 		}
 	}
 	echo '</div>';
 }
-add_action( 'cptui_main_page_extra_notes', 'cptui_pluginize_content', 9 );
+add_action('cptui_main_page_extra_notes', 'cptui_pluginize_content', 9);
 
 /**
  * Render our newsletter form for the about page.
  *
  * @since 1.4.0
  */
-function cptui_about_page_newsletter() {
+function cptui_about_page_newsletter()
+{
 
-	if ( cptui_is_new_install() ) {
+	if (cptui_is_new_install()) {
 		return '';
 	}
 
@@ -174,7 +189,7 @@ function cptui_about_page_newsletter() {
 
 	return '';
 }
-add_action( 'cptui_main_page_before_changelog', 'cptui_about_page_newsletter' );
+add_action('cptui_main_page_before_changelog', 'cptui_about_page_newsletter');
 
 /**
  * Marks site as not new at the end of the about/main page.
@@ -184,9 +199,10 @@ add_action( 'cptui_main_page_before_changelog', 'cptui_about_page_newsletter' );
  *
  * @since 1.5.0
  */
-function cptui_mark_not_new() {
-	if ( cptui_is_new_install() ) {
+function cptui_mark_not_new()
+{
+	if (cptui_is_new_install()) {
 		cptui_set_not_new_install();
 	}
 }
-add_action( 'cptui_main_page_extra_notes', 'cptui_mark_not_new', 999 );
+add_action('cptui_main_page_extra_notes', 'cptui_mark_not_new', 999);

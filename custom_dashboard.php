@@ -381,6 +381,7 @@
         width: 100%;
         height: 100px;
         object-fit: contain;
+        display: block;
     }
 
     .info__content {
@@ -744,18 +745,6 @@ curl_close($getAPi);
         </div>
     </div>
 
-<<<<<<< HEAD
-    <!-- <div class="wrap-content__noBG pd-20">
-        <div class="banner__item">
-            <img src="https://duynh404.cf/api/files/view/ip14-pro-2880-80002-1920x533_1672068638.png" />
-
-        </div>
-</div> -->
-
-
-=======
-
->>>>>>> 28eedffa2bef1e444a658e65d1cad0a3e05091e5
     <div class="wrap-content__noBG pd-20">
         <div class="grid">
             <div class="row">

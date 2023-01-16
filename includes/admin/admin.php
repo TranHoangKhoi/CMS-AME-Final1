@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
-if (!class_exists('ACF_Admin')) :
+if (!class_exists('ACF_Admin')):
 
 	class ACF_Admin
 	{
@@ -46,13 +46,13 @@ if (!class_exists('ACF_Admin')) :
 
 			// Vars.
 			$slug = 'edit.php?post_type=acf-field-group';
-			$cap  = acf_get_setting('capability');
+			$cap = acf_get_setting('capability');
 
 			// Add menu items.
 			// add_menu_page( __( 'Custom Fields', 'acf' ), __( 'Custom Fields', 'acf' ), $cap, $slug, false, 'dashicons-welcome-widgets-menus', 80 );
 			add_menu_page(__('Sửa Nội Dung', 'acf'), __('Sửa Nội Dung', 'acf'), $cap, $slug, false, 'dashicons-welcome-widgets-menus', 80);
-			add_submenu_page($slug, __('Field Groups', 'acf'), __('Field Groups', 'acf'), $cap, $slug);
-			add_submenu_page($slug, __('Add New', 'acf'), __('Add New', 'acf'), $cap, 'post-new.php?post_type=acf-field-group');
+			add_submenu_page($slug, __('Nội Dung', 'acf'), __('Nội Dung', 'acf'), $cap, $slug);
+			add_submenu_page($slug, __('Thêm Mới', 'acf'), __('Thêm Mới', 'acf'), $cap, 'post-new.php?post_type=acf-field-group');
 		}
 
 		/**
@@ -133,52 +133,52 @@ if (!class_exists('ACF_Admin')) :
 			// Overview tab.
 			$screen->add_help_tab(
 				array(
-					'id'      => 'overview',
-					'title'   => __('Overview', 'acf'),
+					'id' => 'overview',
+					'title' => __('Overview', 'acf'),
 					'content' =>
 					'<p><strong>' . __('Overview', 'acf') . '</strong></p>' .
-						'<p>' . __('The Advanced Custom Fields plugin provides a visual form builder to customize WordPress edit screens with extra fields, and an intuitive API to display custom field values in any theme template file.', 'acf') . '</p>' .
-						'<p>' . sprintf(
-							__('Before creating your first Field Group, we recommend first reading our <a href="%s" target="_blank">Getting started</a> guide to familiarize yourself with the plugin\'s philosophy and best practises.', 'acf'),
-							acf_add_url_utm_tags('https://www.advancedcustomfields.com/resources/getting-started-with-acf/', 'docs', 'help-tab')
-						) . '</p>' .
-						'<p>' . __('Please use the Help & Support tab to get in touch should you find yourself requiring assistance.', 'acf') . '</p>' .
-						'',
+					'<p>' . __('The Advanced Custom Fields plugin provides a visual form builder to customize WordPress edit screens with extra fields, and an intuitive API to display custom field values in any theme template file.', 'acf') . '</p>' .
+					'<p>' . sprintf(
+						__('Before creating your first Field Group, we recommend first reading our <a href="%s" target="_blank">Getting started</a> guide to familiarize yourself with the plugin\'s philosophy and best practises.', 'acf'),
+						acf_add_url_utm_tags('https://www.advancedcustomfields.com/resources/getting-started-with-acf/', 'docs', 'help-tab')
+					) . '</p>' .
+					'<p>' . __('Please use the Help & Support tab to get in touch should you find yourself requiring assistance.', 'acf') . '</p>' .
+					'',
 				)
 			);
 
 			// Help tab.
 			$screen->add_help_tab(
 				array(
-					'id'      => 'help',
-					'title'   => __('Help & Support', 'acf'),
+					'id' => 'help',
+					'title' => __('Help & Support', 'acf'),
 					'content' =>
 					'<p><strong>' . __('Help & Support', 'acf') . '</strong></p>' .
-						'<p>' . __('We are fanatical about support, and want you to get the best out of your website with ACF. If you run into any difficulties, there are several places you can find help:', 'acf') . '</p>' .
-						'<ul>' .
-						'<li>' . sprintf(
-							__('<a href="%s" target="_blank">Documentation</a>. Our extensive documentation contains references and guides for most situations you may encounter.', 'acf'),
-							acf_add_url_utm_tags('https://www.advancedcustomfields.com/resources/', 'docs', 'help-tab')
-						) . '</li>' .
-						'<li>' . sprintf(
-							__('<a href="%s" target="_blank">Discussions</a>. We have an active and friendly community on our Community Forums who may be able to help you figure out the ‘how-tos’ of the ACF world.', 'acf'),
-							acf_add_url_utm_tags('https://support.advancedcustomfields.com/', 'docs', 'help-tab')
-						) . '</li>' .
-						'<li>' . sprintf(
-							__('<a href="%s" target="_blank">Help Desk</a>. The support professionals on our Help Desk will assist with your more in depth, technical challenges.', 'acf'),
-							acf_add_url_utm_tags('https://www.advancedcustomfields.com/support/', 'docs', 'help-tab')
-						) . '</li>' .
-						'</ul>',
+					'<p>' . __('We are fanatical about support, and want you to get the best out of your website with ACF. If you run into any difficulties, there are several places you can find help:', 'acf') . '</p>' .
+					'<ul>' .
+					'<li>' . sprintf(
+						__('<a href="%s" target="_blank">Documentation</a>. Our extensive documentation contains references and guides for most situations you may encounter.', 'acf'),
+						acf_add_url_utm_tags('https://www.advancedcustomfields.com/resources/', 'docs', 'help-tab')
+					) . '</li>' .
+					'<li>' . sprintf(
+						__('<a href="%s" target="_blank">Discussions</a>. We have an active and friendly community on our Community Forums who may be able to help you figure out the ‘how-tos’ of the ACF world.', 'acf'),
+						acf_add_url_utm_tags('https://support.advancedcustomfields.com/', 'docs', 'help-tab')
+					) . '</li>' .
+					'<li>' . sprintf(
+						__('<a href="%s" target="_blank">Help Desk</a>. The support professionals on our Help Desk will assist with your more in depth, technical challenges.', 'acf'),
+						acf_add_url_utm_tags('https://www.advancedcustomfields.com/support/', 'docs', 'help-tab')
+					) . '</li>' .
+					'</ul>',
 				)
 			);
 
 			// Sidebar.
 			$screen->set_help_sidebar(
 				'<p><strong>' . __('Information', 'acf') . '</strong></p>' .
-					'<p><span class="dashicons dashicons-admin-plugins"></span> ' . sprintf(__('Version %s', 'acf'), ACF_VERSION) . '</p>' .
-					'<p><span class="dashicons dashicons-wordpress"></span> <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">' . __('View details', 'acf') . '</a></p>' .
-					'<p><span class="dashicons dashicons-admin-home"></span> <a href="' . acf_add_url_utm_tags('https://www.advancedcustomfields.com/', 'docs', 'help-tab') . '" target="_blank" target="_blank">' . __('Visit website', 'acf') . '</a></p>' .
-					''
+				'<p><span class="dashicons dashicons-admin-plugins"></span> ' . sprintf(__('Version %s', 'acf'), ACF_VERSION) . '</p>' .
+				'<p><span class="dashicons dashicons-wordpress"></span> <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">' . __('View details', 'acf') . '</a></p>' .
+				'<p><span class="dashicons dashicons-admin-home"></span> <a href="' . acf_add_url_utm_tags('https://www.advancedcustomfields.com/', 'docs', 'help-tab') . '" target="_blank" target="_blank">' . __('Visit website', 'acf') . '</a></p>' .
+				''
 			);
 		}
 
